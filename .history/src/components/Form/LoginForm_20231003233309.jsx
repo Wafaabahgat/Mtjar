@@ -1,0 +1,29 @@
+import { FaRegEnvelope } from "react-icons/fa";
+import { MdLockOutline } from "react-icons/md";
+import FormInput from "./FormInput";
+const LoginForm = () => {
+  return (
+    <div>
+      <form className=" w-64 flex items-center p-3 lg:w-61">
+        <FaRegEnvelope className="mr-3 text-gray-400 " />
+        <FormInput
+          type="email"
+          name="email"
+          placeholder="Email"
+          className="outline-none bg-gray-200 "
+        />
+      </form>
+      <form className=" w-64 flex items-center p-3 lg:w-61">
+        <MdLockOutline className="mr-3 text-gray-400 " />
+        <FormInput
+          type="password"
+          name="password"
+          placeholder="Password"
+          className="outline-none bg-gray-200 "
+        />
+      </form>
+    </div>
+  );
+};
+
+export default LoginForm;
