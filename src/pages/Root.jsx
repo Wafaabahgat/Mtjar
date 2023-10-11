@@ -3,7 +3,7 @@ import Navbar  from "../components/Layouts/Navbar";
 
 const Root = () => {
   return (
-    <div>
+    <div className="w-full h-full flex flex-col bg-green-950">
       <Navbar />
       <Outlet />
     </div>

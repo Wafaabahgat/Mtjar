@@ -11,10 +11,11 @@ const config = {
 // *********** Supplier *********** //
 export const registerUser = createAsyncThunk(
   "register/register",
-  async (args: UserData, thunkAPI) => {
+  async (args, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
+    // console.log("jjjjjj");
     try {
-      const { data } = await axios.post("/register", args, config);
+      const { data } = await axios.post("/register", args);
       return data;
     } catch (err) {
       return rejectWithValue(err?.response?.data);

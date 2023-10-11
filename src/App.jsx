@@ -5,6 +5,7 @@ import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/Signup";
 import Home from "./pages/Home";
 import Root from "./pages/Root";
+import Forgetpass from "./components/Auth/Forgetpass";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <Home />,
+      },
+      {
+        path: "/forgetpass",
+        element: <Forgetpass />,
       },
     ],
   },

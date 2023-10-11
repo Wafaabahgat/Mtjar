@@ -18,8 +18,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed left-0 top-0 w-full z-10 shadow-xl">
-      <div className="max-w-[1740px] m-auto flex justify-between items-center p-3 bg-wHITE">
+    <div className="fixed left-0 top-0 w-full z-10 shadow-xl bg-white">
+      <div className="max-w-[1740px] m-auto flex justify-between items-center p-3">
         <Link to="/home">
           <img src={Logo} alt="Logo" className="w-[80px] ml-3 md:w-[60px]" />
         </Link>
