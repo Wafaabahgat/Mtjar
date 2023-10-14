@@ -20,7 +20,7 @@ const ResetPassAuthSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    // *********** Login ********** //
+    // *********** ResetPass ********** //
     [ResetPass.pending.type]: (state: Login) => {
       state.loading = true;
       state.msg = "";

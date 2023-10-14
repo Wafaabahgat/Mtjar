@@ -14,6 +14,7 @@ import Loader from "../Loader";
 // import { UserData } from "../../lib/types";
 
 const SignupForm = () => {
+  const dispatch = useDispatch();
   const { loading, success, msg, errors } = useSelector(
     (state) => state.register
   );
@@ -23,13 +24,13 @@ const SignupForm = () => {
   const [first_name, setfirst_name] = useState("");
   const [last_name, setlast_name] = useState("");
   const [erros, seterros] = useState();
+  const [visible, setVisible] = useState(false);
 
   const handelSignup = (e) => {
     e.preventDefault();
     dispatch(registerUser({ email, password, last_name, first_name }));
   };
 
-  const dispatch = useDispatch();
   useEffect(() => {
     if (msg && success === false) {
       toast.error(msg);
@@ -46,8 +47,6 @@ const SignupForm = () => {
   if (loading) {
     return <Loader />;
   }
-
-  const [visible, setVisible] = useState(false);
 
   return (
     <FormModelAuth onSubmit={handelSignup}>

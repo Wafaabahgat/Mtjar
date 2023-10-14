@@ -1,5 +1,7 @@
 // import React from 'react'
 import FormInput from "../Form/FormInput";
+import { FaRegEnvelope, FaEye, FaEyeSlash } from "react-icons/fa";
+import { MdLockOutline } from "react-icons/md";
 import Button from "../Ui/Button";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -10,18 +12,24 @@ import { ResetPass } from "../../slice/ResetPassword/ResetPasswordAction";
 import { useNavigate } from "react-router-dom";
 
 const ResetpassForm = () => {
-  const [code, setCode] = useState("");
   const dispatch = useDispatch();
+
   const { loading, success, msg } = useSelector((state) => state.ResetPassword);
+
+  const [otp, setOtp] = useState("");
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const [visible, setVisible] = useState(false);
+  const [errors, setErros] = useState();
 
   const navigate = useNavigate(); // Get the navigate function from react-router-dom
 
   const handleCode = (e) => {
     e.preventDefault();
-    if (!code) {
+    if (!otp) {
       return toast.error("Code is required!!");
     }
-    dispatch(ResetPass({ code }));
+    dispatch(ResetPass({ otp, email, password }));
   };
 
   useEffect(() => {
@@ -32,7 +40,10 @@ const ResetpassForm = () => {
     if (!success && msg) {
       toast.error(msg);
     }
-  }, [msg, success, navigate]);
+    if (errors) {
+      setErros(errors);
+    }
+  }, [msg, success, errors]);
 
   if (loading) {
     return <Loader />;
@@ -40,7 +51,7 @@ const ResetpassForm = () => {
   return (
     <>
       <form
-        className="w-[500px] h-[300px] sm:w-[360px] sm:h-[260px] bg-white rounded-2xl  py-12 px-12"
+        className="w-[510px] h-[450px] sm:w-[360px] sm:h-[260px] bg-white rounded-2xl  py-12 px-12"
         onSubmit={(e) => {
           handleCode(e);
         }}
@@ -57,9 +68,39 @@ const ResetpassForm = () => {
           <FormInput
             type="text"
             name="text"
-            placeholder="code.."
-            value={code}
-            onChange={(e) => setCode(e.target.value)}
+            placeholder="otp.."
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
+          />
+          <FormInput
+            type="email"
+            name="email"
+            placeholder="Email@..."
+            value={email}
+            onChange={(e) => setemail(e.target.value)}
+            previcon={<FaRegEnvelope className="mr-3 text-gray-400" />}
+          />
+          <FormInput
+            type={visible ? "text" : "password"}
+            name="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setpassword(e.target.value)}
+            error={errors?.password}
+            previcon={<MdLockOutline className="mr-3 text-gray-400 w-20" />}
+            icon={
+              visible ? (
+                <FaEyeSlash
+                  className="w-20 cursor-pointer text-gray-400"
+                  onClick={() => setVisible(!visible)}
+                />
+              ) : (
+                <FaEye
+                  className=" cursor-pointer text-gray-400 w-20"
+                  onClick={() => setVisible(!visible)}
+                />
+              )
+            }
           />
         </div>
         <Button

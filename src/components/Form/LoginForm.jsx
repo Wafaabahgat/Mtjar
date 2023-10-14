@@ -10,14 +10,18 @@ import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import Loader from "../Loader";
 import { Link } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+
   const { loading, success, msg, errors } = useSelector((state) => state.login);
 
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [erros, seterros] = useState();
   const [visible, setVisible] = useState(false);
+  // const navigate = useNavigate(); // Get the navigate function from react-router-dom
 
   const handelSignup = (e) => {
     e.preventDefault();
@@ -25,13 +29,13 @@ const LoginForm = () => {
     dispatch(loginUser({ email, password }));
   };
 
-  const dispatch = useDispatch();
   useEffect(() => {
     if (msg && success === false) {
       toast.error(msg);
     }
     if (msg && success === true) {
       toast.success(msg);
+      // navigate("/");
       window.location = "/";
     }
     if (errors) {
@@ -85,7 +89,7 @@ const LoginForm = () => {
           Remember Me
         </label>
         <Link
-         to="/forgetpass"
+          to="/forgetpass"
           className="text-sm md:text-xs text-gray-400 hover:text-green-500 "
         >
           Forget Password?
