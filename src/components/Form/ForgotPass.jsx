@@ -30,6 +30,8 @@ const ForgotPass = () => {
   useEffect(() => {
     if (success && msg) {
       toast.success(msg);
+      // window.location.href = "/Resetpass";
+
       navigate("/Resetpass");
     }
     if (!success && msg) {

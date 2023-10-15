@@ -1,4 +1,3 @@
-import React from "react";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
@@ -7,9 +6,8 @@ const AuthUser = ({ children }) => {
   console.log(user);
 
   if (user && user.email) {
-    return (window.location = "/");
+    return (window.location.href = "/");
   }
-
   return children;
 };
 

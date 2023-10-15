@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import Cookies from "universal-cookie";
 import { clearErrors, loginUser } from "./loginAction";
-import { UserData } from "@/lib/types";
+
 
 const cookies = new Cookies();
 
@@ -24,7 +24,7 @@ const initialState: Login = {
 };
 
 const LoginAuthSlice = createSlice({
-  name: "login",
+  name: "Auth",
   initialState,
   reducers: {},
   extraReducers: {

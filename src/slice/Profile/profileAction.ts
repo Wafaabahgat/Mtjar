@@ -2,9 +2,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../axios";
 import Cookies from "universal-cookie";
 
-
 const cookies = new Cookies();
-const token = cookies.get("egypt-user");
+const token = cookies.get("user");
 const TOKEN = `Bearer ${token?.token}`;
 const config = {
   headers: {
@@ -13,12 +12,12 @@ const config = {
 };
 
 // *********** Supplier *********** //
-export const loginUser = createAsyncThunk(
-  "Auth/login",
+export const UpdateProfile = createAsyncThunk(
+  "Auth/profile/Update",
   async (args, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const { data } = await axios.post("/login", args);
+      const { data } = await axios.post("/profile/update", args, config);
       return data;
     } catch (err) {
       console.log(err);

@@ -1,7 +1,8 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import Cookies from "universal-cookie";
-import { clearErrors, registerUser } from "./registerAction";
-import { UserData } from "../../lib/types";
+
+import { UserData } from "@/lib/types";
+import { UpdateProfile, clearErrors } from "./profileAction";
 
 const cookies = new Cookies();
 
@@ -23,20 +24,20 @@ const initialState: Login = {
   data: {},
 };
 
-const LoginAuthSlice = createSlice({
+const UpdateProfileSlice = createSlice({
   name: "Auth",
   initialState,
   reducers: {},
   extraReducers: {
-    // *********** register ********** //
-    [registerUser.pending.type]: (state: Login) => {
+    // *********** Login ********** //
+    [UpdateProfile.pending.type]: (state: Login) => {
       state.loading = true;
       state.msg = "";
       state.user = {};
       state.errors = {};
       state.success = null;
     },
-    [registerUser.fulfilled.type]: (
+    [UpdateProfile.fulfilled.type]: (
       state: Login,
       action: PayloadAction<Login>
     ) => {
@@ -44,7 +45,6 @@ const LoginAuthSlice = createSlice({
       state.success = action.payload.success;
       state.msg = action.payload.msg;
       state.user = action.payload.data;
-      state.errors = {};
       if (state.user.email) {
         cookies.set("user", JSON.stringify(state.user), {
           path: "/",
@@ -52,10 +52,7 @@ const LoginAuthSlice = createSlice({
         });
       }
     },
-    [registerUser.rejected.type]: (
-      state: Login,
-      action: PayloadAction<Login>
-    ) => {
+    [UpdateProfile.rejected.type]: (state: Login, action: PayloadAction<Login>) => {
       state.loading = false;
       state.success = false;
       state.msg = action.payload?.msg;
@@ -65,9 +62,8 @@ const LoginAuthSlice = createSlice({
       state.loading = false;
       state.success = null;
       state.msg = "";
-      state.errors = {};
     },
   },
 });
 
-export default LoginAuthSlice.reducer;
+export default UpdateProfileSlice.reducer;

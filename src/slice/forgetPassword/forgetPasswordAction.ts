@@ -3,7 +3,7 @@ import axios from "../axios";
 
 // *********** Supplier *********** //
 export const forgetPass = createAsyncThunk(
-  "login/login",
+  "Auth/forgetPass",
   async (args, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {

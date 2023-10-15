@@ -1,6 +1,5 @@
-import React from "react";
 import MetaDate from "../../lib/metaDate";
-import ResetPassForm from "../Form/ResetPassForm";
+import ResetPassForm from "../../components/Form/ResetPassForm";
 
 const Resetpass = () => {
   return (

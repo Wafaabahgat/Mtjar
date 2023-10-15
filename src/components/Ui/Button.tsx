@@ -25,6 +25,7 @@ const Button = ({
   size,
   text,
   children,
+  link ,
   ...props
 }) => {
   return (

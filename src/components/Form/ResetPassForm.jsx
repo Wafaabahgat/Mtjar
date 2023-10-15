@@ -17,24 +17,25 @@ const ResetpassForm = () => {
   const { loading, success, msg } = useSelector((state) => state.ResetPassword);
 
   const [otp, setOtp] = useState("");
-  const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [visible, setVisible] = useState(false);
   const [errors, setErros] = useState();
+  const [email, setemail] = useState("");
 
   const navigate = useNavigate(); // Get the navigate function from react-router-dom
 
   const handleCode = (e) => {
     e.preventDefault();
     if (!otp) {
-      return toast.error("Code is required!!");
+      return toast.error("Otp is required!!");
     }
-    dispatch(ResetPass({ otp, email, password }));
+    dispatch(ResetPass({ otp, password,email }));
   };
 
   useEffect(() => {
     if (success && msg) {
       toast.success(msg);
+      // window.location.href = "/login";
       navigate("/login");
     }
     if (!success && msg) {
@@ -72,6 +73,7 @@ const ResetpassForm = () => {
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
           />
+
           <FormInput
             type="email"
             name="email"

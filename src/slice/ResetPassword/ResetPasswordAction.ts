@@ -3,7 +3,7 @@ import axios from "../axios";
 
 // *********** Supplier *********** //
 export const ResetPass = createAsyncThunk(
-  "login/login",
+  "Auth/ResetPass",
   async (args, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {

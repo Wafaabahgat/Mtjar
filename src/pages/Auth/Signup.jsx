@@ -1,5 +1,5 @@
 import MetaDate from "../../lib/metaDate";
-import SignupForm from "../Form/SignupForm";
+import SignupForm from "../../components/Form/SignupForm";
 
 const Signup = () => {
   return (

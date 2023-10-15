@@ -16,7 +16,7 @@ const initialState: Login = {
 };
 
 const ResetPassAuthSlice = createSlice({
-  name: "login",
+  name: "Auth",
   initialState,
   reducers: {},
   extraReducers: {

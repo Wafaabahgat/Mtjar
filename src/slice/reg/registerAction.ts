@@ -10,7 +10,7 @@ const config = {
 
 // *********** Supplier *********** //
 export const registerUser = createAsyncThunk(
-  "register/register",
+  "Auth/registerUser",
   async (args, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     // console.log("jjjjjj");

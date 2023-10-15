@@ -1,5 +1,5 @@
 import MetaDate from "../../lib/metaDate";
-import ForgetPass from "../Form/ForgotPass";
+import ForgetPass from "../../components/Form/ForgotPass";
 
 const ForgetPassword = () => {
   return (

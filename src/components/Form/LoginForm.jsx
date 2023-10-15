@@ -10,7 +10,6 @@ import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import Loader from "../Loader";
 import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -21,7 +20,6 @@ const LoginForm = () => {
   const [password, setpassword] = useState("");
   const [erros, seterros] = useState();
   const [visible, setVisible] = useState(false);
-  // const navigate = useNavigate(); // Get the navigate function from react-router-dom
 
   const handelSignup = (e) => {
     e.preventDefault();
@@ -35,7 +33,6 @@ const LoginForm = () => {
     }
     if (msg && success === true) {
       toast.success(msg);
-      // navigate("/");
       window.location = "/";
     }
     if (errors) {
