@@ -19,11 +19,11 @@ const Navbar = () => {
 
   return (
     <div className="fixed left-0 top-0 w-full z-10 shadow-xl bg-white">
-      <div className="max-w-[1740px] max-h-[80px] m-auto flex justify-between items-center p-3">
+      <div className="max-h-[80px] m-auto flex justify-between items-center p-3">
         <Link to="/home">
           <img src={Logo} alt="Logo" className="w-[70px] ml-3 md:w-[55px]" />
         </Link>
-        <div className="md:hidden">
+        <div className="md:block hidden">
           <ul className="flex text-xl ">
             <Link>
               <li className="p-5">Home</li>

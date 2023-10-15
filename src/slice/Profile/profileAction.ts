@@ -3,8 +3,8 @@ import axios from "../axios";
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
-const token = cookies.get("user");
-const TOKEN = `Bearer ${token?.token}`;
+const token = cookies.get("token");
+const TOKEN = `Bearer ${token}`;
 const config = {
   headers: {
     Authorization: TOKEN,

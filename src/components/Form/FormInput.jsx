@@ -3,6 +3,7 @@ import { cn } from "../../lib/utils";
 const FormInput = ({
   name,
   type,
+  className,
   placeholder,
   error,
   previcon,
@@ -24,9 +25,9 @@ const FormInput = ({
           name={name}
           type={type}
           placeholder={placeholder}
-          className={
+          className={cn(
             error ? "bg-white outline-none" : "bg-gray-200 outline-none"
-          }
+          )}
           {...props}
         />
         {icon}

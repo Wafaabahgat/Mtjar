@@ -41,6 +41,7 @@ const UpdateProfileForm = () => {
     }
     if (msg && success === true) {
       toast.success(msg);
+      window.location.reload();
     }
   }, [msg, success]);
   if (loading) {
@@ -50,74 +51,82 @@ const UpdateProfileForm = () => {
   return (
     <>
       <div className="flex flex-col justify-center items-center mt-1 p-4">
-        <div className="max-w-[700px] mx-auto bg-white rounded-md ">
-          <div className="h-[190px] mt-6 ">
-            <h3 className=" text-gray-500 text-2xl sm:text-xl">General Info</h3>
-            <form className="grid grid-cols-2 ml-24 mt-4 sm:grid-cols-1" onSubmit={handelInfo}>
-              <FormInput
-                placeholder="First_Name"
-                type="name"
-                name="name"
-                value={first_name}
-                onChange={(e) => setfirst_name(e.target.value)}
-                error={errors?.first_name}
-              />
-              <FormInput
-                placeholder="last_Name"
-                type="name"
-                name="name"
-                value={last_name}
-                onChange={(e) => setlast_name(e.target.value)}
-                error={errors?.last_name}
-              />
+        <div className="bg-white rounded-md p-4">
+          <div className="mt-6 ">
+            <h3 className=" text-gray-500 text-2xl sm:text-xl mb-3">
+              General Info
+            </h3>
+            <form className="flex flex-col gap-2" onSubmit={handelInfo}>
+              <div className="flex sm:flex-row flex-col gap-2 ">
+                <FormInput
+                  className="w-full bg-transparent"
+                  placeholder="First_Name"
+                  type="name"
+                  name="name"
+                  value={first_name}
+                  onChange={(e) => setfirst_name(e.target.value)}
+                  error={errors?.first_name}
+                />
+                <FormInput
+                  className="w-full bg-transparent"
+                  placeholder="last_Name"
+                  type="name"
+                  name="name"
+                  value={last_name}
+                  onChange={(e) => setlast_name(e.target.value)}
+                  error={errors?.last_name}
+                />
+              </div>
               <Button
                 type="submit"
                 text="UPDATE INFO"
                 variant={"default"}
-                className="bg-green-500 py-3 px-2 ml-[200px]  " 
+                className="bg-green-500 py-3 px-2"
               />
             </form>
           </div>
         </div>
 
-        <div className=" bg-white max-w-[700px] mx-auto mt-10 w-[800px] md:w-[700px] sm:w-[500px] rounded-md">
-          <div className="h-[190px] mt-6">
-            <h3 className=" text-gray-500 text-2xl">Security</h3>
-            <form className="grid grid-cols-2 sm:grid-cols-1 ml-24 mt-4">
-              <FormInput
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                error={errors?.email}
-              />
-              <FormInput
-                type={visible ? "text" : "password"}
-                name="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setpassword(e.target.value)}
-                error={errors?.password}
-                icon={
-                  visible ? (
-                    <FaEyeSlash
-                      className="w-20 cursor-pointer text-gray-400"
-                      onClick={() => setVisible(!visible)}
-                    />
-                  ) : (
-                    <FaEye
-                      className=" cursor-pointer text-gray-400 w-20"
-                      onClick={() => setVisible(!visible)}
-                    />
-                  )
-                }
-              />
+        <div className="bg-white mt-10 rounded-md p-4">
+          <div className="mt-6">
+            <h3 className=" text-gray-500 text-2xl mb-3">Security</h3>
+            <form className="flex flex-col  gap-2">
+              <div className="flex sm:flex-row flex-col gap-2 ">
+                <FormInput
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  error={errors?.email}
+                />
+                <FormInput
+                  type={visible ? "text" : "password"}
+                  name="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setpassword(e.target.value)}
+                  error={errors?.password}
+                  icon={
+                    visible ? (
+                      <FaEyeSlash
+                        className="w-20 cursor-pointer text-gray-400"
+                        onClick={() => setVisible(!visible)}
+                      />
+                    ) : (
+                      <FaEye
+                        className=" cursor-pointer text-gray-400 w-20"
+                        onClick={() => setVisible(!visible)}
+                      />
+                    )
+                  }
+                />
+              </div>
               <Button
                 type="submit"
                 text="Change password"
                 variant={"default"}
-                className="bg-green-500 py-3 px-2 uppercase ml-[165px] md:ml-[200px] md:w-40 sm:ml-14 sm:h-12  sm:text-sm sm:-mt-1"
+                className="bg-green-500 py-3 px-2 uppercase w-[200px] mx-auto sm:h-12  sm:text-sm sm:-mt-1"
               />
             </form>
           </div>

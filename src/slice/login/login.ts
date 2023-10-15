@@ -2,7 +2,6 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import Cookies from "universal-cookie";
 import { clearErrors, loginUser } from "./loginAction";
 
-
 const cookies = new Cookies();
 
 interface Login {
@@ -46,6 +45,10 @@ const LoginAuthSlice = createSlice({
       state.user = action.payload.data;
       if (state.user.email) {
         cookies.set("user", JSON.stringify(state.user), {
+          path: "/",
+          maxAge: 3600 * 24 * 10,
+        });
+        cookies.set("token", JSON.stringify(state.user.token), {
           path: "/",
           maxAge: 3600 * 24 * 10,
         });

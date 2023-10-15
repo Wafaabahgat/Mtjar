@@ -45,12 +45,16 @@ const LoginAuthSlice = createSlice({
       state.msg = action.payload.msg;
       state.user = action.payload.data;
       state.errors = {};
-      if (state.user.email) {
+      if (state?.user?.email) {
         cookies.set("user", JSON.stringify(state.user), {
           path: "/",
           maxAge: 3600 * 24 * 10,
         });
       }
+      cookies.set("token", JSON.stringify(state?.user?.token), {
+        path: "/",
+        maxAge: 3600 * 24 * 10,
+      });
     },
     [registerUser.rejected.type]: (
       state: Login,
