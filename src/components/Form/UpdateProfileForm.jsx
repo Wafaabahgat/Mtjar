@@ -79,9 +79,9 @@ const UpdateProfileForm = () => {
               </div>
               <Button
                 type="submit"
-                text="UPDATE INFO"
+                text="update info"
                 variant={"default"}
-                className="bg-green-500 py-3 px-2"
+                className="bg-green-500 py-3 uppercase w-[200px] mx-auto  "
               />
             </form>
           </div>
@@ -90,9 +90,10 @@ const UpdateProfileForm = () => {
         <div className="bg-white mt-10 rounded-md p-4">
           <div className="mt-6">
             <h3 className=" text-gray-500 text-2xl mb-3">Security</h3>
-            <form className="flex flex-col  gap-2">
+            <form className="flex flex-col gap-2">
               <div className="flex sm:flex-row flex-col gap-2 ">
                 <FormInput
+                  className="w-full bg-transparent"
                   type="email"
                   name="email"
                   placeholder="Email"
@@ -101,6 +102,7 @@ const UpdateProfileForm = () => {
                   error={errors?.email}
                 />
                 <FormInput
+                  className="w-full bg-transparent"
                   type={visible ? "text" : "password"}
                   name="password"
                   placeholder="Password"
@@ -110,12 +112,12 @@ const UpdateProfileForm = () => {
                   icon={
                     visible ? (
                       <FaEyeSlash
-                        className="w-20 cursor-pointer text-gray-400"
+                        className="cursor-pointer text-gray-400"
                         onClick={() => setVisible(!visible)}
                       />
                     ) : (
                       <FaEye
-                        className=" cursor-pointer text-gray-400 w-20"
+                        className=" cursor-pointer text-gray-400"
                         onClick={() => setVisible(!visible)}
                       />
                     )
@@ -126,7 +128,7 @@ const UpdateProfileForm = () => {
                 type="submit"
                 text="Change password"
                 variant={"default"}
-                className="bg-green-500 py-3 px-2 uppercase w-[200px] mx-auto sm:h-12  sm:text-sm sm:-mt-1"
+                className="bg-green-500 p-2 uppercase w-[200px] mx-auto "
               />
             </form>
           </div>

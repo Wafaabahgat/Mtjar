@@ -21,10 +21,10 @@ const Navbar = () => {
     <div className="fixed left-0 top-0 w-full z-10 shadow-xl bg-white">
       <div className="max-h-[80px] m-auto flex justify-between items-center p-3">
         <Link to="/home">
-          <img src={Logo} alt="Logo" className="w-[70px] ml-3 md:w-[55px]" />
+          <img src={Logo} alt="Logo" className="lg:w-[65px] ml-3 md:w-[50px] sm:w-[40px]" />
         </Link>
-        <div className="md:block hidden">
-          <ul className="flex text-xl ">
+        <div className="sm:block hidden">
+          <ul className="flex lg:text-xl md:text-md">
             <Link>
               <li className="p-5">Home</li>
             </Link>
@@ -39,7 +39,7 @@ const Navbar = () => {
             </Link>
             <Link>
               <li className="p-5">
-                <AiOutlineShoppingCart className="text-3xl border p-1 rounded-full border-black md:text-2xl" />
+                <AiOutlineShoppingCart className="text-3xl border p-1 rounded-full border-black " />
               </li>
             </Link>
           </ul>
@@ -48,7 +48,7 @@ const Navbar = () => {
         {/* Profile */}
         <ul className="flex">
           <li className="p-3">
-            <AiOutlineSearch className="text-4xl border-black p-1 md:text-3xl" />
+            <AiOutlineSearch className="text-4xl border-black p-1" />
           </li>
           <li className="p-3">
             <Avatar />

@@ -88,16 +88,16 @@ const SignupForm = () => {
         type={visible ? "text" : "password"}
         onChange={(e) => setpassword(e.target.value)}
         error={errors?.password}
-        previcon={<MdLockOutline className="mr-1 text-gray-400 w-20" />}
+        previcon={<MdLockOutline className=" text-gray-400 " />}
         icon={
           visible ? (
             <FaEyeSlash
-              className="w-20 cursor-pointer text-gray-400"
+              className="cursor-pointer text-gray-400"
               onClick={() => setVisible(!visible)}
             />
           ) : (
             <FaEye
-              className=" cursor-pointer text-gray-400 w-20"
+              className="cursor-pointer text-gray-400"
               onClick={() => setVisible(!visible)}
             />
           )

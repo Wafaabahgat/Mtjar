@@ -64,7 +64,7 @@ const LoginForm = () => {
           value={password}
           onChange={(e) => setpassword(e.target.value)}
           error={errors?.password}
-          previcon={<MdLockOutline className="mr-3 text-gray-400 w-20" />}
+          previcon={<MdLockOutline className=" text-gray-400" />}
           icon={
             visible ? (
               <FaEyeSlash
@@ -73,7 +73,7 @@ const LoginForm = () => {
               />
             ) : (
               <FaEye
-                className=" cursor-pointer text-gray-400 w-20"
+                className="cursor-pointer text-gray-400"
                 onClick={() => setVisible(!visible)}
               />
             )
@@ -81,13 +81,13 @@ const LoginForm = () => {
         />
       </div>
       <div className="flex justify-between w-64 my-3 ">
-        <label className="flex items-center  text-sm md:text-xs text-gray-400">
+        <label className="flex items-center text-sm text-gray-400">
           <input type="checkbox" name="remember" className="mr-1" />
           Remember Me
         </label>
         <Link
           to="/forgetpass"
-          className="text-sm md:text-xs text-gray-400 hover:text-green-500 "
+          className="text-sm text-gray-400 hover:text-green-500 "
         >
           Forget Password?
         </Link>

@@ -8,7 +8,7 @@ const UserCard = ({ user, data, onclick, ...props }) => {
   return (
     <div
       {...props}
-      className="absolute z-50 text-sm top-20 right-1 md:top-16 bg-white shadow-md rounded-md w-[250px] border-slate-400 border"
+      className="absolute z-50 text-sm right-1 top-16 bg-white shadow-md rounded-md w-[250px] border-slate-400 border"
     >
       <div className="p-2 ">
         <h2 className="text-slate-900 text-lg bg-slate-100 p-2 rounded-md font-semibold">
@@ -36,27 +36,26 @@ const UserCard = ({ user, data, onclick, ...props }) => {
       </ul>
 
       <div className="p-2 cursor-pointer">
-        <ul className="md:block hidden">
+        <ul className="">
           <Link>
-            <li className=" font-semibold ">Dashboard</li>
+            <li className="font-semibold ">Dashboard</li>
           </Link>
           <Link to="/home">
-            <li className="p-4 font-semibold ">Home</li>
+            <li className="p-2 font-semibold bg-green-100 rounded-md">Home</li>
           </Link>
           <Link to="/Profile">
-            <li className="p-4 font-semibold ">Profile</li>
+            <li className="p-2 font-semibold">Profile</li>
           </Link>
           <Link>
-            <li className="p-4 font-semibold ">Products</li>
+            <li className="p-2 font-semibold">Products</li>
           </Link>
 
           <Link>
-            <li className="p-4  font-semibold">Cart</li>
+            <li className="p-2 font-semibold">Cart</li>
           </Link>
         </ul>
-
         <h2
-          className="text-slate-900 flex items-center justify-center gap-2 bg-red-100 p-2 rounded-md font-semibold "
+          className="text-slate-900 flex items-center justify-center gap-2 bg-green-500 p-2 rounded-md font-semibold "
           onClick={onclick}
         >
           <FaSignOutAlt />

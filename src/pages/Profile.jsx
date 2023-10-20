@@ -1,4 +1,3 @@
-import React from "react";
 import UpdateProfileForm from "../components/Form/UpdateProfileForm";
 import MetaDate from "../lib/metaDate";
 

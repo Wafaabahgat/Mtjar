@@ -7,8 +7,15 @@ import Home from "./pages/Home";
 import Root from "./pages/Root";
 import Forgetpass from "./pages/Auth/Forgetpass";
 import Resetpass from "./pages/Auth/Resetpass";
-import AuthUser from "./middleware/AuthUser";
+// import AuthUser from "./middleware/AuthUser";
 import Profile from "./pages/Profile";
+import Dashboard from "./pages/Dashboard";
+import Stores from "./pages/dashboard/stores/Stores";
+import Categories from "./pages/dashboard/categories/Categories";
+import CreateStore from "./pages/dashboard/stores/createStore";
+import Products from "./pages/dashboard/products/Products";
+import CreateProduct from "./pages/dashboard/products/CreateProduct";
+import UpdateStore from "./pages/dashboard/stores/UpdateStore";
 
 const router = createBrowserRouter([
   {
@@ -19,17 +26,17 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: (
-          <AuthUser>
-            <Login />
-          </AuthUser>
+          // <AuthUser>
+          <Login />
+          // </AuthUser>
         ),
       },
       {
         path: "/signup",
         element: (
-          <AuthUser>
-            <Signup />
-          </AuthUser>
+          // <AuthUser>
+          <Signup />
+          // </AuthUser>
         ),
       },
       {
@@ -47,6 +54,36 @@ const router = createBrowserRouter([
       {
         path: "/Profile",
         element: <Profile />,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
+        children: [
+          {
+            path: "stores",
+            element: <Stores />,
+          },
+          {
+            path: "stores/create",
+            element: <CreateStore />,
+          },
+          {
+            path: "stores/update",
+            element: <UpdateStore />,
+          },
+          {
+            path: "products",
+            element: <Products />,
+          },
+          {
+            path: "products/create",
+            element: <CreateProduct />,
+          },
+          {
+            path: "categories",
+            element: <Categories />,
+          },
+        ],
       },
     ],
   },

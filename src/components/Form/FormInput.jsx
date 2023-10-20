@@ -16,8 +16,8 @@ const FormInput = ({
       <div
         className={
           error
-            ? "ring-red-500  border-red-500 ring-1 w-64 md:w-60 md:p-1 flex items-center p-3 mb-3 rounded-md "
-            : "bg-gray-200 outline-none w-64 md:w-60 md:p-1 flex items-center p-3 mb-3 rounded-md"
+            ? "ring-red-500 border-red-500 ring-1 lg:w-64 md:w-52 flex items-center p-3 mb-3 rounded-md "
+            : "bg-gray-200 outline-none lg:w-64 h-10 md:w-52 flex items-center p-3 mb-3 rounded-md"
         }
       >
         {previcon}
@@ -26,7 +26,7 @@ const FormInput = ({
           type={type}
           placeholder={placeholder}
           className={cn(
-            error ? "bg-white outline-none" : "bg-gray-200 outline-none"
+            error ? "bg-white outline-none" : " bg-transparent outline-none"
           )}
           {...props}
         />
@@ -40,4 +40,4 @@ const FormInput = ({
 };
 
 export default FormInput;
-// className="bg-gray-200 w-64 md:w-60 md:p-1 flex items-center p-3 mb-3"
+
