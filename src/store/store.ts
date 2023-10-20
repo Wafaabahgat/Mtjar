@@ -5,6 +5,8 @@ import counterSlice from "../slice/testSlice";
 import forgetPassword from "../slice/forgetPassword/forgetPassword";
 import ResetPassword from "../slice/ResetPassword/ResetPassword";
 import UpdateProfile from "../slice/Profile/profile";
+import  createStore  from "../slice/store/createstore";
+import  updateStore  from "../slice/store/updatestore";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +16,8 @@ export const store = configureStore({
     forgetPassword,
     ResetPassword,
     UpdateProfile: UpdateProfile,
+    createStore,
+    updateStore,
   },
 });
 

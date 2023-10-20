@@ -16,6 +16,8 @@ import CreateStore from "./pages/dashboard/stores/createStore";
 import Products from "./pages/dashboard/products/Products";
 import CreateProduct from "./pages/dashboard/products/CreateProduct";
 import UpdateStore from "./pages/dashboard/stores/UpdateStore";
+import CreateCategory from "./pages/dashboard/categories/CreateCategory";
+import UpdateCategory from "./pages/dashboard/categories/UpdateCategory";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +84,14 @@ const router = createBrowserRouter([
           {
             path: "categories",
             element: <Categories />,
+          },
+          {
+            path: "categories/create",
+            element: <CreateCategory />,
+          },
+          {
+            path: "categories/update",
+            element: <UpdateCategory />,
           },
         ],
       },
