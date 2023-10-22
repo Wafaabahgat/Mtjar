@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import Cookies from "universal-cookie";
-import { clearErrors, createStore } from "./storeAction";
+import { clearErrors, deleteStore } from "./storeAction";
 import { UserData } from "../../lib/types";
 
 const cookies = new Cookies();
@@ -23,30 +23,33 @@ const initialState: Login = {
   data: {},
 };
 
-const CreateStoreSlice = createSlice({
+const deleteStoreSlice = createSlice({
   name: "store",
   initialState,
   reducers: {},
   extraReducers: {
     // *********** register ********** //
-    [createStore.pending.type]: (state: Login) => {
+    [deleteStore.pending.type]: (state: Login) => {
       state.loading = true;
       state.msg = "";
-      state.data = {};
+      state.user = {};
       state.errors = {};
       state.success = null;
     },
-    [createStore.fulfilled.type]: (
+    [deleteStore.fulfilled.type]: (
       state: Login,
       action: PayloadAction<Login>
     ) => {
       state.loading = false;
       state.success = action.payload.success;
       state.msg = action.payload.msg;
-      state.data = action.payload.data;
+      state.user = action.payload.data;
       state.errors = {};
+    
+      }
+    
     },
-    [createStore.rejected.type]: (
+    [deleteStore.rejected.type]: (
       state: Login,
       action: PayloadAction<Login>
     ) => {
@@ -62,6 +65,6 @@ const CreateStoreSlice = createSlice({
       state.errors = {};
     },
   },
-});
+);
 
-export default CreateStoreSlice.reducer;
+export default deleteStoreSlice.reducer;

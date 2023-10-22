@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import data from "../../lib/data";
 import { BiMenu } from "react-icons/Bi";
@@ -15,8 +15,8 @@ const DashSidebar = () => {
           />
         </div>
         {open ? (
-          <div className="bg-white border-slate-300 border-r w-[120px] h-full shadow">
-            <ul className="mt-4">
+          <div className="bg-white border-slate-300 border-r border-t w-[120px] h-full shadow">
+            <ul className="pt-4 ">
               {data.map((item, index) => (
                 <Link key={index} to={item.link}>
                   <span className="text-slate-800 cursor-pointer text-3xl flex justify-center item-center">

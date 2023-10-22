@@ -96,7 +96,7 @@ const LoginForm = () => {
         type="submit"
         text="Sign In"
         variant={"default"}
-        className="bg-green-500"
+        className="bg-green-500 sm:px-6 w-[200px]"
       />
     </FormModelAuth>
   );

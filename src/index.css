@@ -8,3 +8,27 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  white-space: nowrap;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100px;
+  height: 41px;
+  text-overflow: ellipsis;
+}
+
+tr:nth-child(even) {
+  background-color: #efefef;
+}
+.paginate__link {
+  @apply py-1 px-2 min-w-[35px] text-center -mr-px font-semibold border border-slate-300;
+}

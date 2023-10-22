@@ -15,9 +15,9 @@ const Products = () => {
         Create New Products
       </Link>
       <div className="mt-10 overflow-auto ">
-        <table className="border border-slate-300 w-full ">
+        <table className=" w-full ">
           <thead>
-            <tr className="flex justify-between p-2">
+            <tr >
               <th>#id</th>
               <th>name</th>
               <th>disc</th>

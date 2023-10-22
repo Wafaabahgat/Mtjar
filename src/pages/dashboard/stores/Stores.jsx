@@ -1,3 +1,5 @@
+// import { AiOutlineDelete } from "react-icons/ai";
+// import { BiEditAlt } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import DashboardContainer from "../../../components/Ui/DashboardContainer";
 
@@ -11,9 +13,9 @@ const Stores = () => {
         Create New Store
       </Link>
       <div className="mt-10 overflow-auto ">
-        <table className="border border-slate-300 w-full ">
+        <table>
           <thead>
-            <tr className="flex justify-between p-2">
+            <tr>
               <th>#id</th>
               <th>name</th>
               <th>slug</th>
@@ -22,6 +24,26 @@ const Stores = () => {
               <th>actions</th>
             </tr>
           </thead>
+          {/* <tbody>
+            {data?.map((e) => {
+              <tr key={e}>
+                <td>{e.id}</td>
+                <td>{e.name}</td>
+                <td>{e.slug}</td>
+                <td>{e.disc}</td>
+                <td>{e?.parent?.name ? e?.parent?.name : "Main"}</td>
+                <td>{e.status}</td>
+                <td>
+                  <div className="flex items-center justify-center gap-2 text-xl">
+                    <Link to={`/dashboard/categories/update/${e.id}`}>
+                      <BiEditAlt className="active:scale-95 cursor-pointer text-green-700" />
+                    </Link>
+                    <AiOutlineDelete className="active:scale-95 cursor-pointer text-red-800" />
+                  </div>
+                </td>
+              </tr>;
+            })}
+          </tbody> */}
         </table>
       </div>
     </DashboardContainer>

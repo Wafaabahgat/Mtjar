@@ -8,7 +8,21 @@ const config = {
   },
 };
 
-// *********** Supplier *********** //
+// *********** All *********** //
+export const stores = createAsyncThunk("stores/all", async (args, thunkAPI) => {
+  const { rejectWithValue } = thunkAPI;
+  try {
+    const { data } = await axios.get("/dashboard/stores", config);
+    return data;
+  } catch (err) {
+    if (err?.response?.data?.message === "Unauthenticated.") {
+      return rejectWithValue(err?.response?.data?.message);
+    }
+
+    return rejectWithValue(err?.response?.data);
+  }
+});
+// *********** Create *********** //
 export const createStore = createAsyncThunk(
   "store/createstore",
   async (args, thunkAPI) => {
@@ -22,6 +36,42 @@ export const createStore = createAsyncThunk(
     }
   }
 );
+// *********** Single *********** //
+export const singleStore = createAsyncThunk(
+  "stores/single",
+  async (args: number, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI;
+    try {
+      const { data } = await axios.get(`/dashboard/stores/${args}`, config);
+      return data;
+    } catch (err) {
+      if (err?.response?.data?.message === "Unauthenticated.") {
+        return rejectWithValue(err?.response?.data?.message);
+      }
+
+      return rejectWithValue(err?.response?.data);
+    }
+  }
+);
+// *********** Delete *********** //
+export const deleteStore = createAsyncThunk(
+  "stores/delete",
+  async (args: number | undefined, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI;
+    try {
+      const { data } = await axios.delete(`/dashboard/stores/${args}`, config);
+      return data;
+    } catch (err) {
+      if (err?.response?.data?.message === "Unauthenticated.") {
+        return rejectWithValue(err?.response?.data?.message);
+      }
+
+      return rejectWithValue(err?.response?.data);
+    }
+  }
+);
+
+// *********** Update *********** //
 export const updateStore = createAsyncThunk(
   "store/updatestore",
   async (args, thunkAPI) => {

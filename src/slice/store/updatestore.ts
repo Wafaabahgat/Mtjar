@@ -45,16 +45,9 @@ const UpdateStoreSlice = createSlice({
       state.msg = action.payload.msg;
       state.user = action.payload.data;
       state.errors = {};
-      if (state?.user?.email) {
-        cookies.set("user", JSON.stringify(state.user), {
-          path: "/",
-          maxAge: 3600 * 24 * 10,
-        });
+    
       }
-      cookies.set("token", JSON.stringify(state?.user?.token), {
-        path: "/",
-        maxAge: 3600 * 24 * 10,
-      });
+    
     },
     [updateStore.rejected.type]: (
       state: Login,
@@ -72,6 +65,6 @@ const UpdateStoreSlice = createSlice({
       state.errors = {};
     },
   },
-});
+);
 
 export default UpdateStoreSlice.reducer;

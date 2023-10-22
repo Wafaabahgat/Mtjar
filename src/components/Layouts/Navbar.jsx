@@ -21,7 +21,7 @@ const Navbar = () => {
     <div className="fixed left-0 top-0 w-full z-10 shadow-xl bg-white">
       <div className="max-h-[80px] m-auto flex justify-between items-center p-3">
         <Link to="/home">
-          <img src={Logo} alt="Logo" className="lg:w-[65px] ml-3 md:w-[50px] sm:w-[40px]" />
+          <img src={Logo} alt="Logo" className="lg:w-[65px] ml-3 w-[50px] " />
         </Link>
         <div className="sm:block hidden">
           <ul className="flex lg:text-xl md:text-md">

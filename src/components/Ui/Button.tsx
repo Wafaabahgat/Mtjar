@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ButtonHTMLAttributes, FC } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
 
@@ -8,7 +8,7 @@ interface ButtonProps
   text?: string;
 }
 const buttonVariants = cva(
-  "border-2 lg:px-10 md:px-4 py-2 rounded-full font-bold mt-4",
+  "border-2 lg:px-10 md:px-4 py-2 rounded-full font-bold mt-4 ",
   {
     variants: {
       variant: {
@@ -18,7 +18,7 @@ const buttonVariants = cva(
   }
 );
 
-const Button = ({
+const Button: FC<ButtonProps> = ({
   className,
   variant,
   type,
