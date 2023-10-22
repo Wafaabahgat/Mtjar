@@ -17,7 +17,7 @@ const Categories = () => {
     states: "categories",
     allData: categoriesUser,
   });
-  
+  console.log(data, loading);
   if (loading) {
     <Loader />;
   }
@@ -46,24 +46,26 @@ const Categories = () => {
             </tr>
           </thead>
           <tbody>
-            {data?.data?.map((e) => {
-              <tr key={e}>
-                <td>{e.id}</td>
-                <td>{e.name}</td>
-                <td>{e.slug}</td>
-                <td>{e.disc}</td>
-                <td>{e?.parent?.name ? e?.parent?.name : "Main"}</td>
-                <td>{e.status}</td>
-                <td>
-                  <div className="flex items-center justify-center gap-2 text-xl">
-                    <Link to={`/dashboard/categories/update/${e.id}`}>
-                      <BiEditAlt className="active:scale-95 cursor-pointer text-green-700" />
-                    </Link>
-                    <AiOutlineDelete className="active:scale-95 cursor-pointer text-red-800" />
-                  </div>
-                </td>
-              </tr>;
-            })}
+            {data?.data
+              ? data?.data?.map((e) => {
+                  <tr key={e}>
+                    <td>{e.id}</td>
+                    <td>{e.name}</td>
+                    <td>{e.slug}</td>
+                    <td>{e.disc}</td>
+                    <td>{e?.parent?.name ? e?.parent?.name : "Main"}</td>
+                    <td>{e.status}</td>
+                    <td>
+                      <div className="flex items-center justify-center gap-2 text-xl">
+                        <Link to={`/dashboard/categories/update/${e.id}`}>
+                          <BiEditAlt className="active:scale-95 cursor-pointer text-green-700" />
+                        </Link>
+                        <AiOutlineDelete className="active:scale-95 cursor-pointer text-red-800" />
+                      </div>
+                    </td>
+                  </tr>;
+                })
+              : ""}
           </tbody>
         </table>
       </div>

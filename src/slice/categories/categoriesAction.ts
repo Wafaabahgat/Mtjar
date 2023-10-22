@@ -1,10 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../axios";
 import { Slice, CategoryType } from "../../lib/types";
+import Cookies from "universal-cookie";
 
+const cookies = new Cookies();
+const token = cookies.get("token");
+const TOKEN = `Bearer ${token}`;
 const config = {
   headers: {
-    "Content-Type": "application/json",
+    Authorization: TOKEN,
   },
 };
 

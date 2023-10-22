@@ -12,6 +12,7 @@ const CreateCategory = () => {
   const { loading, errors } = useCreate({
     states: "createCategory",
   });
+
   const [name, setName] = useState("");
   const [disc, setDisc] = useState("");
   const [image, setImage] = useState();
@@ -20,6 +21,7 @@ const CreateCategory = () => {
 
   const fetchData = (e) => {
     e.preventDefault();
+    
   };
 
   if (loading) {
