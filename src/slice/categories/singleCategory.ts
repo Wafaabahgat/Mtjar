@@ -15,7 +15,7 @@ const SingleCategorySlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    // *********** Delete ********** //
+    // *********** SingleCategory ********** //
     [singleCategory.pending.type]: (state: Slice<CategoryType>) => {
       state.loading = true;
       state.msg = "";

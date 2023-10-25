@@ -13,7 +13,7 @@ const config = {
 };
 
 // *********** All *********** //
-export const categoriesUser = createAsyncThunk(
+export const categories = createAsyncThunk(
   "categories/all",
   async (args, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
@@ -54,8 +54,8 @@ export const deleteCategory = createAsyncThunk(
   }
 );
 // *********** Update *********** //
-export const UpdateCategory = createAsyncThunk(
-  "categories/delete",
+export const updateCategory = createAsyncThunk(
+  "categories/update",
   async (args: { dat: FormData; id: number }, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
@@ -108,6 +108,6 @@ export const singleCategory = createAsyncThunk(
   }
 );
 
-export const clearErrors = createAsyncThunk("register/clear", async () => {
+export const clearErrors = createAsyncThunk("categories/clear", async () => {
   return true;
 });

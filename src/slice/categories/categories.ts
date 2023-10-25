@@ -1,27 +1,14 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import Cookies from "universal-cookie";
-import { clearErrors, categoriesUser } from "./categoriesAction";
+import { clearErrors, categories } from "./categoriesAction";
 import { UserData } from "../../lib/types";
 import { Slice, CategoryType } from "../../lib/types";
 
-
-const cookies = new Cookies();
-
-interface Login {
-  loading: boolean | null;
-  success: boolean | null;
-  msg: string;
-  user: UserData | object | null;
-  errors: object;
-  data: UserData | object | null | [];
-}
-
-const initialState: Slice<object> = {
+const initialState: Slice<CategoryType[]> = {
   loading: null,
   success: null,
   msg: "",
   errors: {},
-  data: {},
+  data: [],
 };
 
 const CategoriesSlice = createSlice({
@@ -29,17 +16,17 @@ const CategoriesSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    // *********** register ********** //
-    [categoriesUser.pending.type]: (state: Login) => {
+    // *********** categories ********** //
+    [categories.pending.type]: (state: Slice<CategoryType[]>) => {
       state.loading = true;
       state.msg = "";
-      state.data = {};
+      state.data = [];
       state.errors = {};
       state.success = null;
     },
-    [categoriesUser.fulfilled.type]: (
-      state: Login,
-      action: PayloadAction<Login>
+    [categories.fulfilled.type]: (
+      state: Slice<CategoryType[]>,
+      action: PayloadAction<Slice<CategoryType[]>>
     ) => {
       state.loading = false;
       state.success = action.payload.success;
@@ -47,16 +34,16 @@ const CategoriesSlice = createSlice({
       state.data = action.payload.data;
       state.errors = {};
     },
-    [categoriesUser.rejected.type]: (
-      state: Login,
-      action: PayloadAction<Login>
+    [categories.rejected.type]: (
+      state: Slice<CategoryType[]>,
+      action: PayloadAction<Slice<CategoryType[]>>
     ) => {
       state.loading = false;
       state.success = false;
       state.msg = action.payload?.msg;
-      state.errors = action.payload?.errors;
+      state.errors = action.payload?.errors || action.payload;
     },
-    [clearErrors.fulfilled.type]: (state: Login) => {
+    [clearErrors.fulfilled.type]: (state: Slice<CategoryType[]>) => {
       state.loading = false;
       state.success = null;
       state.msg = "";

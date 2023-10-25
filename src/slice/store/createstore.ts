@@ -28,7 +28,7 @@ const CreateStoreSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    // *********** register ********** //
+    // *********** CreateStore ********** //
     [createStore.pending.type]: (state: Login) => {
       state.loading = true;
       state.msg = "";

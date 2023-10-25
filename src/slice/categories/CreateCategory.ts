@@ -15,7 +15,7 @@ const CreateCategorySlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    // *********** Create - Store ********** //
+    // *********** Create - Category ********** //
     [createCategory.pending.type]: (state: Slice<object>) => {
       state.loading = true;
       state.msg = "";

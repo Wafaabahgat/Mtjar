@@ -1,6 +1,7 @@
 import { clearErrors, deleteCategory } from "./categoriesAction";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 // import { UserData } from "../../lib/types";
+import { Slice, CategoryType } from "../../lib/types";
 
 const initialState: Slice<object> = {
   loading: null,
@@ -15,7 +16,7 @@ const DeleteCategorySlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    // *********** Delete -Store ********** //
+    // *********** DeleteCategory ********** //
     [deleteCategory.pending.type]: (state: Slice<object>) => {
       state.loading = true;
       state.msg = "";

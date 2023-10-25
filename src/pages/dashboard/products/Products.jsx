@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import DashboardContainer from "../../../components/Ui/DashboardContainer";
 
+const links = [
+  {
+    name: "products",
+  },
+];
 const Products = () => {
   return (
     <DashboardContainer
       ttl="Products"
+      links={links}
       name="Create new Products"
       className="py-2"
     >
@@ -17,7 +23,7 @@ const Products = () => {
       <div className="mt-10 overflow-auto ">
         <table className=" w-full ">
           <thead>
-            <tr >
+            <tr>
               <th>#id</th>
               <th>name</th>
               <th>disc</th>

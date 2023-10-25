@@ -1,9 +1,9 @@
-import { clearErrors, UpdateCategory } from "./categoriesAction";
+import { clearErrors, updateCategory } from "./categoriesAction";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 // import { UserData } from "../../lib/types";
 import { Slice, CategoryType } from "../../lib/types";
 
-const initialState: Slice<object> = {
+const initialState: Slice<CategoryType> = {
   loading: null,
   success: null,
   msg: "",
@@ -16,17 +16,17 @@ const UpdateCategorySlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    // *********** Delete -Store ********** //
-    [UpdateCategory.pending.type]: (state: Slice<object>) => {
+    // *********** Update ********** //
+    [updateCategory.pending.type]: (state: Slice<CategoryType>) => {
       state.loading = true;
       state.msg = "";
       state.data = {};
       state.errors = {};
       state.success = null;
     },
-    [UpdateCategory.fulfilled.type]: (
-      state: Slice<object>,
-      action: PayloadAction<Slice<object>>
+    [updateCategory.fulfilled.type]: (
+      state: Slice<CategoryType>,
+      action: PayloadAction<Slice<CategoryType>>
     ) => {
       state.loading = false;
       state.success = action.payload.success;
@@ -34,16 +34,16 @@ const UpdateCategorySlice = createSlice({
       state.data = action.payload.data;
       state.errors = {};
     },
-    [UpdateCategory.rejected.type]: (
-      state: Slice<object>,
-      action: PayloadAction<Slice<object>>
+    [updateCategory.rejected.type]: (
+      state: Slice<CategoryType>,
+      action: PayloadAction<Slice<CategoryType>>
     ) => {
       state.loading = false;
       state.success = false;
       state.msg = action.payload?.msg;
       state.errors = action.payload?.errors;
     },
-    [clearErrors.fulfilled.type]: (state: Slice<object>) => {
+    [clearErrors.fulfilled.type]: (state: Slice<CategoryType>) => {
       state.loading = false;
       state.success = null;
       state.msg = "";

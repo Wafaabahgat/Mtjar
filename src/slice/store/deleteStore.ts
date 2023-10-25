@@ -28,7 +28,7 @@ const deleteStoreSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    // *********** register ********** //
+    // *********** deleteStore ********** //
     [deleteStore.pending.type]: (state: Login) => {
       state.loading = true;
       state.msg = "";

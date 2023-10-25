@@ -4,9 +4,18 @@ import InputFile from "../../../components/Form/InputFile";
 import Button from "../../../components/Ui/Button";
 import InputSelect from "../../../components/Ui/InputSelect";
 
+const links = [
+  {
+    name: "stores",
+    link: "stores",
+  },
+  {
+    name: "update",
+  },
+];
 const UpdateStore = () => {
   return (
-    <DashboardContainer ttl="Store">
+    <DashboardContainer ttl="Store" links={links}>
       <div className="border m-auto px-6 border-slate-300 rounded-lg max-w-[800px] w-full min-w-[300px] py-4">
         {/* <DashboardContainer ttl="Create New Store" /> */}
         <h3 className="font-semibold text-xl pb-2">Create New Store</h3>

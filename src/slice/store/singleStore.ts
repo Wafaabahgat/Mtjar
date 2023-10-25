@@ -15,7 +15,7 @@ const SingleStoreSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    // *********** Delete ********** //
+    // *********** SingleStore ********** //
     [singleStore.pending.type]: (state: Slice<StoreType>) => {
       state.loading = true;
       state.msg = "";

@@ -4,7 +4,7 @@ import { BiEditAlt } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Pagination from "../../../components/Ui/Pagination";
 import useGet from "../../../hooks/useGet";
-import { categoriesUser } from "../../../slice/categories/categoriesAction";
+import { categories } from "../../../slice/categories/categoriesAction";
 import Loader from "../../../components/Loader";
 
 const links = [
@@ -12,18 +12,21 @@ const links = [
     name: "categories",
   },
 ];
+
 const Categories = () => {
   const { data, loading } = useGet({
     states: "categories",
-    allData: categoriesUser,
+    allData: categories,
   });
   console.log(data, loading);
+
   if (loading) {
-    <Loader />;
+    return <Loader />;
   }
   return (
     <DashboardContainer
       ttl="Categories"
+      links={links}
       name="Create new Categories"
       className="py-2"
     >
@@ -41,14 +44,15 @@ const Categories = () => {
               <th>name</th>
               <th>slug</th>
               <th>disc</th>
+              <th>parent</th>
               <th>status</th>
               <th>actions</th>
             </tr>
           </thead>
           <tbody>
             {data?.data
-              ? data?.data?.map((e) => {
-                  <tr key={e}>
+              ? data?.data?.map((e) => (
+                  <tr key={e.id}>
                     <td>{e.id}</td>
                     <td>{e.name}</td>
                     <td>{e.slug}</td>
@@ -63,8 +67,8 @@ const Categories = () => {
                         <AiOutlineDelete className="active:scale-95 cursor-pointer text-red-800" />
                       </div>
                     </td>
-                  </tr>;
-                })
+                  </tr>
+                ))
               : ""}
           </tbody>
         </table>

@@ -28,7 +28,7 @@ const UpdateStoreSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    // *********** register ********** //
+    // *********** UpdateStore ********** //
     [updateStore.pending.type]: (state: Login) => {
       state.loading = true;
       state.msg = "";

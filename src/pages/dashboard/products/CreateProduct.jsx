@@ -4,9 +4,18 @@ import Button from "../../../components/Ui/Button";
 import DashboardContainer from "../../../components/Ui/DashboardContainer";
 import InputSelect from "../../../components/Ui/InputSelect";
 
+const links = [
+  {
+    name: "products",
+    link: "products",
+  },
+  {
+    name: "create",
+  },
+];
 const CreateProduct = () => {
   return (
-    <DashboardContainer ttl="Product">
+    <DashboardContainer ttl="Product" links={links}>
       <div className="border m-auto px-6 border-slate-300 rounded-lg max-w-[800px] w-full min-w-[300px] py-4">
         {/* <DashboardContainer ttl="Create New Store" /> */}
         <h3 className="font-semibold text-xl pb-2">Create New Product</h3>

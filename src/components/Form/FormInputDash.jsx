@@ -16,7 +16,7 @@ const FormInputDash = ({
     <>
       <h5 className="font-semibold">{ttl}</h5>
       <div className="mt-1 w-full mb-2">
-        <Input name={name} type={type} placeholder={placeholder} />
+        <Input name={name} type={type} placeholder={placeholder} {...props} />
       </div>
     </>
   );

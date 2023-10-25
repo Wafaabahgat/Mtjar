@@ -90,7 +90,7 @@ const router = createBrowserRouter([
             element: <CreateCategory />,
           },
           {
-            path: "categories/update",
+            path: "categories/update/:id",
             element: <UpdateCategory />,
           },
         ],

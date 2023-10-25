@@ -3,9 +3,19 @@
 import { Link } from "react-router-dom";
 import DashboardContainer from "../../../components/Ui/DashboardContainer";
 
+const links = [
+  {
+    name: "store",
+  },
+];
 const Stores = () => {
   return (
-    <DashboardContainer ttl="Stores" name="Create new Stores" className="py-2">
+    <DashboardContainer
+      ttl="Stores"
+      links={links}
+      name="Create new Stores"
+      className="py-2"
+    >
       <Link
         className="bg-green-500 flex justify-center text-slate-50 w-[1100px] text-lg py-2 text-center rounded-md hover:opacity-80 active:scale-90"
         to="/dashboard/stores/create"
