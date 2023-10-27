@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../axios";
-// import { UserData } from "../../lib/types";
+import { UserData } from "../../lib/types";
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
-const token = cookies.get("token");
-const TOKEN = `Bearer ${token}`;
+const user = cookies.get("token");
+const TOKEN = `Bearer ${user}`;
 const config = {
   headers: {
     Authorization: TOKEN,
@@ -27,14 +27,16 @@ export const stores = createAsyncThunk("stores/all", async (args, thunkAPI) => {
 });
 // *********** Create *********** //
 export const createStore = createAsyncThunk(
-  "store/createstore",
-  async (args, thunkAPI) => {
+  "stores/create",
+  async (args: FormData, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
-    // console.log("jjjjjj");
     try {
-      const { data } = await axios.post("/dashboard/stores", args);
+      const { data } = await axios.post("/dashboard/stores", args, config);
       return data;
     } catch (err) {
+      if (err?.response?.data?.message === "Unauthenticated.") {
+        return rejectWithValue(err?.response?.data?.message);
+      }
       return rejectWithValue(err?.response?.data);
     }
   }
@@ -76,14 +78,20 @@ export const deleteStore = createAsyncThunk(
 
 // *********** Update *********** //
 export const updateStore = createAsyncThunk(
-  "store/updatestore",
-  async (args, thunkAPI) => {
+  "stores/update",
+  async (args: { dat: FormData; id: number }, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
-    // console.log("jjjjjj");
     try {
-      const { data } = await axios.post("/dashboard/stores", args);
+      const { data } = await axios.post(
+        `/dashboard/stores/${args.id}`,
+        args.dat,
+        config
+      );
       return data;
     } catch (err) {
+      if (err?.response?.data?.message === "Unauthenticated.") {
+        return rejectWithValue(err?.response?.data?.message);
+      }
       return rejectWithValue(err?.response?.data);
     }
   }

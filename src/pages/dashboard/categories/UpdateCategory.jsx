@@ -31,10 +31,15 @@ const UpdateCategory = () => {
     callfun: singleCategory,
   });
 
-  const { loading: updateLD, errors, handelUpdate ,success} = useUpdate({
+  const {
+    loading: updateLD,
+    errors,
+    handelUpdate,
+    success,
+  } = useUpdate({
     states: "updateCategory",
-    updateFn: updateCategory, 
-    clearFn: clearErrors,
+    updateFn: updateCategory,
+    clearFn: clearErrors(),
   });
 
   const [name, setName] = useState("");
@@ -46,7 +51,6 @@ const UpdateCategory = () => {
 
   const fetchData = (e) => {
     e.preventDefault();
-    console.log("id:", id); // Check the value of id
     const formData = new FormData();
     name && formData.append("name", name);
     disc && formData.append("disc", disc);
@@ -55,7 +59,8 @@ const UpdateCategory = () => {
     status && formData.append("status", status);
     formData.append("_method", "put");
     console.log("URL:", `/api/v1/dashboard/categories/${id}`); // Check the URL
-    handelUpdate({ params: id, dat: formData });
+    handelUpdate({ id, dat: formData });
+    console.log(id);
   };
   useEffect(() => {
     if (data?.name) {
@@ -67,8 +72,6 @@ const UpdateCategory = () => {
     }
   }, [data]);
 
-
-
   if (loading || updateLD) {
     return <Loader />;
   }
@@ -76,7 +79,6 @@ const UpdateCategory = () => {
   return (
     <DashboardContainer ttl="Update Category" links={links}>
       <div className="border m-auto px-6 border-slate-300 rounded-lg max-w-[800px] w-full min-w-[300px] py-4">
-        {/* <DashboardContainer ttl="Create New Store" /> */}
         <h3 className="font-semibold text-xl pb-2">UPDATE</h3>
         <form
           className="flex flex-col justify-start items-start w-[750px]"

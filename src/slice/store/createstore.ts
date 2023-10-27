@@ -1,9 +1,7 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import Cookies from "universal-cookie";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { clearErrors, createStore } from "./storeAction";
 import { UserData } from "../../lib/types";
-
-const cookies = new Cookies();
+import { Slice } from "../../lib/types";
 
 interface Login {
   loading: boolean | null;
@@ -14,22 +12,21 @@ interface Login {
   data: UserData | object | null | [];
 }
 
-const initialState: Login = {
+const initialState: Slice<object> = {
   loading: null,
   success: null,
   msg: "",
-  user: {},
   errors: {},
   data: {},
 };
 
 const CreateStoreSlice = createSlice({
-  name: "store",
+  name: "stores",
   initialState,
   reducers: {},
   extraReducers: {
-    // *********** CreateStore ********** //
-    [createStore.pending.type]: (state: Login) => {
+    // *********** Create - Store ********** //
+    [createStore.pending.type]: (state: Slice<object>) => {
       state.loading = true;
       state.msg = "";
       state.data = {};
@@ -37,8 +34,8 @@ const CreateStoreSlice = createSlice({
       state.success = null;
     },
     [createStore.fulfilled.type]: (
-      state: Login,
-      action: PayloadAction<Login>
+      state: Slice<object>,
+      action: PayloadAction<Slice<object>>
     ) => {
       state.loading = false;
       state.success = action.payload.success;
@@ -47,15 +44,15 @@ const CreateStoreSlice = createSlice({
       state.errors = {};
     },
     [createStore.rejected.type]: (
-      state: Login,
-      action: PayloadAction<Login>
+      state: Slice<object>,
+      action: PayloadAction<Slice<object>>
     ) => {
       state.loading = false;
       state.success = false;
       state.msg = action.payload?.msg;
       state.errors = action.payload?.errors;
     },
-    [clearErrors.fulfilled.type]: (state: Login) => {
+    [clearErrors.fulfilled.type]: (state: Slice<object>) => {
       state.loading = false;
       state.success = null;
       state.msg = "";

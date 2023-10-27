@@ -70,7 +70,7 @@ const router = createBrowserRouter([
             element: <CreateStore />,
           },
           {
-            path: "stores/update",
+            path: "stores/update/:id",
             element: <UpdateStore />,
           },
           {

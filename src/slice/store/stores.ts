@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { clearErrors, stores } from "./storeAction";
-import { Slice, StoreType } from "@/lib/types";
+import { Slice, StoreType } from "../../lib/types";
+
 
 const initialState: Slice<StoreType[]> = {
   loading: null,

@@ -1,6 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { clearErrors, categories } from "./categoriesAction";
-import { UserData } from "../../lib/types";
 import { Slice, CategoryType } from "../../lib/types";
 
 const initialState: Slice<CategoryType[]> = {

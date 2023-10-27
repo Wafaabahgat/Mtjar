@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 const useSingle = ({ states, callfun }) => {
-    const params = useParams()?.id;
+  const { id } = useParams();
 
   const dispatch = useDispatch();
   const { loading, msg, errors, success, data } = useSelector(
@@ -21,14 +21,14 @@ const useSingle = ({ states, callfun }) => {
     if (success === false) {
       toast.error(errors);
     }
-  }, [success, msg, errors,params]);
+  }, [success, msg, errors,id]);
 
   useEffect(() => {
     const fetchData = () => {
-      dispatch(callfun(params));
+      dispatch(callfun(id));
     };
     fetchData();
-  }, [dispatch]);
+  }, [dispatch,id]);
 
   return { loading: loading, data };
 };

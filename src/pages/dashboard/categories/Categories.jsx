@@ -4,8 +4,13 @@ import { BiEditAlt } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Pagination from "../../../components/Ui/Pagination";
 import useGet from "../../../hooks/useGet";
-import { categories } from "../../../slice/categories/categoriesAction";
+import {
+  categories,
+  clearErrors,
+  deleteCategory,
+} from "../../../slice/categories/categoriesAction";
 import Loader from "../../../components/Loader";
+import useDelete from "../../../hooks/useDelete";
 
 const links = [
   {
@@ -14,13 +19,21 @@ const links = [
 ];
 
 const Categories = () => {
+  const { loading: DeleteDl, handleDelete } = useDelete({
+    states: "deleteCategory",
+    delFun: deleteCategory,
+    recalFun: categories,
+    clearFun: clearErrors(),
+  });
+
   const { data, loading } = useGet({
     states: "categories",
     allData: categories,
   });
+
   console.log(data, loading);
 
-  if (loading) {
+  if (loading || DeleteDl) {
     return <Loader />;
   }
   return (
@@ -64,7 +77,12 @@ const Categories = () => {
                         <Link to={`/dashboard/categories/update/${e.id}`}>
                           <BiEditAlt className="active:scale-95 cursor-pointer text-green-700" />
                         </Link>
-                        <AiOutlineDelete className="active:scale-95 cursor-pointer text-red-800" />
+                        <AiOutlineDelete
+                          className="active:scale-95 cursor-pointer text-red-800"
+                          onClick={() => {
+                            handleDelete(e.id);
+                          }}
+                        />
                       </div>
                     </td>
                   </tr>
