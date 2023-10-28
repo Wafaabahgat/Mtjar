@@ -26,6 +26,7 @@ const links = [
 
 const UpdateStore = () => {
   const { id } = useParams();
+
   const { loading: updateLD, data } = useSingle({
     states: "singleStore",
     callfun: singleStore,
@@ -50,6 +51,7 @@ const UpdateStore = () => {
     status && formData.append("status", status);
     formData.append("_method", "put");
     handelUpdate({ id, dat: formData });
+    console.log(id);
   };
 
   useEffect(() => {
@@ -59,7 +61,7 @@ const UpdateStore = () => {
       setStatus(data?.status);
     }
   }, [data]);
-  console.log(data);
+
 
   if (loading || updateLD) {
     return <Loader />;
@@ -76,6 +78,7 @@ const UpdateStore = () => {
             placeholder="Store Name..."
             ttl="Name"
             type="text"
+            value={name}
             onChange={(e) => setName(e.target.value)}
             error={errors?.name}
           />
@@ -83,6 +86,7 @@ const UpdateStore = () => {
             placeholder="Store Disc..."
             ttl="Disc"
             type="text"
+            value={disc}
             onChange={(e) => setDisc(e.target.value)}
             error={errors?.disc}
           />

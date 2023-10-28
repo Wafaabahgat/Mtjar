@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import data from "../../lib/data";
-import { BiMenu } from "react-icons/Bi";
+import { BiMenu } from "react-icons/bi";
 
 const DashSidebar = () => {
   const [open, setOpen] = useState(false);

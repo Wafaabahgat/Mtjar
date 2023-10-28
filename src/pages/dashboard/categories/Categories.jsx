@@ -1,6 +1,5 @@
 import DashboardContainer from "../../../components/Ui/DashboardContainer";
-import { AiOutlineDelete } from "react-icons/ai";
-import { BiEditAlt } from "react-icons/bi";
+import { AiFillEdit, AiOutlineDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Pagination from "../../../components/Ui/Pagination";
 import useGet from "../../../hooks/useGet";
@@ -30,8 +29,6 @@ const Categories = () => {
     states: "categories",
     allData: categories,
   });
-
-  console.log(data, loading);
 
   if (loading || DeleteDl) {
     return <Loader />;
@@ -75,7 +72,7 @@ const Categories = () => {
                     <td>
                       <div className="flex items-center justify-center gap-2 text-xl">
                         <Link to={`/dashboard/categories/update/${e.id}`}>
-                          <BiEditAlt className="active:scale-95 cursor-pointer text-green-700" />
+                          <AiFillEdit className="active:scale-95 cursor-pointer text-green-700" />
                         </Link>
                         <AiOutlineDelete
                           className="active:scale-95 cursor-pointer text-red-800"

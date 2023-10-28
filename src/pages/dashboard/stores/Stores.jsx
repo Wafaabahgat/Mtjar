@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import DashboardContainer from "../../../components/Ui/DashboardContainer";
-import { AiOutlineDelete } from "react-icons/ai";
-import { BiEditAlt } from "react-icons/bi";
+import { AiFillEdit, AiOutlineDelete } from "react-icons/ai";
+// import { BiEditAlt } from "react-icons/bi";
 import useGet from "../../../hooks/useGet";
 import { deleteStore, stores } from "../../../slice/store/storeAction";
 import Loader from "../../../components/Loader";
 import { clearErrors } from "../../../slice/categories/categoriesAction";
 import useDelete from "../../../hooks/useDelete";
+import Pagination from "../../../components/Ui/Pagination";
 
 const links = [
   {
@@ -68,7 +69,7 @@ const Stores = () => {
                     <td>
                       <div className="flex items-center justify-center gap-2 text-xl">
                         <Link to={`/dashboard/stores/update/${e.id}`}>
-                          <BiEditAlt className="active:scale-95 cursor-pointer text-green-700" />
+                          <AiFillEdit className="active:scale-95 cursor-pointer text-green-700" />
                         </Link>
                         <AiOutlineDelete
                           className="active:scale-95 cursor-pointer text-red-800"
@@ -83,6 +84,9 @@ const Stores = () => {
               : ""}
           </tbody>
         </table>
+      </div>
+      <div className="mt-10">
+        <Pagination data={data} />
       </div>
     </DashboardContainer>
   );

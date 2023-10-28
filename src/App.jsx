@@ -73,6 +73,8 @@ const router = createBrowserRouter([
             path: "stores/update/:id",
             element: <UpdateStore />,
           },
+          
+          // Products
           {
             path: "products",
             element: <Products />,
@@ -81,6 +83,8 @@ const router = createBrowserRouter([
             path: "products/create",
             element: <CreateProduct />,
           },
+
+          //Categories
           {
             path: "categories",
             element: <Categories />,

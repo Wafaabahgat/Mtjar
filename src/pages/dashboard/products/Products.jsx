@@ -1,12 +1,26 @@
 import { Link } from "react-router-dom";
 import DashboardContainer from "../../../components/Ui/DashboardContainer";
+import Pagination from "../../../components/Ui/Pagination";
+import useGet from "../../../hooks/useGet";
+import Loader from "../../../components/Loader";
+import { products } from "../../../slice/products/productsAction";
+import { AiFillEdit, AiOutlineDelete } from "react-icons/ai";
 
 const links = [
   {
     name: "products",
   },
 ];
+
 const Products = () => {
+  const { data, loading } = useGet({
+    states: "products",
+    allData: products,
+  });
+
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <DashboardContainer
       ttl="Products"
@@ -37,7 +51,32 @@ const Products = () => {
               <th>actions</th>
             </tr>
           </thead>
+          <tbody>
+            {data?.data
+              ? data?.data?.map((e) => (
+                  <tr key={e.id}>
+                    <td>{e.id}</td>
+                    <td>{e.name}</td>
+                    <td>{e.slug}</td>
+                    <td>{e.disc}</td>
+                    <td>{e?.parent?.name ? e?.parent?.name : "Main"}</td>
+                    <td>{e.status}</td>
+                    <td>
+                      <div className="flex items-center justify-center gap-2 text-xl">
+                        <Link to={`/dashboard/products/update/${e.id}`}>
+                          <AiFillEdit className="active:scale-95 cursor-pointer text-green-700" />
+                        </Link>
+                        <AiOutlineDelete className="active:scale-95 cursor-pointer text-red-800" />
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              : ""}
+          </tbody>
         </table>
+      </div>
+      <div className="mt-10">
+        <Pagination data={data} />
       </div>
     </DashboardContainer>
   );

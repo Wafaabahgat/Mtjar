@@ -15,6 +15,10 @@ import singleCategory from "../slice/categories/singleCategory";
 import updateCategory from "../slice/categories/UpdateCategory";
 import deleteCategory from "../slice/categories/deleteCategory";
 import createCategory from "../slice/categories/CreateCategory";
+import products from "../slice/products/products";
+import createProducts from "../slice/products/CreateProducts";
+import updateProducts from "../slice/products/UpdateProducts";
+import deleteProducts from "../slice/products/deleteProducts";
 
 export const store = configureStore({
   reducer: {
@@ -39,6 +43,12 @@ export const store = configureStore({
     updateCategory,
     deleteCategory,
     createCategory,
+
+    // Products
+    products,
+    updateProducts,
+    deleteProducts,
+    createProducts,
   },
 });
 

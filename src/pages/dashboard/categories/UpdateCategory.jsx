@@ -58,7 +58,6 @@ const UpdateCategory = () => {
     image?.img && formData.append("image", image.img);
     status && formData.append("status", status);
     formData.append("_method", "put");
-    console.log("URL:", `/api/v1/dashboard/categories/${id}`); // Check the URL
     handelUpdate({ id, dat: formData });
     console.log(id);
   };
