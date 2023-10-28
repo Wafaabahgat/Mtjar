@@ -99,9 +99,23 @@ const UpdateCategory = () => {
             onChange={(e) => setDisc(e.target.value)}
             error={errors?.disc}
           />
+          <InputSelect
+            label="Parent Category"
+            name="parent_id"
+            value={parent_id}
+            onChange={(e) => setparent_id(e.target.value)}
+            error={errors?.parent_id}
+            emptyOption="Main Category"
+            options={data?.categories?.map((e) => {
+              if (e?.id == e.data) {
+                return;
+              }
+              return { val: e?.data, name: e?.name };
+            })}
+          />
           <InputFile
             label="Select Category Img"
-            name="jj"
+            name="image"
             onChange={(e) => setImage(uploadImg(e))}
             error={errs?.image}
           />

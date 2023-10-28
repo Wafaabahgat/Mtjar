@@ -1,7 +1,7 @@
 import { cn } from "../../lib/utils";
 import Label from "./Label";
 
-const InputSelect = ({ name, label, options, error, ...props }) => {
+const InputSelect = ({ name, label, options, error,emptyOption, ...props }) => {
   const onErr = error ? "block" : "hidden";
 
   return (
@@ -14,6 +14,7 @@ const InputSelect = ({ name, label, options, error, ...props }) => {
         {...props}
       >
         <option hidden>Select {label}</option>
+        {emptyOption && <option value={null || ""}>{emptyOption}</option>}
         {options?.map((e) => (
           <option key={e.val} value={e.val}>
             {e.name}

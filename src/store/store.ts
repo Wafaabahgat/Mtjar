@@ -19,9 +19,13 @@ import products from "../slice/products/products";
 import createProducts from "../slice/products/CreateProducts";
 import updateProducts from "../slice/products/UpdateProducts";
 import deleteProducts from "../slice/products/deleteProducts";
+import { globalCategories } from "../slice/globals/globalsAction";
 
 export const store = configureStore({
   reducer: {
+    // Globals
+    globalCategories:globalCategories,
+
     // Auth
     counter: counterSlice,
     login: login,

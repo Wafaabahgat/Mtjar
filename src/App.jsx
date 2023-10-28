@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Root from "./pages/Root";
 import Forgetpass from "./pages/Auth/Forgetpass";
 import Resetpass from "./pages/Auth/Resetpass";
-// import AuthUser from "./middleware/AuthUser";
+import AuthUser from "./middleware/AuthUser";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
 import Stores from "./pages/dashboard/stores/Stores";
@@ -28,17 +28,17 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: (
-          // <AuthUser>
-          <Login />
-          // </AuthUser>
+          <AuthUser>
+            <Login />
+          </AuthUser>
         ),
       },
       {
         path: "/signup",
         element: (
-          // <AuthUser>
-          <Signup />
-          // </AuthUser>
+          <AuthUser>
+            <Signup />
+          </AuthUser>
         ),
       },
       {
@@ -57,10 +57,13 @@ const router = createBrowserRouter([
         path: "/Profile",
         element: <Profile />,
       },
+      //////Dashboard//////
       {
         path: "/dashboard",
         element: <Dashboard />,
         children: [
+          
+          //stores
           {
             path: "stores",
             element: <Stores />,
@@ -73,7 +76,7 @@ const router = createBrowserRouter([
             path: "stores/update/:id",
             element: <UpdateStore />,
           },
-          
+
           // Products
           {
             path: "products",
