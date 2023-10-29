@@ -3,8 +3,13 @@ import DashboardContainer from "../../../components/Ui/DashboardContainer";
 import Pagination from "../../../components/Ui/Pagination";
 import useGet from "../../../hooks/useGet";
 import Loader from "../../../components/Loader";
-import { products } from "../../../slice/products/productsAction";
+import {
+  clearErrors,
+  deleteProducts,
+  products,
+} from "../../../slice/products/productsAction";
 import { AiFillEdit, AiOutlineDelete } from "react-icons/ai";
+import useDelete from "../../../hooks/useDelete";
 
 const links = [
   {
@@ -18,7 +23,14 @@ const Products = () => {
     allData: products,
   });
 
-  if (loading) {
+  const { loading: DeleteDl, handleDelete } = useDelete({
+    states: "deleteProducts",
+    delFun: deleteProducts,
+    recalFun: products,
+    clearFun: clearErrors(),
+  });
+
+  if (loading || DeleteDl) {
     return <Loader />;
   }
   return (
@@ -66,7 +78,12 @@ const Products = () => {
                         <Link to={`/dashboard/products/update/${e.id}`}>
                           <AiFillEdit className="active:scale-95 cursor-pointer text-green-700" />
                         </Link>
-                        <AiOutlineDelete className="active:scale-95 cursor-pointer text-red-800" />
+                        <AiOutlineDelete
+                          className="active:scale-95 cursor-pointer text-red-800"
+                          onClick={() => {
+                            handleDelete(e.id);
+                          }}
+                        />
                       </div>
                     </td>
                   </tr>

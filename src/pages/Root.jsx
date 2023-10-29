@@ -10,6 +10,7 @@ const Root = () => {
 
   const dispatch = useDispatch();
 
+  // Globals//
   useEffect(() => {
     const fetchData = () => {
       dispatch(globalCategories());

@@ -28,11 +28,14 @@ const CreateProduct = () => {
     createFn: createProduct,
     clearFn: clearErrors(),
   });
-  
+
   // Globals
   const globalCats = useSelector((state) => state.globalCategories);
   const globalStores = useSelector((state) => state.globalStores);
+  console.log(globalCats);
+  console.log(globalStores);
 
+  
   const [name, setName] = useState("");
   const [disc, setDisc] = useState("");
   const [price, setPrice] = useState("");

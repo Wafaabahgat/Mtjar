@@ -37,7 +37,7 @@ const UserCard = ({ user, data, onclick, ...props }) => {
 
       <div className="p-2 cursor-pointer">
         <ul className="">
-          <Link>
+          <Link to="/dashboard">
             <li className="font-semibold ">Dashboard</li>
           </Link>
           <Link to="/home">

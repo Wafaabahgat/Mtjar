@@ -18,6 +18,7 @@ import CreateProduct from "./pages/dashboard/products/CreateProduct";
 import UpdateStore from "./pages/dashboard/stores/UpdateStore";
 import CreateCategory from "./pages/dashboard/categories/CreateCategory";
 import UpdateCategory from "./pages/dashboard/categories/UpdateCategory";
+import AdminUser from "./middleware/AdminUser";
 
 const router = createBrowserRouter([
   {
@@ -47,11 +48,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/forgetpass",
-        element: <Forgetpass />,
+        element: (
+          <AuthUser>
+            <Forgetpass />
+          </AuthUser>
+        ),
       },
       {
         path: "/Resetpass",
-        element: <Resetpass />,
+        element: (
+          <AuthUser>
+            <Resetpass />
+          </AuthUser>
+        ),
       },
       {
         path: "/Profile",
@@ -60,9 +69,12 @@ const router = createBrowserRouter([
       //////Dashboard//////
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: (
+          <AdminUser>
+            <Dashboard />
+          </AdminUser>
+        ),
         children: [
-          
           //stores
           {
             path: "stores",
