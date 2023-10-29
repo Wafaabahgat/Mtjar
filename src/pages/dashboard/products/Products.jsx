@@ -69,9 +69,13 @@ const Products = () => {
                   <tr key={e.id}>
                     <td>{e.id}</td>
                     <td>{e.name}</td>
-                    <td>{e.slug}</td>
                     <td>{e.disc}</td>
-                    <td>{e?.parent?.name ? e?.parent?.name : "Main"}</td>
+                    <td>{e.price}</td>
+                    <td>{e.compare_price}</td>
+                    <td>{e.store_id}</td>
+                    <td>{e.category_id}</td>
+                    <td>{e.rating}</td>
+                    <td>{e.type}</td>
                     <td>{e.status}</td>
                     <td>
                       <div className="flex items-center justify-center gap-2 text-xl">

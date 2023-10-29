@@ -23,7 +23,7 @@ const links = [
   },
 ];
 const CreateProduct = () => {
-  const { loading, handelCreate } = useCreate({
+  const { loading, errors, handelCreate } = useCreate({
     states: "createProducts",
     createFn: createProduct,
     clearFn: clearErrors(),
@@ -32,17 +32,14 @@ const CreateProduct = () => {
   // Globals
   const globalCats = useSelector((state) => state.globalCategories);
   const globalStores = useSelector((state) => state.globalStores);
-  console.log(globalCats);
-  console.log(globalStores);
 
-  
   const [name, setName] = useState("");
   const [disc, setDisc] = useState("");
   const [price, setPrice] = useState("");
   const [compare_price, setCompare_price] = useState("");
   const [image, setimage] = useState();
-  const [errs, setErrs] = useState();
   const [type, setType] = useState("");
+  const [rating, setrating] = useState("5");
   const [category_id, setCategory_id] = useState("");
   const [store_id, setStore_id] = useState("");
 
@@ -56,6 +53,7 @@ const CreateProduct = () => {
     price && formData.append("price", price);
     compare_price && formData.append("compare_price", compare_price);
     type && formData.append("type", type);
+    rating && formData.append("rating", rating);
     image?.img && formData.append("image", image.img);
     handelCreate(formData);
   };
@@ -79,7 +77,7 @@ const CreateProduct = () => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            error={errs?.name}
+            error={errors?.name}
             required
           />
           <FormInputDash
@@ -88,7 +86,7 @@ const CreateProduct = () => {
             type="text"
             value={disc}
             onChange={(e) => setDisc(e.target.value)}
-            error={errs?.disc}
+            error={errors?.disc}
           />
           <FormInputDash
             placeholder="Products Price..."
@@ -96,7 +94,7 @@ const CreateProduct = () => {
             type="text"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            error={errs?.price}
+            error={errors?.price}
           />
           <FormInputDash
             placeholder="Products Compare_price..."
@@ -104,13 +102,13 @@ const CreateProduct = () => {
             type="text"
             value={compare_price}
             onChange={(e) => setCompare_price(e.target.value)}
-            error={errs?.compare_price}
+            error={errors?.compare_price}
           />
           <InputSelect
             label="category"
             name="category_id"
             onChange={(e) => setCategory_id(e.target.value)}
-            error={errs?.category_id}
+            error={errors?.category_id}
             options={globalCats?.data?.map((e) => {
               if (e.id == e.data) {
                 return;
@@ -122,7 +120,7 @@ const CreateProduct = () => {
             label="store"
             name="store_id"
             onChange={(e) => setStore_id(e.target.value)}
-            error={errs?.store_id}
+            error={errors?.store_id}
             options={globalStores?.data?.map((e) => {
               if (e.id == e.data) {
                 return;
@@ -130,11 +128,24 @@ const CreateProduct = () => {
               return { val: e?.id, name: e?.name };
             })}
           />
+          <InputSelect
+            label="Rating"
+            name="rating"
+            options={[
+              { name: "5", val: "5" },
+              { name: "4", val: "4" },
+              { name: "3", val: "3" },
+              { name: "2", val: "2" },
+              { name: "1", val: "1" },
+            ]}
+            value={rating}
+            onChange={(e) => setrating(e.target.value)}
+          />
           <InputFile
             name="image"
             label="Selcet Product img"
             onChange={(e) => setimage(uploadImg(e))}
-            error={errs?.image}
+            error={errors?.image}
           />
           {image?.img && (
             <div className="p-2">

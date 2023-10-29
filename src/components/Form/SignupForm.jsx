@@ -82,7 +82,6 @@ const SignupForm = () => {
 
       <FormInput
         placeholder="New Password"
-        type="password"
         name="password"
         value={password}
         type={visible ? "text" : "password"}
