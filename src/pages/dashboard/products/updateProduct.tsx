@@ -58,7 +58,6 @@ const UpdateProduct = () => {
     name && formData.append("name", name);
     disc && formData.append("disc", disc);
     status && formData.append("status", status);
-    formData.append("_method", "put");
     category_id && formData.append("category_id", category_id);
     store_id && formData.append("store_id", store_id);
     price && formData.append("price", price);
@@ -67,6 +66,7 @@ const UpdateProduct = () => {
     rating && formData.append("rating", rating);
     type && formData.append("type", type);
     image?.img && formData.append("image", image.img);
+    formData.append("_method", "put");
     handelUpdate({ id, dat: formData });
     console.log(id);
   };
@@ -132,18 +132,23 @@ const UpdateProduct = () => {
           />
           <InputSelect
             ttl="category_id"
+            label="category_id"
+            value={category_id}
             onChange={(e) => setCategory_id(e.target.value)}
             error={errs?.category_id}
             options={[]}
           />
           <InputSelect
             ttl="store_id"
+            label="store_id"
+            value={store_id}
             onChange={(e) => setStore_id(e.target.value)}
             error={errs?.store_id}
             options={[]}
           />
           <InputSelect
             ttl="type"
+            label="type"
             options={[
               { name: "hot", val: "hot" },
               { name: "new", val: "new" },
@@ -153,6 +158,7 @@ const UpdateProduct = () => {
           />
           <InputFile
             name="image"
+            value={image}
             label="Selcet Product img"
             onChange={(e) => setimage(uploadImg(e))}
             error={errs?.image}
