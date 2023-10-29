@@ -19,6 +19,7 @@ import UpdateStore from "./pages/dashboard/stores/UpdateStore";
 import CreateCategory from "./pages/dashboard/categories/CreateCategory";
 import UpdateCategory from "./pages/dashboard/categories/UpdateCategory";
 import AdminUser from "./middleware/AdminUser";
+import UpdateProduct from "./pages/dashboard/products/updateProduct";
 
 const router = createBrowserRouter([
   {
@@ -97,6 +98,10 @@ const router = createBrowserRouter([
           {
             path: "products/create",
             element: <CreateProduct />,
+          },
+          {
+            path: "products/update/:id",
+            element: <UpdateProduct />,
           },
 
           //Categories
