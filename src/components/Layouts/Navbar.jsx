@@ -1,21 +1,15 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/mainLogo.png"; // Adjust the path as needed
 
-import {
-  AiOutlineShoppingCart,
-  AiOutlineSearch,
-  AiOutlineClose,
-  AiOutlineMenu,
-} from "react-icons/ai";
+import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
 import Avatar from "../Ui/Avatar";
 
 const Navbar = () => {
-  const [nav, setNav] = useState(false);
+  // const [nav, setNav] = useState(false);
 
-  const handelNav = () => {
-    setNav(!nav);
-  };
+  // const handelNav = () => {
+  //   setNav(!nav);
+  // };
 
   return (
     <div className="fixed left-0 top-0 w-full z-10 shadow-xl bg-white">
@@ -25,7 +19,7 @@ const Navbar = () => {
         </Link>
         <div className="sm:block hidden">
           <ul className="flex lg:text-xl md:text-md">
-            <Link>
+            <Link to="/home">
               <li className="p-5">Home</li>
             </Link>
             <Link>

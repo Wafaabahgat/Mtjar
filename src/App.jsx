@@ -20,6 +20,9 @@ import CreateCategory from "./pages/dashboard/categories/CreateCategory";
 import UpdateCategory from "./pages/dashboard/categories/UpdateCategory";
 import AdminUser from "./middleware/AdminUser";
 import UpdateProduct from "./pages/dashboard/products/updateProduct";
+import Carousels from "./pages/dashboard/carousels/Carousels";
+import CreateCarousels from "./pages/dashboard/carousels/CreateCarousels";
+import UpdateCarousels from "./pages/dashboard/carousels/UpdateCarousels";
 
 const router = createBrowserRouter([
   {
@@ -117,6 +120,21 @@ const router = createBrowserRouter([
             path: "categories/update/:id",
             element: <UpdateCategory />,
           },
+          //carousels
+          {
+            path: "carousels",
+            element: <Carousels />,
+          },
+          {
+            path: "carousels/create",
+            element: <CreateCarousels />,
+          },
+          
+          {
+            path: "carousels/update/:id",
+            element: <UpdateCarousels/>,
+          },
+          
         ],
       },
     ],

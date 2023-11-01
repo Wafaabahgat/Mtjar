@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 
-
 const useGet = ({ states, allData }) => {
   const dispatch = useDispatch();
   const { search } = useLocation();
@@ -24,7 +23,6 @@ const useGet = ({ states, allData }) => {
       toast.error(errors);
     }
   }, [success, errors]);
-
 
   return { data, loading: loading };
 };

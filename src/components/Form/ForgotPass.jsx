@@ -1,4 +1,3 @@
-// import React from "react";
 import FormInput from "../Form/FormInput";
 import { FaRegEnvelope } from "react-icons/fa";
 import Button from "../Ui/Button";
@@ -31,7 +30,6 @@ const ForgotPass = () => {
     if (success && msg) {
       toast.success(msg);
       // window.location.href = "/Resetpass";
-
       navigate("/Resetpass");
     }
     if (!success && msg) {

@@ -19,6 +19,13 @@ import products from "../slice/products/products";
 import createProducts from "../slice/products/CreateProducts";
 import updateProducts from "../slice/products/UpdateProducts";
 import deleteProducts from "../slice/products/deleteProducts";
+import singleProducts from "../slice/products/singleProducts";
+import carousels from "../slice/carousels/Carousels";
+import createCarousels from "../slice/carousels/CreateCarousels";
+import deleteCarousels from "../slice/carousels/deleteCarousels";
+import updateCarousels from "../slice/carousels/UpdateCarousels";
+import singleCarousels from "../slice/carousels/singleCarousels";
+import home from "../slice/Home/home";
 import globalCategories from "../slice/globals/globalsCategories";
 import globalStores from "../slice/globals/globalStores";
 
@@ -27,6 +34,9 @@ export const store = configureStore({
     // Globals
     globalCategories: globalCategories,
     globalStores: globalStores,
+
+    // Home
+    home: home,
 
     // Auth
     counter: counterSlice,
@@ -55,6 +65,14 @@ export const store = configureStore({
     updateProducts,
     deleteProducts,
     createProducts,
+    singleProducts,
+
+    //Carousels
+    carousels,
+    createCarousels,
+    deleteCarousels,
+    updateCarousels,
+    singleCarousels,
   },
 });
 

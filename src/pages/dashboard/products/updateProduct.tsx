@@ -17,8 +17,8 @@ import { uploadImg } from "../../../lib/utils";
 
 const links = [
   {
-    name: "product",
-    link: "product",
+    name: "products",
+    link: "products",
   },
   {
     name: "update",
@@ -101,6 +101,7 @@ const UpdateProduct = () => {
           <FormInputDash
             placeholder="Store Name..."
             ttl="Name"
+            name="name"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -109,6 +110,7 @@ const UpdateProduct = () => {
           <FormInputDash
             placeholder="Products Disc..."
             ttl="Disc"
+            name="Disc"
             type="text"
             value={disc}
             onChange={(e) => setDisc(e.target.value)}
@@ -116,6 +118,7 @@ const UpdateProduct = () => {
           />
           <FormInputDash
             type="number"
+            name="price"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             ttl="price"
@@ -127,13 +130,13 @@ const UpdateProduct = () => {
             value={compare_price}
             onChange={(e) => setCompare_price(e.target.value)}
             ttl="compare_price"
+            name="compare_price"
             placeholder="Product compare_price"
             error={errors?.compare_price}
           />
           <InputSelect
             ttl="category_id"
             label="category_id"
-            value={category_id}
             onChange={(e) => setCategory_id(e.target.value)}
             error={errs?.category_id}
             options={[]}
@@ -141,7 +144,6 @@ const UpdateProduct = () => {
           <InputSelect
             ttl="store_id"
             label="store_id"
-            value={store_id}
             onChange={(e) => setStore_id(e.target.value)}
             error={errs?.store_id}
             options={[]}
@@ -158,7 +160,6 @@ const UpdateProduct = () => {
           />
           <InputFile
             name="image"
-            value={image}
             label="Selcet Product img"
             onChange={(e) => setimage(uploadImg(e))}
             error={errs?.image}

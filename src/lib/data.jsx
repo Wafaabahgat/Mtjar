@@ -1,6 +1,6 @@
 import { AiFillDashboard } from "react-icons/ai";
 import { IoMdAppstore } from "react-icons/io";
-import { BiSolidStoreAlt } from "react-icons/bi";
+import { BiSolidStoreAlt,BiCarousel } from "react-icons/bi";
 import { FaShapes } from "react-icons/fa";
 
 const data = [
@@ -23,6 +23,11 @@ const data = [
     ttl: "Stores",
     link: "stores",
     icon: <BiSolidStoreAlt />,
+  },
+  {
+    ttl: "Carousels",
+    link: "carousels",
+    icon: <BiCarousel />,
   },
 ];
 export default data;
