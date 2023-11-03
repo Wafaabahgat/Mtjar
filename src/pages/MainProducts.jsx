@@ -26,14 +26,14 @@ const MainProducts = () => {
         <MetaDate ttl="Products" disc="Products page" />
         <div className="flex flex-col items-center justify-center mt-10">
           <Title
-            ttl="hotProd"
+            ttl="Products"
             className="bg-green-100 w-[500px] p-2 font-semibold text-xl"
           />
           <div className="flex p-4 mt-2 gap-3 ">
             <div className="w-[1100px] h-[370px] shadow-2xl border-t rounded-md py-8 px-4">
               <div className="w-full flex-1  ">
                 <Slider {...settings}>
-                  {data?.hotProd?.map((e) => {
+                  {data?.data?.products?.map((e) => {
                     return (
                       <div className="border h-[260px] rounded-md relative">
                         <button className="flex item-center justify-center right-0 mx-2 mt-2 absolute top-0 ">

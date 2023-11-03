@@ -15,11 +15,7 @@ const BestSellingProd = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
   };
-  const dispatch = useDispatch();
-  const { loading, data, errors } = useSelector((state) => state.home);
-  if (loading) {
-    return <Loader />;
-  }
+ 
   return (
     <>
       <div className="flex flex-col items-center justify-center mt-10">
@@ -34,7 +30,7 @@ const BestSellingProd = () => {
                 {data?.bestSellingProd?.map((e) => {
                   return (
                     <div className="border h-[260px] rounded-md relative hover:scale-105">
-                        <button className="flex item-center justify-center right-0 mx-2 mt-2 absolute -top-1 ">
+                      <button className="flex item-center justify-center right-0 mx-2 mt-2 absolute -top-1 ">
                         <BsCartPlus className="border rounded-full w-[35px] h-[35px] p-1 " />
                       </button>
                       <img

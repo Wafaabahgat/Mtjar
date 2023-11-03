@@ -3,7 +3,16 @@
   margin: 0 auto;
   text-align: center;
 }
+.slick-arrow {
+  background: #333 !important;
+  color: beige !important;
+  top: 25% !important;
 
+}
+.slick-slide{
+margin-left: 5px;
+margin-right: 5px;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
