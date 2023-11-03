@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Loader from "../Loader";
+import Loader from "../components/Loader";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+// import cn from "../../lib/utils";
 
 const Carousels = () => {
   const dispatch = useDispatch();
@@ -24,22 +25,23 @@ const Carousels = () => {
       setImgCurrent(data?.carusels?.length);
     }
   };
-  console.log(data?.carusels);
+  // console.log(data?.carusels);
 
-  console.log(data);
+  // console.log(data);
+
   if (loading) {
     return <Loader />;
   }
   return (
     <>
-      <div className=" mx-auto bg-green-200 rounded-md">
-        <div className="relative flex w-[1100px] h-[400px] max-h-[500px]">
+      <div className="mx-auto border border-slate-300 rounded-md">
+        <div className="relative flex w-[1100px] h-[400px] items-center">
           <div className="w-full flex-1">
             {data?.carusels?.map((e, i) => {
               return i + 1 === imgCurrent ? (
                 <img
                   key={e?.id}
-                  className="object-contain w-full h-[500px] max-h-[500px]"
+                  className="object-contain w-full h-[450px]"
                   src={e?.image}
                   alt=""
                 />
@@ -52,14 +54,25 @@ const Carousels = () => {
             className="absolute top-0 left-0 bottom-0 flex justify-center items-center"
             onClick={handlePrev}
           >
-            <FaArrowLeft className="text-2xl text-slate-50" />
+            <FaArrowLeft className="text-2xl text-slate-50 bg-slate-800 rounded-full" />
           </button>
           <button
             className="absolute top-0 right-0 bottom-0 flex justify-center items-center"
             onClick={handleNext}
           >
-            <FaArrowRight className="text-2xl text-slate-50" />
+            <FaArrowRight className="text-2xl text-slate-50 bg-slate-800 rounded-full" />
           </button>
+          <div className="absolute bottom-3 right-1/2 left-1/2 -translate-x-1/2 flex gap-4 items-center">
+            {data?.carusels?.map((e, i) => (
+              <span
+                key={e?.id}
+                className={
+                  (i === imgCurrent - 1 ? "bg-slate-800" : "bg-slate-300",
+                  " cursor-pointer w-3 h-3 block rounded-full")
+                }
+              ></span>
+            ))}
+          </div>
         </div>
       </div>
     </>

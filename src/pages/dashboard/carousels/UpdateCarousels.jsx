@@ -8,7 +8,11 @@ import useUpdate from "../../../hooks/useUpdate ";
 
 import useSingle from "../../../hooks/useSingle";
 import { useParams } from "react-router-dom";
-import { clearErrors, singleCarousels, updateCarousels } from "../../../slice/carousels/CarouselsAction";
+import {
+  clearErrors,
+  singleCarousels,
+  updateCarousels,
+} from "../../../slice/carousels/CarouselsAction";
 
 const links = [
   {
@@ -37,10 +41,8 @@ const UpdateCarousels = () => {
     clearFn: clearErrors(),
   });
 
-  
   const [image, setImage] = useState();
   const [errs, setErrs] = useState();
-
 
   const fetchData = (e) => {
     e.preventDefault();
@@ -51,7 +53,7 @@ const UpdateCarousels = () => {
     console.log(id);
   };
   useEffect(() => {
-    if (data?.name) {
+    if (data?.image) {
       setImage({ ...image, imgApi: data?.image });
     }
   }, [data]);
@@ -74,13 +76,23 @@ const UpdateCarousels = () => {
             onChange={(e) => setImage(uploadImg(e))}
             error={errs?.image}
           />
-          <div className="p-2">
-            <img
-              src={image?.img && URL?.createObjectURL(image?.img)}
-              className="h-24 w-24 object-contain"
-              alt=""
-            />
-          </div>
+          {image?.imgApi ? (
+            <div className="p-2">
+              <img
+                src={`http://localhost:8000/storage/${image?.imgApi}`}
+                className="h-24 w-24 object-contain"
+                alt=""
+              />
+            </div>
+          ) : (
+            <div className="p-2">
+              <img
+                src={image?.img && URL?.createObjectURL(image?.img)}
+                className="h-24 w-24 object-contain"
+                alt="img"
+              />
+            </div>
+          )}
 
           <Button
             type="submit"

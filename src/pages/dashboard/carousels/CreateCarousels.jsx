@@ -34,7 +34,7 @@ const CreateCarousels = () => {
   const fetchData = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("image", image.img);
+    image?.img && formData.append("image", image.img);
     handelCreate(formData);
   };
 

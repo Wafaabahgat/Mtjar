@@ -3,6 +3,7 @@ import Navbar from "../components/Layouts/Navbar";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { globalCategories, globalStores } from "../slice/globals/globalsAction";
+import { home } from "../slice/Home/HomeAction";
 
 const Root = () => {
   const location = useLocation().pathname;
@@ -15,6 +16,7 @@ const Root = () => {
     const fetchData = () => {
       dispatch(globalCategories());
       dispatch(globalStores());
+      dispatch(home());
     };
     fetchData();
   }, []);

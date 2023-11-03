@@ -16,7 +16,6 @@ const config = {
 export const home = createAsyncThunk("home/home", async (args, thunkAPI) => {
   const { rejectWithValue } = thunkAPI;
   try {
-    // const { data } = await axios.post("/register", args);
 
     // const { data } = await axios.get(`/home${args ? args : ""}`, config);
     const { data } = await axios.get("/home", args);
