@@ -20,7 +20,7 @@ import UpdateStore from "./pages/dashboard/stores/UpdateStore";
 import CreateCategory from "./pages/dashboard/categories/CreateCategory";
 import UpdateCategory from "./pages/dashboard/categories/UpdateCategory";
 import AdminUser from "./middleware/AdminUser";
-import UpdateProduct from "./pages/dashboard/products/UpdateProduct";
+// import UpdateProduct from "./pages/dashboard/products/UpdateProduct";
 import Carousels from "./pages/dashboard/carousels/Carousels";
 import CreateCarousels from "./pages/dashboard/carousels/CreateCarousels";
 import UpdateCarousels from "./pages/dashboard/carousels/UpdateCarousels";
@@ -107,10 +107,10 @@ const router = createBrowserRouter([
             path: "products/create",
             element: <CreateProduct />,
           },
-          {
-            path: "products/update/:id",
-            element: <UpdateProduct />,
-          },
+          // {
+          //   path: "products/update/:id",
+          //   element: <UpdateProduct />,
+          // },
 
           //Categories
           {
