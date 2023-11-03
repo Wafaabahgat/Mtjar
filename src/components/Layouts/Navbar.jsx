@@ -22,14 +22,14 @@ const Navbar = () => {
             <Link to="/home">
               <li className="p-5">Home</li>
             </Link>
-            <Link>
+            <Link to="/mainProducts">
               <li className="p-5">Products</li>
             </Link>
             <Link>
               <li className="p-5">Contact</li>
             </Link>
             <Link>
-              <li className="p-5"> cart</li>
+              <li className="p-5">cart</li>
             </Link>
             <Link>
               <li className="p-5">

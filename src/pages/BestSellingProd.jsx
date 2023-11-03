@@ -1,4 +1,3 @@
-
 import { useDispatch, useSelector } from "react-redux";
 import Title from "../components/Ui/Title";
 import Loader from "../components/Loader";
@@ -30,12 +29,12 @@ const BestSellingProd = () => {
         />
         <div className="flex p-4 mt-2 gap-3 ">
           <div className="w-[1100px] h-[370px] shadow-2xl border-t rounded-md py-8 px-4">
-            <div className="w-full flex-1  ">
+            <div className="w-full flex-1">
               <Slider {...settings}>
                 {data?.bestSellingProd?.map((e) => {
                   return (
-                    <div className="border h-[290px] rounded-md">
-                      <button className="flex mx-2 mt-2">
+                    <div className="border h-[260px] rounded-md relative hover:scale-105">
+                        <button className="flex item-center justify-center right-0 mx-2 mt-2 absolute -top-1 ">
                         <BsCartPlus className="border rounded-full w-[35px] h-[35px] p-1 " />
                       </button>
                       <img
@@ -45,11 +44,16 @@ const BestSellingProd = () => {
                         alt=""
                       />
                       <p className="font-semibold text-xl">{e.name}</p>
-                      <p className="text-md">{e.disc}</p>
-                      <button className="ml-2 flex items-start -mt-2 border rounded-full bg-yellow-200  px-2">
-                        <AiOutlineStar className=" w-[35px] h-[35px] p-1" />
-                        <p className="flex my-auto">{e.rating}</p>
-                      </button>
+                      <p className="text-md text-slate-400">{e.disc}</p>
+                      <div className="flex relative mt-6">
+                        <button className="ml-2 flex items-start -mt-2 border rounded-full bg-yellow-200  px-2">
+                          <AiOutlineStar className=" w-[35px] h-[35px] p-1" />
+                          <p className="flex my-auto">{e.rating}</p>
+                        </button>
+                        <span className="font-semibold text-xl absolute right-2">
+                          {e.price}$
+                        </span>
+                      </div>
                     </div>
                   );
                 })}

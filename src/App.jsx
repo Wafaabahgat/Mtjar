@@ -4,6 +4,7 @@ import "./App.css";
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
 import Home from "./pages/Home";
+import MainProducts from "./pages/MainProducts";
 import Root from "./pages/Root";
 import Forgetpass from "./pages/Auth/Forgetpass";
 import Resetpass from "./pages/Auth/Resetpass";
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <Home />,
+      },
+      {
+        path: "/mainProducts",
+        element: <MainProducts />,
       },
       {
         path: "/forgetpass",

@@ -154,8 +154,8 @@ const UpdateProduct = () => {
             options={[
               { name: "hot", val: "hot" },
               { name: "new", val: "new" },
-              { name: "top", val: "top" },
-              { name: "bestSelling", val: "bestSelling" },
+              { name: "top_rated", val: "top_rated" },
+              { name: "best_selling", val: "best_selling" },
             ]}
             value={type}
             onChange={(e) => setType(e.target.value)}
