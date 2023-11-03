@@ -4,7 +4,7 @@ import "./App.css";
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
 import Home from "./pages/Home";
-import MainProducts from "./pages/MainProducts";
+import MainProducts from "./components/Products/MainProducts";
 import Root from "./pages/Root";
 import Forgetpass from "./pages/Auth/Forgetpass";
 import Resetpass from "./pages/Auth/Resetpass";
@@ -20,7 +20,7 @@ import UpdateStore from "./pages/dashboard/stores/UpdateStore";
 import CreateCategory from "./pages/dashboard/categories/CreateCategory";
 import UpdateCategory from "./pages/dashboard/categories/UpdateCategory";
 import AdminUser from "./middleware/AdminUser";
-// import UpdateProduct from "./pages/dashboard/products/UpdateProduct";
+import UpdateProduct from "./pages/dashboard/products/UpdateProduct";
 import Carousels from "./pages/dashboard/carousels/Carousels";
 import CreateCarousels from "./pages/dashboard/carousels/CreateCarousels";
 import UpdateCarousels from "./pages/dashboard/carousels/UpdateCarousels";
@@ -107,10 +107,10 @@ const router = createBrowserRouter([
             path: "products/create",
             element: <CreateProduct />,
           },
-          // {
-          //   path: "products/update/:id",
-          //   element: <UpdateProduct />,
-          // },
+          {
+            path: "products/update/:id",
+            element: <UpdateProduct />,
+          },
 
           //Categories
           {
@@ -134,12 +134,11 @@ const router = createBrowserRouter([
             path: "carousels/create",
             element: <CreateCarousels />,
           },
-          
+
           {
             path: "carousels/update/:id",
-            element: <UpdateCarousels/>,
+            element: <UpdateCarousels />,
           },
-          
         ],
       },
     ],

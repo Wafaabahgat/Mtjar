@@ -4,14 +4,19 @@
   text-align: center;
 }
 .slick-arrow {
-  background: #333 !important;
-  color: beige !important;
-  top: 25% !important;
-
+  background-color: #333 !important;
+  top: 30% !important;
+  border-radius: 50px !important;
 }
-.slick-slide{
-margin-left: 5px;
-margin-right: 5px;
+.slick-slide {
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+}
+
+.slick-dots {
+  display: flex !important ;
+  justify-content: center !important;
+  top: 270px !important;
 }
 .logo {
   height: 6em;

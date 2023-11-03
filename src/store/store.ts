@@ -25,18 +25,21 @@ import createCarousels from "../slice/carousels/CreateCarousels";
 import deleteCarousels from "../slice/carousels/deleteCarousels";
 import updateCarousels from "../slice/carousels/UpdateCarousels";
 import singleCarousels from "../slice/carousels/singleCarousels";
-import home from "../slice/Home/home";
 import globalCategories from "../slice/globals/globalsCategories";
 import globalStores from "../slice/globals/globalStores";
+import home from "../slice/Home/home";
+import MainProducts from "../slice/Home/MainProducts";
 
 export const store = configureStore({
   reducer: {
+
     // Globals
     globalCategories: globalCategories,
     globalStores: globalStores,
 
     // Home
     home: home,
+    MainProducts: MainProducts,
 
     // Auth
     counter: counterSlice,
