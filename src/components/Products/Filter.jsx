@@ -46,7 +46,7 @@ const Filter = () => {
           <h4 className="text-slate-500">1 star or more</h4>
           <input className="w-[95%]" type="range" name="star" />
         </div>
-        <div className="flex items-start flex-col ml-2 gap-1">
+        {/* <div className="flex items-start flex-col ml-2 gap-1">
           <Title
             className="text-xl font-semibold mt-4 bg-slate-100 border shadow-md px-6 py-2 rounded-sm mb-2"
             ttl="Gender"
@@ -58,7 +58,7 @@ const Filter = () => {
               return { val: e?.id, name: e?.name };
             })}
           />
-        </div>
+        </div> */}
       </div>
     </>
   );

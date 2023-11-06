@@ -40,7 +40,7 @@ const NewProd = ({data,ttl}) => {
                       <p className="font-semibold text-xl line-clamp-1">{e.name}</p>
                       <p className="text-md line-clamp-1 text-slate-400">{e.disc}</p>
                       <div className="flex relative mt-2">
-                        <button className="ml-2 flex items-start border rounded-full bg-yellow-200  px-2">
+                        <button className="ml-2 flex items-start border rounded-full bg-yellow-200 px-2">
                           <AiOutlineStar className=" w-[35px] h-[35px] p-1" />
                           <p className="flex my-auto">{e.rating}</p>
                         </button>
