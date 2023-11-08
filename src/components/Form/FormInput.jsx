@@ -17,7 +17,7 @@ const FormInput = ({
         className={
           error
             ? "ring-red-500 border-red-500 ring-1 lg:w-64 md:w-52 flex items-center p-3 mb-3 rounded-md "
-            : "bg-gray-200 outline-none lg:w-72 h-10 md:w-56 w-45 flex items-center p-3 mb-3 rounded-md"
+            : "bg-gray-200 outline-none lg:w-72 h-10 md:w-56 w-48 flex items-center p-3 mb-3 rounded-md"
         }
       >
         {previcon}

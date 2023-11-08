@@ -77,8 +77,8 @@ const UpdateCategory = () => {
 
   return (
     <DashboardContainer ttl="Update Category" links={links}>
-      <div className="border m-auto px-6 border-slate-300 rounded-lg max-w-[800px] w-full min-w-[300px] py-4">
-        <h3 className="font-semibold text-xl pb-2">UPDATE</h3>
+      <div className="border m-auto px-6 border-slate-300 rounded-lg lg:w-[800px] md:w-[680px] sm:w-[450px] w-[350px] py-4">
+        <h3 className="font-semibold lg:text-xl text-lg pb-2">Update</h3>
         <form
           className="flex flex-col justify-start items-start w-[750px]"
           onSubmit={fetchData}
@@ -140,7 +140,7 @@ const UpdateCategory = () => {
             type="submit"
             text="Update"
             variant={"default"}
-            className="bg-green-500 text-slate-50 w-full rounded-md"
+            className="bg-green-500 text-slate-50 lg:w-[750px] md:w-[630px] sm:w-[410px] w-[300px] rounded-md"
           />
         </form>
       </div>

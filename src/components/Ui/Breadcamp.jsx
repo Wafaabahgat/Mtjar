@@ -6,10 +6,10 @@ const Breadcamp = ({ ttl, links }) => {
       <div className="flex items-center flex-wrap md:text-lg sm:text-base text-sm px-2">
         <Link
           key={0}
-          className="font-semibold underline mx-1 capitalize"
+          className="font-semibold underline mx-1"
           to={`/dashboard`}
         >
-          dashboard
+          Dashboard
         </Link>
         {"/"}
         {links?.map((l, i) => (

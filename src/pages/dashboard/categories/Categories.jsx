@@ -42,7 +42,7 @@ const Categories = () => {
     >
       <div className="lg:w-[1000px] md:w-[750px] sm:w-[500px] w-[300px]">
         <Link
-          className="bg-green-500 flex justify-center text-slate-50  text-lg py-2 text-center rounded-md hover:opacity-80 active:scale-90"
+          className="bg-green-500 flex justify-center text-slate-50 lg:text-lg md:text-xl py-2 text-center rounded-md hover:opacity-80 active:scale-90"
           to="/dashboard/categories/create"
         >
           Create New Category

@@ -43,8 +43,8 @@ const CreateCarousels = () => {
   }
   return (
     <DashboardContainer ttl="Carousels" links={links}>
-      <div className="border m-auto px-6 border-slate-300 rounded-lg max-w-[800px] w-full min-w-[300px] py-4">
-        <h3 className="font-semibold text-xl pb-2">Create New Carousels</h3>
+      <div className="border m-auto px-6 border-slate-300 rounded-lg lg:w-[800px] md:w-[680px] sm:w-[450px] w-[350px] py-4">
+        <h3 className="font-semibold lg:text-xl text-md pb-2 mb-2 ">Create New Carousels</h3>
         <form
           className="flex flex-col justify-start items-start w-[750px]"
           onSubmit={fetchData}
@@ -67,7 +67,7 @@ const CreateCarousels = () => {
             type="submit"
             text="Create"
             variant={"default"}
-            className="bg-green-500 text-slate-50 w-full rounded-md"
+            className="bg-green-500 text-slate-50 lg:w-[750px] md:w-[630px] sm:w-[410px] w-[300px] rounded-md"
           />
         </form>
       </div>

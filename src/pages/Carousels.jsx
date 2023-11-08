@@ -32,7 +32,7 @@ const Carousels = () => {
   return (
     <>
       <div className="mx-auto border border-slate-300 rounded-md">
-        <div className="relative flex w-[1100px] h-[400px] items-center">
+        <div className="relative flex lg:w-[1100px] md:w-[770px] lg:h-[400px] md:h-[300px] sm:h-[230px] h-[200px] items-center">
           <div className="w-full flex-1">
             {data?.carusels?.map((e, i) => {
               return i + 1 === imgCurrent ? (
@@ -51,13 +51,13 @@ const Carousels = () => {
             className="absolute top-0 left-0 bottom-0 flex justify-center items-center"
             onClick={handlePrev}
           >
-            <FaArrowLeft className="text-2xl text-slate-50 bg-slate-800 rounded-full" />
+            <FaArrowLeft className="lg:text-2xl text-xl text-slate-50 bg-slate-800 rounded-full" />
           </button>
           <button
             className="absolute top-0 right-0 bottom-0 flex justify-center items-center"
             onClick={handleNext}
           >
-            <FaArrowRight className="text-2xl text-slate-50 bg-slate-800 rounded-full" />
+            <FaArrowRight className="lg:text-2xl text-xl text-slate-50 bg-slate-800 rounded-full" />
           </button>
           <div className="absolute bottom-3 right-1/2 left-1/2 -translate-x-1/2 flex gap-4 items-center">
             {data?.carusels?.map((e, i) => (
