@@ -31,6 +31,28 @@ export const mainProducts = createAsyncThunk(
     }
   }
 );
+// *********** Single *********** //
+export const userSingleProducts = createAsyncThunk(
+  "home/single",
+  async (args: number, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI;
+    try {
+      // const { data } = await axios.get(`/products/product-1/${args}`, config);
+      const { data } = await axios.post(
+        `/products/product/${args.slug}`,
+        args.dat,
+        config
+      );
+      return data;
+    } catch (err) {
+      if (err?.response?.data?.message === "Unauthenticated.") {
+        return rejectWithValue(err?.response?.data?.message);
+      }
+
+      return rejectWithValue(err?.response?.data);
+    }
+  }
+);
 
 export const clearErrors = createAsyncThunk("home/clear", async () => {
   return true;

@@ -13,6 +13,7 @@ const ForgotPass = () => {
   const [email, setemail] = useState("");
 
   const dispatch = useDispatch();
+
   const { loading, success, msg } = useSelector(
     (state) => state.forgetPassword
   );
@@ -42,19 +43,19 @@ const ForgotPass = () => {
   }
   return (
     <form
-      className="w-[500px] h-[300px] sm:w-[360px] sm:h-[260px] bg-white rounded-2xl  py-12 px-12"
+      className="lg:w-[400px] w-[300px]  h-[250px] flex flex-col items-center bg-white rounded-2xl py-8 px-12"
       onSubmit={(e) => {
         handleForgetPass(e);
       }}
     >
-      <p className="text-green-500 text-3xl font-bold mb-2 lg:text-2xl md:text-xl">
+      <p className="text-green-500 font-bold mb-2 lg:text-2xl text-xl">
         Forget Password
       </p>
-      <p className="font-semibold text-gray-400 sm:text-sm">
+      <p className="font-semibold text-gray-400 text-sm">
         There will be sent a code to your email...
       </p>
 
-      <div className="mt-7 ml-20 sm:ml-5">
+      <div className="mt-4 ">
         <FormInput
           type="email"
           name="email"
@@ -63,13 +64,13 @@ const ForgotPass = () => {
           onChange={(e) => setemail(e.target.value)}
           previcon={<FaRegEnvelope className="mr-3 text-gray-400" />}
         />
+        <Button
+          type="submit"
+          text="submit"
+          variant="default"
+          className="bg-green-500 text-white px-5"
+        />
       </div>
-      <Button
-        type="submit"
-        text="submit"
-        variant="default"
-        className="bg-green-500 text-white sm:mt-2"
-      />
     </form>
   );
 };

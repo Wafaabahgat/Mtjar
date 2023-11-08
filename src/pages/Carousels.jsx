@@ -10,7 +10,7 @@ const Carousels = () => {
   const [imgCurrent, setImgCurrent] = useState(1);
 
   const handleNext = () => {
-    console.log(data?.carusels?.length);
+    // console.log(data?.carusels?.length);
 
     if (data?.carusels?.length === imgCurrent) {
       setImgCurrent(1);
@@ -25,9 +25,6 @@ const Carousels = () => {
       setImgCurrent(data?.carusels?.length);
     }
   };
-  // console.log(data?.carusels);
-
-  // console.log(data);
 
   if (loading) {
     return <Loader />;

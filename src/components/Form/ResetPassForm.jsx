@@ -29,7 +29,7 @@ const ResetpassForm = () => {
     if (!otp) {
       return toast.error("Otp is required!!");
     }
-    dispatch(ResetPass({ otp, password,email }));
+    dispatch(ResetPass({ otp, password, email }));
   };
 
   useEffect(() => {
@@ -52,20 +52,19 @@ const ResetpassForm = () => {
   return (
     <>
       <form
-        className="w-[510px] h-[450px] sm:w-[360px] sm:h-[260px] bg-white rounded-2xl  py-12 px-12"
+        className="lg:w-[400px] md:w-[300px] w-[250px] h-[350px] bg-white rounded-2xl py-6 flex flex-col items-center"
         onSubmit={(e) => {
           handleCode(e);
         }}
       >
-        <p className="text-green-500 text-3xl font-bold mb-2 lg:text-2xl md:text-xl">
+        <p className="text-green-500 font-bold mb-2 lg:text-2xl text-xl">
           Reset Password
         </p>
-        <p className="font-semibold text-gray-400 sm:text-sm">
-          Please check your emails for a message with your code. Your code is 6
-          numbers long.
+        <p className="font-semibold text-gray-400">
+          Please check your emails for a message with your code.
         </p>
 
-        <div className="mt-7 ml-20 sm:ml-5">
+        <div className="mt-7">
           <FormInput
             type="text"
             name="text"
@@ -109,7 +108,7 @@ const ResetpassForm = () => {
           type="submit"
           text="submit"
           variant="default"
-          className="bg-green-500 text-white sm:mt-2"
+          className="bg-green-500 text-white mt-2 px-6"
         />
       </form>
     </>

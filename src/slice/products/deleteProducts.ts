@@ -12,7 +12,7 @@ const initialState: Slice<object> = {
 };
 
 const DeleteProductsSlice = createSlice({
-  name: "categories",
+  name: "products",
   initialState,
   reducers: {},
   extraReducers: {

@@ -30,7 +30,7 @@ const useSingle = ({ states, callfun }) => {
     fetchData();
   }, [dispatch,id]);
 
-  return { loading: loading, data };
+  return { loading: loading, data:data };
 };
 
 export default useSingle;

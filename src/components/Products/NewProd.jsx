@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-const NewProd = ({data,ttl}) => {
+const NewProd = ({ data, ttl }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -13,7 +13,7 @@ const NewProd = ({data,ttl}) => {
     slidesToShow: 3,
     slidesToScroll: 1,
   };
-  
+
   return (
     <>
       <div className="flex flex-col items-center justify-center mt-10">
@@ -27,8 +27,11 @@ const NewProd = ({data,ttl}) => {
               <Slider {...settings}>
                 {data?.map((e) => {
                   return (
-                    <div className="border h-[240px] rounded-md relative hover:scale-105" key={e.id}>
-                        <button className="flex item-center justify-center right-0 mx-2 mt-2 absolute -top-1 ">
+                    <div
+                      className="border h-[240px] rounded-md relative hover:scale-105"
+                      key={e.id}
+                    >
+                      <button className="flex item-center justify-center right-0 mx-2 mt-2 absolute -top-1 ">
                         <BsCartPlus className="border rounded-full w-[35px] h-[35px] p-1 " />
                       </button>
                       <img
@@ -37,8 +40,12 @@ const NewProd = ({data,ttl}) => {
                         src={e?.image}
                         alt=""
                       />
-                      <p className="font-semibold text-xl line-clamp-1">{e.name}</p>
-                      <p className="text-md line-clamp-1 text-slate-400">{e.disc}</p>
+                      <p className="font-semibold text-xl line-clamp-1">
+                        {e.name}
+                      </p>
+                      <p className="text-md line-clamp-1 text-slate-400">
+                        {e.disc}
+                      </p>
                       <div className="flex relative mt-2">
                         <button className="ml-2 flex items-start border rounded-full bg-yellow-200 px-2">
                           <AiOutlineStar className=" w-[35px] h-[35px] p-1" />

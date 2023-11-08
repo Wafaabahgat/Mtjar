@@ -14,6 +14,7 @@ import useUpdate from "../../../hooks/useUpdate ";
 import InputSelect from "../../../components/Ui/InputSelect";
 import Button from "../../../components/Ui/Button";
 import { uploadImg } from "../../../lib/utils";
+import { useSelector } from "react-redux";
 
 const links = [
   {
@@ -38,6 +39,10 @@ const UpdateProduct = () => {
     updateFn: updateProducts,
     clearFn: clearErrors(),
   });
+
+  // Globals
+  const globalCats = useSelector((state) => state.globalCategories);
+  const globalStores = useSelector((state) => state.globalStores);
 
   const [name, setName] = useState("");
   const [disc, setDisc] = useState("");
@@ -139,14 +144,24 @@ const UpdateProduct = () => {
             label="category_id"
             onChange={(e) => setCategory_id(e.target.value)}
             error={errs?.category_id}
-            options={[]}
+            options={globalCats?.data?.map((e) => {
+              if (e.id == e.data) {
+                return;
+              }
+              return { val: e?.id, name: e?.name };
+            })}
           />
           <InputSelect
             ttl="store_id"
             label="store_id"
             onChange={(e) => setStore_id(e.target.value)}
             error={errs?.store_id}
-            options={[]}
+            options={globalStores?.data?.map((e) => {
+              if (e.id == e.data) {
+                return;
+              }
+              return { val: e?.id, name: e?.name };
+            })}
           />
           <InputSelect
             ttl="type"

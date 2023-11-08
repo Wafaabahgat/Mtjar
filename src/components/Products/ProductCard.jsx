@@ -9,8 +9,12 @@ import { mainProducts } from "../../slice/Home/MainProductsAction";
 import { adminImgUrl } from "../../lib/utils";
 import Title from "../Ui/Title";
 import Search from "../Ui/Search";
+import { useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const ProductCard = () => {
+  const navigate = useNavigate();
+
   const handleImg = (e) => {
     return e?.image?.includes("http")
       ? e?.image
@@ -21,6 +25,10 @@ const ProductCard = () => {
     states: "MainProducts",
     allData: mainProducts,
   });
+
+  const handleProduct = () => {
+    navigate(`/SingleProducts/${slug}`);
+  };
 
   if (loading) {
     return <Loader />;
@@ -33,10 +41,14 @@ const ProductCard = () => {
           ttl="All Products"
           className="bg-green-100 w-[500px] p-2 font-semibold text-xl mb-4"
         />
-        <Search/>
+        <Search />
         <div className="flex mt-2">
+          {/* <Link to="/SingleProducts"> */}
           <div className="w-[1100px] shadow-2xl border-t border-l rounded-md py-8 px-4">
-            <div className="w-full gap-4 p-2 grid grid-cols-4">
+            <form
+              className="w-full gap-4 p-2 grid grid-cols-4"
+              onClick={handleProduct}
+            >
               {data?.data?.map((e) => {
                 return (
                   <div
@@ -66,8 +78,9 @@ const ProductCard = () => {
                   </div>
                 );
               })}
-            </div>
+            </form>
           </div>
+          {/* </Link> */}
         </div>
       </div>
     </>

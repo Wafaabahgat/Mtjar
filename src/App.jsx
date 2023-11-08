@@ -24,6 +24,7 @@ import UpdateProduct from "./pages/dashboard/products/UpdateProduct";
 import Carousels from "./pages/dashboard/carousels/Carousels";
 import CreateCarousels from "./pages/dashboard/carousels/CreateCarousels";
 import UpdateCarousels from "./pages/dashboard/carousels/UpdateCarousels";
+import SingleProducts from "./components/Products/SingleProducts";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "/mainProducts",
         element: <MainProducts />,
+      },
+      {
+        path: "/SingleProducts",
+        element: <SingleProducts />,
       },
       {
         path: "/forgetpass",

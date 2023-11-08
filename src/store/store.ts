@@ -29,10 +29,10 @@ import globalCategories from "../slice/globals/globalsCategories";
 import globalStores from "../slice/globals/globalStores";
 import home from "../slice/Home/home";
 import MainProducts from "../slice/Home/MainProducts";
+import userSingleProducts from "../slice/Home/userSingleProducts";
 
 export const store = configureStore({
   reducer: {
-
     // Globals
     globalCategories: globalCategories,
     globalStores: globalStores,
@@ -40,6 +40,7 @@ export const store = configureStore({
     // Home
     home: home,
     MainProducts: MainProducts,
+    userSingleProducts: userSingleProducts,
 
     // Auth
     counter: counterSlice,

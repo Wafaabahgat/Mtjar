@@ -110,7 +110,7 @@ const SignupForm = () => {
         type="submit"
         text="Create an account"
         variant={"default"}
-        className="bg-green-500"
+        className="bg-green-500 px-4"
       />
     </FormModelAuth>
   );

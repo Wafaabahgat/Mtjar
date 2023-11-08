@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { clearErrors, singleProducts } from "./productsAction";
+import { clearErrors, userSingleProducts } from "./MainProductsAction";
 import { Slice, CategoryType } from "../../lib/types";
 
 const initialState: Slice<CategoryType> = {
@@ -10,20 +10,20 @@ const initialState: Slice<CategoryType> = {
   data: {},
 };
 
-const singleProductsSlice = createSlice({
-  name: "products",
+const userSingleProductsSlice = createSlice({
+  name: "home",
   initialState,
   reducers: {},
   extraReducers: {
     // *********** SingleCategory ********** //
-    [singleProducts.pending.type]: (state: Slice<CategoryType>) => {
+    [userSingleProducts.pending.type]: (state: Slice<CategoryType>) => {
       state.loading = true;
       state.msg = "";
       state.data = {};
       state.errors = {};
       state.success = null;
     },
-    [singleProducts.fulfilled.type]: (
+    [userSingleProducts.fulfilled.type]: (
       state: Slice<CategoryType>,
       action: PayloadAction<Slice<CategoryType>>
     ) => {
@@ -33,7 +33,7 @@ const singleProductsSlice = createSlice({
       state.data = action.payload.data;
       state.errors = {};
     },
-    [singleProducts.rejected.type]: (
+    [userSingleProducts.rejected.type]: (
       state: Slice<CategoryType>,
       action: PayloadAction<Slice<CategoryType>>
     ) => {
@@ -51,4 +51,4 @@ const singleProductsSlice = createSlice({
   },
 });
 
-export default singleProductsSlice.reducer;
+export default userSingleProductsSlice.reducer;
