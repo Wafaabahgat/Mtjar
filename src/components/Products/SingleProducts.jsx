@@ -1,42 +1,35 @@
-import { BsCartPlus } from "react-icons/bs";
-import { adminImgUrl } from "../../lib/utils";
+import useSingle from "../../hooks/useSingle";
+import { userSingleProducts } from "../../slice/Home/MainProductsAction";
+import Loader from "../Loader";
 
 const SingleProducts = () => {
-
-  const handleImg = (e) => {
-    return e?.image?.includes("http")
-      ? e?.image
-      : adminImgUrl({ img: e?.image });
-  };
+  const { loading, data } = useSingle({
+    states: "userSingleProducts",
+    callfun: userSingleProducts,
+  });
+  console.log(data);
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
-    <div className="flex  items-center justify-center mt-10">
-      <div className="w-[1100px] shadow-2xl border-t border-l rounded-md py-8 px-4">
-        <div
-          className="relative flex flex-col rounded-lg w-full p-2 hover:scale-105 hover:shadow-lg border border-slate-300 overflow-hidden"
-          // key={e.id}
-        >
-          <button className="flex item-center justify-center right-0 mx-2 mt-2 absolute top-0 ">
-            <BsCartPlus className="border rounded-full w-[35px] h-[35px] p-1 " />
-          </button>
-          <img
-            // key={e?.id}
-            className="object-contain w-full max-h-[120px] mt-4"
-            // src={e?.image ? handleImg(e) : ""}
-            alt=""
-          />
+    <>
+      <div className="flex flex-col p-4 mt-20">
+        <img
+          src={data?.image}
+          className="object-contain w-full max-h-[120px] mt-4"
+          alt=""
+        />
+        <div className="flex gap-2">
+          <h2 className="text-2xl font-bold my-2">{data?.name}</h2>
+          <p className="text-slate-700">{data?.disc}</p>
         </div>
-
-        <h1>hu</h1>
-        <h1>hu</h1>
-        <h1>hu</h1>
-        <h1>hu</h1>
         <h1>hu</h1>
         <h1>hu</h1>
         <h1>hu</h1>
         <h1>hu</h1>
       </div>
-    </div>
+    </>
   );
 };
 

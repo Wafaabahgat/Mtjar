@@ -10,6 +10,8 @@ import { adminImgUrl } from "../../lib/utils";
 import Title from "../Ui/Title";
 import Search from "../Ui/Search";
 import { useNavigate } from "react-router-dom";
+import notFound from "../../assets/notFound.png";
+
 // import { Link } from "react-router-dom";
 
 const ProductCard = () => {
@@ -26,7 +28,7 @@ const ProductCard = () => {
     allData: mainProducts,
   });
 
-  const handleProduct = () => {
+  const handleProduct = (slug) => {
     navigate(`/SingleProducts/${slug}`);
   };
 
@@ -43,12 +45,12 @@ const ProductCard = () => {
         />
         <Search />
         <div className="flex mt-2">
-          {/* <Link to="/SingleProducts"> */}
-          <div className="w-[1100px] shadow-2xl border-t border-l rounded-md py-8 px-4">
+          <div className="w-[1000px] shadow-2xl border-t border-l rounded-md py-8 px-4">
             <form
               className="w-full gap-4 p-2 grid grid-cols-4"
               onClick={handleProduct}
             >
+              {/* <Link to={`/SingleProducts/${slug}`}> */}
               {data?.data?.map((e) => {
                 return (
                   <div
@@ -56,28 +58,34 @@ const ProductCard = () => {
                     key={e.id}
                   >
                     <button className="flex item-center justify-center right-0 mx-2 mt-2 absolute top-0 ">
-                      <BsCartPlus className="border rounded-full w-[35px] h-[35px] p-1 " />
+                      <BsCartPlus className="border rounded-full w-[35px] h-[35px] p-1 bg-green-100" />
                     </button>
                     <img
                       key={e?.id}
-                      className="object-contain w-full max-h-[120px] mt-4"
-                      src={e?.image ? handleImg(e) : ""}
-                      alt=""
+                      className="object-contain w-[200px] rounded-lg h-[180px] mt-4"
+                      src={e?.image ? handleImg(e) : notFound}
+                      alt="notFound"
                     />
-                    <p className="font-semibold text-xl">{e.name}</p>
-                    <p className="text-md text-slate-400 ">{e.disc}</p>
-                    <div className="flex relative mt-4">
-                      <button className="ml-2 flex items-start -mt-2 border rounded-full bg-yellow-200  px-2">
+                    <div className="flex flex-col items-start mb-3">
+                      <p className="font-semibold text-lg line-clamp-1">
+                        {e.name}
+                      </p>
+                      <p className="text-md text-slate-400 line-clamp-2">
+                        {e.disc}
+                      </p>
+                    </div>
+
+                    <div className="flex justify-between mt-auto">
+                      <div className="ml-2 flex items-center -mt-2 border rounded-full bg-yellow-200 px-2">
                         <AiOutlineStar className=" w-[35px] h-[35px] p-1" />
-                        <p className="flex my-auto">{e.rating}</p>
-                      </button>
-                      <span className="font-semibold text-xl absolute right-2">
-                        {e.price}$
-                      </span>
+                        {e.rating}
+                      </div>
+                      <span className="font-semibold text-xl">{e.price}$</span>
                     </div>
                   </div>
                 );
               })}
+              {/* </Link> */}
             </form>
           </div>
           {/* </Link> */}

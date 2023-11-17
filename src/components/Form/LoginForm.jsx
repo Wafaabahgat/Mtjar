@@ -23,7 +23,6 @@ const LoginForm = () => {
 
   const handelSignup = (e) => {
     e.preventDefault();
-
     dispatch(loginUser({ email, password }));
   };
 
@@ -45,45 +44,43 @@ const LoginForm = () => {
   }
   return (
     <FormModelAuth onSubmit={handelSignup} isLogin>
-      <div>
-        <FormInput
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setemail(e.target.value)}
-          error={errors?.email}
-          previcon={<FaRegEnvelope className="mr-3 text-gray-400" />}
-        />
-      </div>
-      <div>
-        <FormInput
-          type={visible ? "text" : "password"}
-          name="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setpassword(e.target.value)}
-          error={errors?.password}
-          previcon={<MdLockOutline className=" text-gray-400" />}
-          icon={
-            visible ? (
-              <FaEyeSlash
-                className="w-20 cursor-pointer text-gray-400"
-                onClick={() => setVisible(!visible)}
-              />
-            ) : (
-              <FaEye
-                className="cursor-pointer text-gray-400"
-                onClick={() => setVisible(!visible)}
-              />
-            )
-          }
-        />
-      </div>
+      <FormInput
+        type="email"
+        name="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setemail(e.target.value)}
+        error={errors?.email}
+        previcon={<FaRegEnvelope className="mr-3 text-gray-400" />}
+      />
+
+      <FormInput
+        type={visible ? "text" : "password"}
+        name="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setpassword(e.target.value)}
+        error={errors?.password}
+        previcon={<MdLockOutline className=" text-gray-400" />}
+        icon={
+          visible ? (
+            <FaEyeSlash
+              className="w-20 cursor-pointer text-gray-400"
+              onClick={() => setVisible(!visible)}
+            />
+          ) : (
+            <FaEye
+              className="cursor-pointer text-gray-400"
+              onClick={() => setVisible(!visible)}
+            />
+          )
+        }
+      />
+
       <div className="flex justify-between w-64 my-3 ">
         <label className="flex items-center text-sm text-gray-400">
           <input type="checkbox" name="remember" className="mr-1" />
-          Remember Me
+          Remember Me 
         </label>
         <Link
           to="/forgetpass"

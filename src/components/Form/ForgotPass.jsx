@@ -43,7 +43,7 @@ const ForgotPass = () => {
   }
   return (
     <form
-      className="lg:w-[400px] w-[300px]  h-[250px] flex flex-col items-center bg-white rounded-2xl py-8 px-12"
+      className="lg:w-[400px] w-[300px] h-[250px] flex flex-col items-center bg-white rounded-2xl py-8 px-12"
       onSubmit={(e) => {
         handleForgetPass(e);
       }}
