@@ -24,7 +24,7 @@ const Filter = () => {
           />
           <InputSelect
             label=""
-            className="w-[95%]"
+            className="w-[36%]"
             name="category_id"
             onChange={(e) => setCategory_id(e.target.value)}
             options={globalCats?.data?.map((e) => {

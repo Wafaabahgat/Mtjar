@@ -8,6 +8,7 @@ const SingleProducts = () => {
     callfun: userSingleProducts,
   });
   console.log(data);
+
   if (loading) {
     return <Loader />;
   }
