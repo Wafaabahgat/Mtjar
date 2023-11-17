@@ -9,14 +9,10 @@ import { mainProducts } from "../../slice/Home/MainProductsAction";
 import { adminImgUrl } from "../../lib/utils";
 import Title from "../Ui/Title";
 import Search from "../Ui/Search";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import notFound from "../../assets/notFound.png";
 
-// import { Link } from "react-router-dom";
-
 const ProductCard = () => {
-  const navigate = useNavigate();
-
   const handleImg = (e) => {
     return e?.image?.includes("http")
       ? e?.image
@@ -27,10 +23,6 @@ const ProductCard = () => {
     states: "MainProducts",
     allData: mainProducts,
   });
-
-  const handleProduct = (slug) => {
-    navigate(`/SingleProducts/${slug}`);
-  };
 
   if (loading) {
     return <Loader />;
@@ -48,7 +40,7 @@ const ProductCard = () => {
           <div className="w-[1000px] shadow-2xl border-t border-l rounded-md py-8 px-4">
             <form
               className="w-full gap-4 p-2 grid grid-cols-4"
-              onClick={handleProduct}
+              // onClick={handleProduct}
             >
               {/* <Link to={`/SingleProducts/${slug}`}> */}
               {data?.data?.map((e) => {
@@ -67,9 +59,12 @@ const ProductCard = () => {
                       alt="notFound"
                     />
                     <div className="flex flex-col items-start mb-3">
-                      <p className="font-semibold text-lg line-clamp-1">
+                      <Link
+                        to={`/SingleProducts/${e?.slug}`}
+                        className="font-semibold text-lg line-clamp-1"
+                      >
                         {e.name}
-                      </p>
+                      </Link>
                       <p className="text-md text-slate-400 line-clamp-2">
                         {e.disc}
                       </p>

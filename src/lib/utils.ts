@@ -16,7 +16,7 @@ export const uploadImg = (e) => {
 };
 
 export const adminImgUrl = ({ img }) => {
-  return `https://3mmar.amadagency.net/storage/${img}`;
+  return `https://estore.ammarelgendy.online/storage/${img}`;
 };
 
 // https://3mmar.amadagency.net/storage/${img}
