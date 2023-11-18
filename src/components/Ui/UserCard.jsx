@@ -1,8 +1,7 @@
 import { cn } from "../../lib/utils";
-import { FaSignOutAlt } from "react-icons/fa";
+import { FaSignOutAlt, FaShoppingBag } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { IsMatch } from "../../hooks/hooks";
-// import { DataLinks, UserData } from "../../lib/types";
 
 const UserCard = ({ user, data, onclick, ...props }) => {
   return (
@@ -50,7 +49,8 @@ const UserCard = ({ user, data, onclick, ...props }) => {
             <li className="p-2 font-semibold">Products</li>
           </Link>
 
-          <Link>
+          <Link className="flex items-center justify-center">
+            <FaShoppingBag />
             <li className="p-2 font-semibold">Cart</li>
           </Link>
         </ul>

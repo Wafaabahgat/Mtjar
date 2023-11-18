@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 
 const Breadcamp = ({ ttl, links }) => {
   return (
-    <div className="flex items-end justify-end mb-6 mt-2">
+    <div className="flex items-center flex-wrap justify-between ml-6 mb-6">
+      <h2 className="md:text-2xl text-xl font-bold text-green-500">{ttl}</h2>
       <div className="flex items-center flex-wrap md:text-lg sm:text-base text-sm px-2">
         <Link
           key={0}

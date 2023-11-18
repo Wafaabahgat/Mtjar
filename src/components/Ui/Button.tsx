@@ -25,11 +25,12 @@ const Button: FC<ButtonProps> = ({
   size,
   text,
   children,
-  link ,
+  link,
   ...props
 }) => {
   return (
     <button className={cn(buttonVariants({ variant, className }))}>
+      {children}
       {text}
     </button>
   );

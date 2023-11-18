@@ -1,49 +1,27 @@
 import { Link } from "react-router-dom";
-import Logo from "../../assets/mainLogo.png"; // Adjust the path as needed
-
-import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
+import Logo from "../../assets/mainLogo.png";
+import { BiShoppingBag } from "react-icons/bi";
 import Avatar from "../Ui/Avatar";
+import Search from "../Ui/Search";
 
 const Navbar = () => {
-  // const [nav, setNav] = useState(false);
-
-  // const handelNav = () => {
-  //   setNav(!nav);
-  // };
-
   return (
     <div className="fixed left-0 top-0 w-full z-10 shadow-xl bg-white">
-      <div className="max-h-[80px] m-auto flex justify-between items-center p-3">
+      <div className="max-h-[80px] m-auto flex justify-between items-center gap-x-7 p-3">
         <Link to="/home">
           <img src={Logo} alt="Logo" className="lg:w-[65px] ml-3 w-[50px] " />
         </Link>
-        <div className="sm:block hidden">
-          <ul className="flex lg:text-xl md:text-md">
-            <Link to="/home">
-              <li className="p-5">Home</li>
-            </Link>
-            <Link to="/mainProducts">
-              <li className="p-5">Products</li>
-            </Link>
-            <Link>
-              <li className="p-5">Contact</li>
-            </Link>
-            <Link>
-              <li className="p-5">cart</li>
-            </Link>
-            <Link>
-              <li className="p-5">
-                <AiOutlineShoppingCart className="text-3xl border p-1 rounded-full border-black " />
-              </li>
-            </Link>
-          </ul>
-        </div>
+
+        <Search className="" />
 
         {/* Profile */}
-        <ul className="flex">
-          <li className="p-3">
-            <AiOutlineSearch className="text-4xl border-black p-1" />
-          </li>
+        <ul className="flex items-center">
+          <div className="relative flex items-center justify-center border border-slate-300 rounded-full w-[37px] h-[37px] cursor-pointer active:scale-95">
+            <BiShoppingBag className="text-slate-700 text-[25px]" />
+            <span className="absolute -top-1 left-6 w-5 h-5 text-sm bg-green-900 flex items-center justify-center text-white rounded-full">
+              2
+            </span>
+          </div>
           <li className="p-3">
             <Avatar />
           </li>

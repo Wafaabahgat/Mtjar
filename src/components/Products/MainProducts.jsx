@@ -2,14 +2,21 @@ import MetaDate from "../../lib/metaDate";
 import ProductCard from "./ProductCard";
 import Pagination from "../Ui/Pagination";
 import Filter from "./Filter";
+import Breadcamp from "../Ui/Breadcamp";
 
-const MainProducts = ({data}) => {
+const links = [
+  { name: "Home", link: "/" },
+  { name: "Products", link: "/products" },
+];
+const MainProducts = ({ data }) => {
   return (
     <>
       <div className="flex-l p-4 mt-20">
-        <MetaDate ttl="Products" disc="Products page" />
+        <MetaDate ttl="All Products" disc="Products page" />
+        <Breadcamp isDash={false} ttl="Products" links={links} />
+
         <div className="flex gap-4">
-          <Filter/>
+          <Filter />
           <ProductCard />
         </div>
 
