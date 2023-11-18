@@ -12,7 +12,7 @@ const Navbar = () => {
           <img src={Logo} alt="Logo" className="lg:w-[65px] ml-3 w-[50px] " />
         </Link>
 
-        <Search className="" />
+        <Search />
 
         {/* Profile */}
         <ul className="flex items-center">
