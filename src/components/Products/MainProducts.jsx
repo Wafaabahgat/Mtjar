@@ -5,8 +5,8 @@ import Filter from "./Filter";
 import Breadcamp from "../Ui/Breadcamp";
 
 const links = [
-  { name: "Home", link: "/" },
-  { name: "Products", link: "/products" },
+  { name: "Home", link: "/home" },
+  { name: "Products", link: "/mainProducts" },
 ];
 const MainProducts = ({ data }) => {
   return (

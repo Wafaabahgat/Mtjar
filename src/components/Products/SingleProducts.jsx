@@ -7,8 +7,8 @@ import Button from "../Ui/Button";
 // import { FaCartPlus } from "react-icons/fa";
 
 const links = [
-  { name: "Home", link: "/" },
-  { name: "Products", link: "/products" },
+  { name: "Home", link: "/home" },
+  { name: "Products", link: "/mainProducts" },
 ];
 
 const SingleProducts = () => {
@@ -26,6 +26,7 @@ const SingleProducts = () => {
     <>
       <div className="flex-1 mt-20 pt-4">
         <Breadcamp
+          isDash={false}
           ttl="Product Details"
           links={[...links, { name: data?.slug }]}
         />

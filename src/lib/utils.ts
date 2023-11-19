@@ -19,10 +19,4 @@ export const adminImgUrl = ({ img }) => {
   return `https://estore.ammarelgendy.online/storage/${img}`;
 };
 
-// https://3mmar.amadagency.net/storage/${img}
-// export const adminImgUrl = ({ img }: { img: string | undefined }) => {
-//   return window.location.hostname === "localhost"
-//     ? `http://localhost:8000/storage/${img}`
-//     : `https://3mmar.amadagency.net/api/v1/${img}`;
-// };
-// baseURL: "https://3mmar.amadagency.net/api/v1",
+
