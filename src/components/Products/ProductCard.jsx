@@ -73,9 +73,14 @@ const ProductCard = ({ product }) => {
                           <AiOutlineStar className=" w-[35px] h-[35px] p-1" />
                           {e.rating}
                         </div>
-                        <span className="font-semibold text-xl">
-                          {e.price}$
-                        </span>
+                        <p className="text-xl font-semibold flex items-center gap-1">
+                          {e?.compare_price && (
+                            <span className="line-through text-base text-red-700">
+                              {e?.compare_price}$
+                            </span>
+                          )}
+                          {e?.price}$
+                        </p>
                       </div>
                     </Link>
                   </>

@@ -12,8 +12,8 @@ const config = {
 };
 
 // *********** Supplier *********** //
-export const UpdateProfile = createAsyncThunk(
-  "Auth/profile/Update",
+export const updateProfile = createAsyncThunk(
+  "Auth/profile/update",
   async (args, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {

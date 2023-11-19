@@ -1,8 +1,8 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import Cookies from "universal-cookie";
 
-import { UserData } from "@/lib/types";
-import { UpdateProfile, clearErrors } from "./profileAction";
+import { UserData } from "../../lib/types";
+import { updateProfile, clearErrors } from "./profileAction";
 
 const cookies = new Cookies();
 
@@ -24,20 +24,20 @@ const initialState: Login = {
   data: {},
 };
 
-const UpdateProfileSlice = createSlice({
+const updateProfileSlice = createSlice({
   name: "Auth",
   initialState,
   reducers: {},
   extraReducers: {
     // *********** Login ********** //
-    [UpdateProfile.pending.type]: (state: Login) => {
+    [updateProfile.pending.type]: (state: Login) => {
       state.loading = true;
       state.msg = "";
       state.user = {};
       state.errors = {};
       state.success = null;
     },
-    [UpdateProfile.fulfilled.type]: (
+    [updateProfile.fulfilled.type]: (
       state: Login,
       action: PayloadAction<Login>
     ) => {
@@ -52,7 +52,10 @@ const UpdateProfileSlice = createSlice({
         });
       }
     },
-    [UpdateProfile.rejected.type]: (state: Login, action: PayloadAction<Login>) => {
+    [updateProfile.rejected.type]: (
+      state: Login,
+      action: PayloadAction<Login>
+    ) => {
       state.loading = false;
       state.success = false;
       state.msg = action.payload?.msg;
@@ -66,4 +69,4 @@ const UpdateProfileSlice = createSlice({
   },
 });
 
-export default UpdateProfileSlice.reducer;
+export default updateProfileSlice.reducer;

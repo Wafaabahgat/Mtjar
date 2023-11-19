@@ -1,30 +1,40 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import FormInput from "./FormInput";
 import Button from "../Ui/Button";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Cookies from "universal-cookie";
-import { useDispatch, useSelector } from "react-redux";
-import { UpdateProfile } from "../../slice/Profile/profileAction";
+import { updateProfile, clearErrors } from "../../slice/Profile/profileAction";
 import Loader from "../Loader";
-import toast from "react-hot-toast";
 const cookies = new Cookies();
 const user = cookies.get("user");
+import useUpdate from "../../hooks/useUpdate ";
 
 const UpdateProfileForm = () => {
-  const dispatch = useDispatch();
-  const { loading, msg, success, errors } = useSelector(
-    (state) => state.UpdateProfile
-  );
+  const { loading, handleUpdate, errors } = useUpdate({
+    states: "updateProfile",
+    updateFn: updateProfile, 
+    clearFn: clearErrors, 
+  });
 
   const [password, setpassword] = useState("");
   const [first_name, setfirst_name] = useState("");
   const [last_name, setlast_name] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setphone] = useState("");
+  const [birthday, setbirthday] = useState("");
   const [visible, setVisible] = useState(false);
 
   const handelInfo = (e) => {
     e.preventDefault();
-    dispatch(UpdateProfile({ first_name, last_name, email }));
+    const formData = new FormData();
+    first_name && formData.append("first_name", first_name);
+    last_name && formData.append("last_name", last_name);
+    email && formData.append("email", email);
+    phone && formData.append("phone", phone);
+    birthday && formData.append("birthday", birthday);
+    formData.append("_method", "put");
+
+    handleUpdate(formData);
   };
 
   useEffect(() => {
@@ -32,18 +42,12 @@ const UpdateProfileForm = () => {
       setfirst_name(user.first_name);
       setlast_name(user.last_name);
       setEmail(user.email);
+      setpassword(user.password);
+      setphone(user.phone);
+      setbirthday(user.birthday);
     }
   }, [user]);
 
-  useEffect(() => {
-    if (msg && success === false) {
-      toast.error(msg);
-    }
-    if (msg && success === true) {
-      toast.success(msg);
-      window.location.reload();
-    }
-  }, [msg, success]);
   if (loading) {
     <Loader />;
   }
@@ -52,81 +56,84 @@ const UpdateProfileForm = () => {
     <>
       <div className="flex flex-col justify-center items-center mt-1 p-4">
         <div className="bg-white rounded-md p-4">
-          <div className="mt-6 ">
-            <h3 className=" text-gray-500 text-2xl sm:text-xl mb-3">
-              General Info
-            </h3>
-            <form className="flex flex-col gap-2" onSubmit={handelInfo}>
-              <div className="flex sm:flex-row flex-col gap-2 ">
-                <FormInput
-                  className="w-full bg-transparent"
-                  placeholder="First_Name"
-                  type="name"
-                  name="name"
-                  value={first_name}
-                  onChange={(e) => setfirst_name(e.target.value)}
-                  error={errors?.first_name}
-                />
-                <FormInput
-                  className="w-full bg-transparent"
-                  placeholder="last_Name"
-                  type="name"
-                  name="name"
-                  value={last_name}
-                  onChange={(e) => setlast_name(e.target.value)}
-                  error={errors?.last_name}
-                />
-              </div>
-              <Button
-                type="submit"
-                text="update info"
-                variant={"default"}
-                className="bg-green-500 py-3 uppercase w-[200px] mx-auto  "
-              />
-            </form>
-          </div>
-        </div>
-
-        <div className="bg-white mt-10 rounded-md p-4">
           <div className="mt-6">
-            <h3 className=" text-gray-500 text-2xl mb-3">Security</h3>
-            <form className="flex flex-col gap-2">
-              <div className="flex sm:flex-row flex-col gap-2 ">
-                <FormInput
-                  className="w-full bg-transparent"
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  error={errors?.email}
-                />
-                <FormInput
-                  className="w-full bg-transparent"
-                  type={visible ? "text" : "password"}
-                  name="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setpassword(e.target.value)}
-                  error={errors?.password}
-                  icon={
-                    visible ? (
-                      <FaEyeSlash
-                        className="cursor-pointer text-gray-400"
-                        onClick={() => setVisible(!visible)}
-                      />
-                    ) : (
-                      <FaEye
-                        className=" cursor-pointer text-gray-400"
-                        onClick={() => setVisible(!visible)}
-                      />
-                    )
-                  }
-                />
-              </div>
+            <form
+              className="flex flex-col gap-2 sm:w-[500px] w-[300px]"
+              onSubmit={handelInfo}
+            >
+              <FormInput
+                className="lg:w-[480px] md:w-[480px] sm:w-[480px] w-[300px]"
+                placeholder="First_Name"
+                type="name"
+                name="name"
+                value={first_name}
+                onChange={(e) => setfirst_name(e.target.value)}
+                error={errors?.first_name}
+              />
+              <FormInput
+                className="lg:w-[480px] md:w-[480px] sm:w-[480px] w-[300px]"
+                placeholder="last_Name"
+                type="name"
+                name="name"
+                value={last_name}
+                onChange={(e) => setlast_name(e.target.value)}
+                error={errors?.last_name}
+              />
+
+              <FormInput
+                className="lg:w-[480px] md:w-[480px] sm:w-[480px] w-[300px]"
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                error={errors?.email}
+              />
+              <FormInput
+                className="lg:w-[480px] md:w-[480px] sm:w-[480px] w-[300px]"
+                type={visible ? "text" : "password"}
+                name="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setpassword(e.target.value)}
+                error={errors?.password}
+                icon={
+                  visible ? (
+                    <FaEyeSlash
+                      className="cursor-pointer text-gray-400"
+                      onClick={() => setVisible(!visible)}
+                    />
+                  ) : (
+                    <FaEye
+                      className=" cursor-pointer text-gray-400"
+                      onClick={() => setVisible(!visible)}
+                    />
+                  )
+                }
+              />
+              <FormInput
+                className="lg:w-[480px] md:w-[480px] sm:w-[480px] w-[300px]"
+                label="phone"
+                name="phone"
+                type="number"
+                placeholder="012345678910"
+                value={phone}
+                onChange={(e) => setphone(e.target.value)}
+                error={errors?.phone}
+              />
+              <FormInput
+                className="lg:w-[480px] md:w-[480px] sm:w-[480px] w-[300px]"
+                label="birthday"
+                name="birthday"
+                type="date"
+                placeholder="example@test.com"
+                value={birthday}
+                onChange={(e) => setbirthday(e.target.value)}
+                error={errors?.birthday}
+              />
               <Button
                 type="submit"
-                text="Change password"
+                text="update"
                 variant={"default"}
                 className="bg-green-500 p-2 uppercase w-[200px] mx-auto "
               />

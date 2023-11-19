@@ -38,7 +38,7 @@ const SingleProducts = () => {
               alt=""
             />
           </div>
-          <div className="flex flex-col w-full items-start ml-20 gap-3">
+          <div className="flex flex-col w-full items-start justify-start ml-20 gap-3">
             <span className="block">{data?.category}</span>
             <h2 className="text-xl font-bold ">{data?.name}</h2>
             <span>
@@ -46,7 +46,14 @@ const SingleProducts = () => {
               {data?.store}
             </span>
             <p className="text-slate-700 text-md">{data?.disc}</p>
-            <p className="font-bold text-2xl">{data?.price}$</p>
+            <p className="text-2xl font-bold flex items-center gap-1">
+              {data?.compare_price && (
+                <span className="line-through text-xl text-red-700">
+                  {data?.compare_price}$
+                </span>
+              )}
+              {data?.price}$
+            </p>
             <p className="font-bold text-xl">Tags:</p>
             <p className="font-bold text-xl">Rating:</p>
             <span className="flex gap-2 flex-wrap">

@@ -39,8 +39,6 @@ const Filter = () => {
             className="text-xl font-semibold mt-4 bg-slate-100 border shadow-md px-6 py-2 rounded-sm mb-2"
             ttl="Rate the product"
           />
-          Rate the product
-          <h4 className="text-slate-500">1 star or more</h4>
           <input className="w-[95%]" type="range" name="star" />
         </div>
         <Button

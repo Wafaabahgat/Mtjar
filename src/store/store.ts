@@ -4,7 +4,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import counterSlice from "../slice/testSlice";
 import forgetPassword from "../slice/forgetPassword/forgetPassword";
 import ResetPassword from "../slice/ResetPassword/ResetPassword";
-import UpdateProfile from "../slice/Profile/profile";
+import updateProfile from "../slice/Profile/profile";
 import stores from "../slice/store/stores";
 import createStore from "../slice/store/createstore";
 import updateStore from "../slice/store/updatestore";
@@ -48,7 +48,7 @@ export const store = configureStore({
     register: register,
     forgetPassword,
     ResetPassword,
-    UpdateProfile: UpdateProfile,
+    updateProfile: updateProfile,
 
     // Stores
     stores,
