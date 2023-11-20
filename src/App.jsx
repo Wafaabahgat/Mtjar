@@ -25,6 +25,7 @@ import Carousels from "./pages/dashboard/carousels/Carousels";
 import CreateCarousels from "./pages/dashboard/carousels/CreateCarousels";
 import UpdateCarousels from "./pages/dashboard/carousels/UpdateCarousels";
 import SingleProducts from "./components/Products/SingleProducts";
+import CartItem from "./components/cart/CartItem";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <Home />,
+      },
+      {
+        path: "/cartItem",
+        element: <CartItem />,
       },
       {
         path: "/mainProducts",

@@ -43,7 +43,7 @@ const ProductCard = ({ product }) => {
                 return (
                   <>
                     <div className="relative flex flex-col rounded-lg w-full p-2 hover:scale-105 hover:shadow-lg border border-slate-300 overflow-hidden">
-                      <CartIcon e={product} />
+                      <CartIcon product={product} />
                       <Link key={e.id} to={`/SingleProducts/${e?.slug}`}>
                         <div className="flex item-center justify-center">
                           <img
