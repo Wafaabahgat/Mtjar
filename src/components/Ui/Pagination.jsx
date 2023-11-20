@@ -1,17 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { cn } from "../../lib/utils";
 
 const Pagination = ({ data }) => {
+  const [search, setSearch] = useSearchParams();
+
+  const handlePagination = (e) => {
+    if (e) {
+      search.set("page", e?.split("=")[1]);
+    }
+
+    return `?${search.toString()}`;
+  };
   return (
     <div className="flex items-center justify-end">
       <Link
         className="paginate__link"
-        to={data?.first_page_url?.split("v1")[1]}
+        to={handlePagination(data?.first_page_url?.split("?")[1])}
       >
         {"<<"}
       </Link>
       <Link
-        to={data?.prev_page_url?.split("v1")[1]}
+        to={handlePagination(data?.prev_page_url?.split("?")[1])}
         className={cn(
           data?.prev_page_url !== null
             ? ""
@@ -41,7 +50,7 @@ const Pagination = ({ data }) => {
         );
       })}
       <Link
-        to={data?.next_page_url?.split("v1")[1]}
+        to={handlePagination(data?.next_page_url?.split("?")[1])}
         className={cn(
           data?.next_page_url !== null
             ? ""
@@ -52,7 +61,10 @@ const Pagination = ({ data }) => {
         {"Next"}
       </Link>
 
-      <Link to={data?.last_page_url?.split("v1")[1]} className="paginate__link">
+      <Link
+        to={handlePagination(data?.last_page_url?.split("?")[1])}
+        className="paginate__link"
+      >
         {">>"}
       </Link>
     </div>

@@ -30,12 +30,16 @@ import globalStores from "../slice/globals/globalStores";
 import home from "../slice/Home/home";
 import MainProducts from "../slice/Home/MainProducts";
 import userSingleProducts from "../slice/Home/userSingleProducts";
+import cartSlice from "../slice/cart/cartSlice";
 
 export const store = configureStore({
   reducer: {
     // Globals
     globalCategories: globalCategories,
     globalStores: globalStores,
+
+    // cart
+    cartSlice: cartSlice,
 
     // Home
     home: home,

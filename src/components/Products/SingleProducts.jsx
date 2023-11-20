@@ -38,7 +38,7 @@ const SingleProducts = () => {
               alt=""
             />
           </div>
-          <div className="flex flex-col w-full items-start justify-start ml-20 gap-3">
+          <div className="flex flex-col w-full text-start ml-20 gap-3">
             <span className="block">{data?.category}</span>
             <h2 className="text-xl font-bold ">{data?.name}</h2>
             <span>
