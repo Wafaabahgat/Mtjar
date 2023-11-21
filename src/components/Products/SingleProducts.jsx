@@ -4,14 +4,29 @@ import Loader from "../Loader";
 import Breadcamp from "../Ui/Breadcamp";
 import { BiSolidStar } from "react-icons/bi";
 import Button from "../Ui/Button";
-// import { FaCartPlus } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../slice/cart/cartSlice";
+import ProductCard from "../Products/ProductCard";
 
 const links = [
   { name: "Home", link: "/home" },
   { name: "Products", link: "/mainProducts" },
 ];
 
-const SingleProducts = () => {
+const SingleProducts = ({ product }) => {
+  const dispatch = useDispatch();
+
+  const handleAddCard = () => {
+    dispatch(
+      addToCart({
+        id: product?.id,
+        name: product?.name,
+        price: product?.price,
+        imageUrl: product?.image,
+        quantity: 1,
+      })
+    );
+  };
   const { loading, data } = useSingle({
     states: "userSingleProducts",
     callfun: userSingleProducts,
@@ -68,8 +83,17 @@ const SingleProducts = () => {
               text="Add to card"
               variant="default"
               className="bg-green-500 w-full rounded-md text-white"
+              onClick={handleAddCard}
             />
           </div>
+        </div>
+        <h2 className="w-fit text-2xl font-semibold m-4">
+          You may also like:
+        </h2>
+        <div className="grid grid-cols-2 gap-4 m-4">
+          {data?.sameProducts?.map((e) => (
+            <ProductCard product={e} key={e.id} />
+          ))}
         </div>
       </div>
     </>

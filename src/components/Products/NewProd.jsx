@@ -4,6 +4,7 @@ import { BsCartPlus } from "react-icons/bs";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import CartIcon from "../cart/cartIcon";
 
 const NewProd = ({ data, ttl }) => {
   var settings = {
@@ -67,9 +68,7 @@ const NewProd = ({ data, ttl }) => {
                       className="border h-[240px] rounded-md relative hover:scale-105"
                       key={e.id}
                     >
-                      <button className="flex item-center justify-center right-0 mx-2 mt-2 absolute -top-1 ">
-                        <BsCartPlus className="border rounded-full w-[35px] h-[35px] p-1 " />
-                      </button>
+                      <CartIcon />
                       <img
                         key={e?.id}
                         className="object-contain w-full max-h-[120px] mt-4"

@@ -26,10 +26,14 @@ const Button: FC<ButtonProps> = ({
   text,
   children,
   link,
+  onClick,
   ...props
 }) => {
   return (
-    <button className={cn(buttonVariants({ variant, className }))}>
+    <button
+      className={cn(buttonVariants({ variant, className }))}
+      onClick={onClick}
+    >
       {children}
       {text}
     </button>

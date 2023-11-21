@@ -1,8 +1,9 @@
 import { BsCartPlus } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../slice/cart/cartSlice";
+import { cn } from "../../lib/utils";
 
-const CartIcon = ({ product }) => {
+const CartIcon = ({ product, className }) => {
   const dispatch = useDispatch();
 
   const handleAddCard = () => {
@@ -23,7 +24,12 @@ const CartIcon = ({ product }) => {
         className="-right-2 mx-2 mt-2 absolute -top-2"
         onClick={handleAddCard}
       >
-        <BsCartPlus className="rounded-bl-md w-[50px] h-[50px] p-2 bg-green-200" />
+        <BsCartPlus
+          className={cn(
+            "rounded-bl-md w-[50px] h-[50px] p-2 bg-green-200",
+            className
+          )}
+        />
       </button>
     </>
   );

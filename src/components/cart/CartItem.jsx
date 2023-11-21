@@ -1,8 +1,8 @@
 import MetaDate from "../../lib/metaDate";
 
-const cartItem = () => {
+const CartItem = () => {
   return (
-    <div className="flex flex-col flex-1 items-center mt-24 ">
+    <div className="flex flex-col flex-1 items-center mt-24">
       <div className="w-[1300px] h-full">
         <MetaDate ttl="cart - page" disc="The Cart page" />
         <div>
@@ -12,7 +12,7 @@ const cartItem = () => {
               <li>Products</li>
               <li>Name of Products</li>
               <li>Price</li>
-              <li>quantity</li>
+              <li>Quantity</li>
               <li>Remove</li>
               <li>Total</li>
             </ul>
@@ -23,4 +23,4 @@ const cartItem = () => {
   );
 };
 
-export default cartItem;
+export default CartItem;
