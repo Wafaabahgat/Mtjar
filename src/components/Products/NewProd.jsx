@@ -4,7 +4,7 @@ import { BsCartPlus } from "react-icons/bs";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import CartIcon from "../cart/cartIcon";
+import CartIcon from "../cart/CartIcon";
 
 const NewProd = ({ data, ttl }) => {
   var settings = {
