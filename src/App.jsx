@@ -20,12 +20,12 @@ import UpdateStore from "./pages/dashboard/stores/UpdateStore";
 import CreateCategory from "./pages/dashboard/categories/CreateCategory";
 import UpdateCategory from "./pages/dashboard/categories/UpdateCategory";
 import AdminUser from "./middleware/AdminUser";
-import UpdateProduct from "./pages/dashboard/products/UpdateProduct";
 import Carousels from "./pages/dashboard/carousels/Carousels";
 import CreateCarousels from "./pages/dashboard/carousels/CreateCarousels";
 import UpdateCarousels from "./pages/dashboard/carousels/UpdateCarousels";
 import SingleProducts from "./components/Products/SingleProducts";
 import CartItem from "./components/cart/CartItem";
+import UpdateProduct from "./pages/dashboard/products/UpdateProduct";
 
 const router = createBrowserRouter([
   {
