@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useSingle from "../../../hooks/useSingle";
 import {
@@ -8,13 +8,13 @@ import {
 } from "../../../slice/products/productsAction";
 import Loader from "../../../components/Loader";
 import DashboardContainer from "../../../components/Ui/DashboardContainer";
-import FormInputDash from "../../../components/Form/FormInputDash";
 import InputFile from "../../../components/Form/InputFile";
 import useUpdate from "../../../hooks/useUpdate ";
 import InputSelect from "../../../components/Ui/InputSelect";
 import Button from "../../../components/Ui/Button";
 import { uploadImg } from "../../../lib/utils";
 import { useSelector } from "react-redux";
+import FormInputDash from "../../../components/Form/FormInputDash";
 
 const links = [
   {
