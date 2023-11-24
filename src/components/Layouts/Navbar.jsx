@@ -22,20 +22,21 @@ const Navbar = () => {
         <ul className="flex items-center gap-3">
           <Link
             className="relative flex items-center justify-center border border-slate-300 rounded-full w-[37px] h-[37px] cursor-pointer active:scale-95"
-            to="/mainProducts"
+            to="/products"
           >
             <IoApps className="text-slate-700 text-[25px]" />
           </Link>
-
-          <Link
-            className="relative flex items-center justify-center border border-slate-300 rounded-full w-[37px] h-[37px] cursor-pointer active:scale-95"
-            to="/cartItem"
-          >
-            <BiShoppingBag className="text-slate-700 text-[25px]" />
-            <span className="absolute -top-1 left-6 w-5 h-5 text-sm bg-green-900 flex items-center justify-center text-white rounded-full">
-              {items?.length}
-            </span>
-          </Link>
+          <div>
+            <Link
+              className="relative flex items-center justify-center border border-slate-300 rounded-full w-[37px] h-[37px] cursor-pointer active:scale-95"
+              to="/cartItem"
+            >
+              <BiShoppingBag className="text-slate-700 text-[25px]" />
+              <span className="absolute -top-1 left-6 w-5 h-5 text-sm bg-green-900 flex items-center justify-center text-white rounded-full">
+                {items?.length}
+              </span>
+            </Link>
+          </div>
 
           <li className="">
             <Avatar />

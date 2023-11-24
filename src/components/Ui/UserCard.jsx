@@ -45,7 +45,7 @@ const UserCard = ({ user, data, onclick, ...props }) => {
           <Link to="/Profile">
             <li className="p-2 font-semibold">Profile</li>
           </Link>
-          <Link to="/mainProducts">
+          <Link to="/products">
             <li className="p-2 font-semibold">Products</li>
           </Link>
 
