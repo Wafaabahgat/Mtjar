@@ -2,6 +2,7 @@ import MetaDate from "../../lib/metaDate";
 import { useDispatch, useSelector } from "react-redux";
 import React from "react";
 import { removeFromCart } from "../../slice/cart/cartSlice";
+import { adminImgUrl } from "../../lib/utils";
 
 const CartItem = () => {
   const { items } = useSelector((e) => e.cartSlice);
@@ -17,6 +18,11 @@ const CartItem = () => {
 
   const handleDelete = (itemId) => {
     dispatch(removeFromCart({ id: itemId }));
+  };
+  const handleImg = (e) => {
+    return e?.imageUrl?.includes("http")
+      ? e?.imageUrl
+      : adminImgUrl({ img: e?.imageUrl });
   };
 
   return (
@@ -35,7 +41,8 @@ const CartItem = () => {
                   <React.Fragment key={e?.id}>
                     <div className="flex">
                       <img
-                        src={e.imageUrl}
+                        // src={e.imageUrl ? adminImgUrl(e.imageUrl) : "5"}
+                        src={e?.imageUrl ? handleImg(e) : "6"}
                         className="object-contain w-full max-w-[300px] h-[150px] block m-auto rounded-md"
                         // alt={e.name}
                       />

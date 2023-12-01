@@ -26,7 +26,11 @@ const cartSlice = createSlice({
       }
     },
     removeFromCart: (state, action) => {
-      state.items = state.items.filter((item) => item.id !== action.payload.id);
+      const removedItem = state.items.filter(
+        (item) => item.id !== action.payload.id
+      );
+      state.items = removedItem;
+      localStorage.setItem("mtjr_cart", JSON.stringify(removedItem));
     },
 
     // removeFromCart: (state, action) => {
@@ -38,4 +42,3 @@ const cartSlice = createSlice({
 export const { addToCart, removeFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
-
