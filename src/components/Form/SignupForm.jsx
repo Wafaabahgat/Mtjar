@@ -15,6 +15,7 @@ import Loader from "../Loader";
 
 const SignupForm = () => {
   const dispatch = useDispatch();
+  
   const { loading, success, msg, errors } = useSelector(
     (state) => state.register
   );

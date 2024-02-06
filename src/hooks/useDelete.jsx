@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 
-const useDelete = ({ states, delFun, clearFun,recalFun }) => {
+const useDelete = ({ states, delFun, clearFun, recalFun }) => {
   const { loading, errors, msg, success } = useSelector(
     (state) => state[`${states}`]
   );

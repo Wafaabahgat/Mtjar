@@ -52,7 +52,6 @@ const Filter = () => {
             className="text-xl font-semibold bg-slate-100 border shadow-md px-6 py-2 rounded-sm mb-2 mt-2"
             ttl="Price"
           />
-          {/* <input className="w-[95%]" type="range" name="star" /> */}
 
           <InputSelect
             label=""

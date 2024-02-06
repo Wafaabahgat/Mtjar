@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../axios";
-import { UserData } from "../../lib/types";
+// import { UserData } from "../../lib/types";
 
 const config = {
   headers: {

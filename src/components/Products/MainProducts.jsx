@@ -10,7 +10,7 @@ import { mainProducts } from "../../slice/Home/MainProductsAction";
 import Loader from "../Loader";
 
 const links = [
-  { name: "Home", link: "/home" },
+  { name: "Home", link: "/" },
   { name: "Products", link: "/mainProducts" },
 ];
 const MainProducts = () => {

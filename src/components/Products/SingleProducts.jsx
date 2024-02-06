@@ -9,7 +9,7 @@ import { addToCart } from "../../slice/cart/cartSlice";
 import ProductCard from "../Products/ProductCard";
 
 const links = [
-  { name: "Home", link: "/home" },
+  { name: "Home", link: "/" },
   { name: "Products", link: "/mainProducts" },
 ];
 

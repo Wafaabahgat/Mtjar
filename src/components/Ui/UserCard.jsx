@@ -39,7 +39,7 @@ const UserCard = ({ user, data, onclick, ...props }) => {
           <Link to="/dashboard">
             <li className="font-semibold ">Dashboard</li>
           </Link>
-          <Link to="/home">
+          <Link to="/">
             <li className="p-2 font-semibold bg-green-100 rounded-md">Home</li>
           </Link>
           <Link to="/Profile">
