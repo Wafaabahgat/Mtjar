@@ -41,7 +41,7 @@ const Products = () => {
       name="Create new Products"
       className="py-2"
     >
-      <div className="lg:max-w-[1000px] md:max-w-[750px] sm:max-w-[400px] max-w-[250px]">
+      <div className="lg:max-w-[1000px] md:max-w-[750px] sm:max-w-[400px] max-w-[250px] px-5">
         <Link
           className="flex justify-center py-2 text-center bg-green-500 rounded-md text-slate-50 lg:text-lg md:text-xl hover:opacity-80 active:scale-90"
           to="/dashboard/products/create"

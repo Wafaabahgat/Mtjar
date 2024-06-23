@@ -64,7 +64,7 @@ const CreateProduct = () => {
 
   return (
     <DashboardContainer ttl="Product" links={links}>
-      <div className="border m-auto px-6 border-slate-300 rounded-lg lg:max-w-[800px] md:max-w-[680px] sm:max-w-[450px] max-w-[350px] py-4">
+      <div className="border m-auto px-10 border-slate-300 rounded-lg lg:max-w-[800px] md:max-w-[680px] sm:max-w-[450px] max-w-[330px] py-4">
         <h3 className="pb-2 text-lg font-semibold lg:text-xl">Create New Product</h3>
         <form
           className="flex flex-col justify-start items-start max-w-[750px]"
