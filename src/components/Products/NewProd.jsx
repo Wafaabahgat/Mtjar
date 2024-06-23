@@ -5,12 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import CartIcon from "../cart/CartIcon";
 
-const NewProd = ({ data, ttl }) => {
+const NewProd = ({ data, ttl,slidesToShow }) => {
   var settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: slidesToShow ,
     slidesToScroll: 1,
     responsive: [
       {
