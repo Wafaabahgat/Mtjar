@@ -19,14 +19,11 @@ const Home = () => {
         {/* Category */}
         <Categories />
         {/* Products */}
-        <NewProd data={data.newProd} ttl="New Products" slidesToShow={3} />
-        <NewProd data={data.topProd} ttl="Top Products" slidesToShow={3} />
-        <NewProd data={data.hotProd} ttl="Hot Products" slidesToShow={2} />
-        <NewProd
-          data={data.bestSellingProd}
-          ttl="Best Products"
-          slidesToShow={1}
-        />
+
+        <NewProd data={data.newProd} ttl="New Products" />
+        <NewProd data={data.topProd} ttl="Top Products" />
+        <NewProd data={data.hotProd} ttl="Hot Products" />
+        <NewProd data={data.bestSellingProd} ttl="Best Products" />
       </div>
     </>
   );
