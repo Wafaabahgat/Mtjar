@@ -21,16 +21,16 @@ const useSingle = ({ states, callfun }) => {
     if (success === false) {
       toast.error(errors);
     }
-  }, [success, msg, errors,id]);
+  }, [success, msg, errors, id]);
 
   useEffect(() => {
     const fetchData = () => {
       dispatch(callfun(id));
     };
     fetchData();
-  }, [dispatch,id]);
+  }, [dispatch, id]);
 
-  return { loading: loading, data:data };
+  return { loading: loading, data: data };
 };
 
 export default useSingle;

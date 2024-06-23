@@ -42,6 +42,7 @@ const LoginForm = () => {
   if (loading) {
     return <Loader />;
   }
+  
   return (
     <FormModelAuth onSubmit={handelSignup} isLogin>
       <FormInput
@@ -61,16 +62,16 @@ const LoginForm = () => {
         value={password}
         onChange={(e) => setpassword(e.target.value)}
         error={errors?.password}
-        previcon={<MdLockOutline className=" text-gray-400" />}
+        previcon={<MdLockOutline className="text-gray-400 " />}
         icon={
           visible ? (
             <FaEyeSlash
-              className="w-20 cursor-pointer text-gray-400"
+              className="w-20 text-gray-400 cursor-pointer"
               onClick={() => setVisible(!visible)}
             />
           ) : (
             <FaEye
-              className="cursor-pointer text-gray-400"
+              className="text-gray-400 cursor-pointer"
               onClick={() => setVisible(!visible)}
             />
           )

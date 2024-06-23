@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import ProfileImg from "./ProfileImg";
 import Cookies from "universal-cookie";
 import UserCard from "./UserCard";
+
+
 const cookies = new Cookies();
 const user = cookies.get("user");
 

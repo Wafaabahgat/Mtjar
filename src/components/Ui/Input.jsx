@@ -2,7 +2,7 @@ import { cn } from "../../lib/utils";
 
 const Input = ({ className, type, previcon, ...props }) => {
   return (
-    <div className="px-3 border border-border/50 rounded-md flex items-center w-full">
+    <div className="flex items-center w-full px-3 border rounded-md border-border/50">
       {previcon ? previcon : ""}
       <input
         className={cn(

@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import Title from "../components/Ui/Title";
-import { useState } from "react";
 import Loader from "../components/Loader";
 // import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
@@ -86,9 +85,9 @@ const Categories = () => {
           ttl="All Categories"
           className="bg-green-100 lg:w-[500px] md:w-[380px] w-[300px] p-2 font-semibold lg:text-xl text-md"
         />
-        <div className="flex flex-col items-center justify-center p-4 mt-2 gap-3 ">
+        <div className="flex flex-col items-center justify-center gap-3 p-4 mt-2 ">
           <div className="lg:w-[1100px] md:w-[800px] sm:w-[600px] w-[400px] h-[340px] shadow-2xl border-t rounded-md py-8 px-4">
-            <div className="w-full flex-1">
+            <div className="flex-1 w-full">
               <Slider {...settings} className="">
                 {data?.categories?.map((e) => {
                   return (
@@ -102,8 +101,8 @@ const Categories = () => {
                         src={e?.image}
                         alt=""
                       />
-                      <p className="font-semibold text-xl">{e.name}</p>
-                      <button className="ml-2 flex items-start border rounded-full bg-yellow-200  px-2">
+                      <p className="text-xl font-semibold">{e.name}</p>
+                      <button className="flex items-start px-2 ml-2 bg-yellow-200 border rounded-full">
                         <AiOutlineStar className=" w-[35px] h-[35px] p-1" />
                       </button>
                     </div>

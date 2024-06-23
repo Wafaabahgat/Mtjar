@@ -1,6 +1,5 @@
 import Title from "../Ui/Title";
 import { AiOutlineStar } from "react-icons/ai";
-import { BsCartPlus } from "react-icons/bs";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -58,9 +57,9 @@ const NewProd = ({ data, ttl }) => {
           ttl={ttl}
           className="bg-green-100 lg:w-[500px] md:w-[380px] w-[300px] p-2 font-semibold lg:text-xl text-md"
         />
-        <div className="flex p-4 mt-2 gap-3 ">
+        <div className="flex gap-3 p-4 mt-2 ">
           <div className="lg:w-[1100px] md:w-[800px] sm:w-[600px] w-[400px] h-[350px] shadow-2xl border-t rounded-md py-8 px-4">
-            <div className="w-full flex-1  ">
+            <div className="flex-1 w-full ">
               <Slider {...settings}>
                 {data?.map((e) => {
                   return (
@@ -75,18 +74,18 @@ const NewProd = ({ data, ttl }) => {
                         src={e?.image}
                         alt=""
                       />
-                      <p className="font-semibold text-xl line-clamp-1">
+                      <p className="text-xl font-semibold line-clamp-1">
                         {e.name}
                       </p>
                       <p className="text-md line-clamp-1 text-slate-400">
                         {e.disc}
                       </p>
-                      <div className="flex relative mt-2">
-                        <button className="ml-2 flex items-start border rounded-full bg-yellow-200 px-2">
+                      <div className="relative flex mt-2">
+                        <button className="flex items-start px-2 ml-2 bg-yellow-200 border rounded-full">
                           <AiOutlineStar className=" w-[35px] h-[35px] p-1" />
                           <p className="flex my-auto">{e.rating}</p>
                         </button>
-                        <span className="font-semibold text-xl absolute right-2">
+                        <span className="absolute text-xl font-semibold right-2">
                           {e.price}$
                         </span>
                       </div>
