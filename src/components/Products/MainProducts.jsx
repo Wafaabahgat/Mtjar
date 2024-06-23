@@ -23,7 +23,7 @@ const MainProducts = () => {
   if (loading) {
     return <Loader />;
   }
-  
+
   return (
     <>
       <div className="p-4 mt-20 flex-l">
@@ -41,7 +41,7 @@ const MainProducts = () => {
             <Search />
             <div className="flex mt-2">
               <div className="px-4 py-8 border-t border-l rounded-md shadow-2xl ">
-                <div className="grid w-full grid-cols-2 gap-4 p-2 lg:grid-cols-3">
+                <div className="grid w-full grid-cols-1 gap-4 p-2 sm:grid-cols-2 lg:grid-cols-3">
                   {data?.data?.map((e) => {
                     return <ProductCard product={e} key={e.id} />;
                   })}
