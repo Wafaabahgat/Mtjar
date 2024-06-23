@@ -13,6 +13,7 @@ const links = [
   { name: "Home", link: "/" },
   { name: "Products", link: "/mainProducts" },
 ];
+
 const MainProducts = () => {
   const { loading, data } = useGet({
     states: "MainProducts",
@@ -22,24 +23,25 @@ const MainProducts = () => {
   if (loading) {
     return <Loader />;
   }
+  
   return (
     <>
-      <div className="flex-l p-4 mt-20">
+      <div className="p-4 mt-20 flex-l">
         <MetaDate ttl="All Products" disc="Products page" />
         <Breadcamp isDash={false} ttl="Products" links={links} />
 
-        <div className="flex gap-4">
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 md:grid-cols-3">
           <Filter />
           {/* ProductCard */}
-          <div className="flex flex-col items-center justify-center mt-10">
+          <div className="flex flex-col items-center justify-center col-span-2 mt-10 md:col-span-2 lg:col-span-3">
             <Title
               ttl="All Products"
-              className="bg-green-100 w-[500px] p-2 font-semibold text-xl mb-4"
+              className="bg-green-100 min-w-[400px] p-2 font-semibold md:text-lg text-md mb-4"
             />
             <Search />
             <div className="flex mt-2">
-              <div className="w-[1000px] shadow-2xl border-t border-l rounded-md py-8 px-4">
-                <div className="w-full gap-4 p-2 grid grid-cols-3">
+              <div className="px-4 py-8 border-t border-l rounded-md shadow-2xl ">
+                <div className="grid w-full grid-cols-2 gap-4 p-2 lg:grid-cols-3">
                   {data?.data?.map((e) => {
                     return <ProductCard product={e} key={e.id} />;
                   })}
@@ -49,7 +51,7 @@ const MainProducts = () => {
           </div>
         </div>
 
-        <div className="my-5 mx-6">
+        <div className="mx-6 my-5">
           <Pagination data={data} />
         </div>
       </div>
