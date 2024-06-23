@@ -57,12 +57,12 @@ const NewProd = ({ data, ttl, slidesToShow }) => {
         className="bg-green-100 lg:w-[500px] md:w-[380px] w-[300px] p-2 font-semibold lg:text-xl text-md"
       />
       <div className="flex gap-3 p-4 mt-2">
-        <div className="lg:w-[1100px] md:w-[800px] sm:w-[600px] w-[400px] h-[350px] shadow-2xl border-t rounded-md py-8 px-4">
+        <div className="lg:w-[1100px] md:w-[800px] sm:w-[550px] w-[350px] h-[350px] shadow-2xl border-t rounded-md py-8 px-4">
           <div className="flex-1 w-full">
             <Slider {...settings}>
               {data?.map((e) => (
                 <div
-                  className="border h-[240px] rounded-md relative hover:scale-105"
+                  className=" h-[240px] rounded-md relative hover:scale-105"
                   key={e.id}
                 >
                   <CartIcon />
