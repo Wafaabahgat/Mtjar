@@ -10,12 +10,12 @@ const UserCard = ({ user, data, onclick, ...props }) => {
       className="absolute z-50 text-sm right-1 top-16 bg-white shadow-md rounded-md w-[250px] border-slate-400 border"
     >
       <div className="p-2 ">
-        <h2 className="text-slate-900 text-lg bg-slate-100 p-2 rounded-md font-semibold">
+        <h2 className="p-2 text-lg font-semibold rounded-md text-slate-900 bg-slate-100">
           {`${user?.first_name}_${user?.last_name}`}
         </h2>
       </div>
       <span className=" bg-slate-400 block h-[1px]"></span>
-      <ul className="flex flex-col p-2 gap-1">
+      <ul className="flex flex-col gap-1 p-2">
         {data?.map((e, i) => (
           <li key={i}>
             <Link
@@ -49,13 +49,13 @@ const UserCard = ({ user, data, onclick, ...props }) => {
             <li className="p-2 font-semibold">Products</li>
           </Link>
 
-          <Link className="flex items-center justify-center">
+          <Link className="flex items-center justify-center" to="/cartItem">
             <FaShoppingBag />
             <li className="p-2 font-semibold">Cart</li>
           </Link>
         </ul>
         <h2
-          className="text-slate-900 flex items-center justify-center gap-2 bg-green-500 p-2 rounded-md font-semibold "
+          className="flex items-center justify-center gap-2 p-2 font-semibold bg-green-500 rounded-md text-slate-900 "
           onClick={onclick}
         >
           <FaSignOutAlt />

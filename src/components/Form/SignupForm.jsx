@@ -38,7 +38,7 @@ const SignupForm = () => {
     }
     if (msg && success === true) {
       toast.success(msg);
-      window.location = "/home";
+      window.location = "/";
     }
     if (errors) {
       seterros(errors);
@@ -88,30 +88,30 @@ const SignupForm = () => {
         type={visible ? "text" : "password"}
         onChange={(e) => setpassword(e.target.value)}
         error={errors?.password}
-        previcon={<MdLockOutline className=" text-gray-400 " />}
+        previcon={<MdLockOutline className="text-gray-400 " />}
         icon={
           visible ? (
             <FaEyeSlash
-              className="cursor-pointer text-gray-400"
+              className="text-gray-400 cursor-pointer"
               onClick={() => setVisible(!visible)}
             />
           ) : (
             <FaEye
-              className="cursor-pointer text-gray-400"
+              className="text-gray-400 cursor-pointer"
               onClick={() => setVisible(!visible)}
             />
           )
         }
       />
 
-      <div className="flex justify-between w-64 md:text-sm md:w-60 my-3 text-green-500">
+      <div className="flex justify-between w-64 my-3 text-green-500 md:text-sm md:w-60">
         <Link to="/login">Already have an acc?</Link>
       </div>
       <Button
         type="submit"
         text="Create an account"
         variant={"default"}
-        className="bg-green-500 px-4"
+        className="px-4 bg-green-500"
       />
     </FormModelAuth>
   );

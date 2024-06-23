@@ -10,9 +10,9 @@ const Navbar = () => {
   const { items } = useSelector((e) => e.cartSlice);
 
   return (
-    <div className="fixed left-0 top-0 w-full z-10 shadow-xl bg-white">
+    <div className="fixed top-0 left-0 z-10 w-full bg-white shadow-xl">
       <div className="max-h-[80px] m-auto flex justify-between items-center gap-x-7 p-3">
-        <Link to="/home">
+        <Link to="/">
           <img src={Logo} alt="Logo" className="lg:w-[65px] ml-3 w-[50px] " />
         </Link>
 
@@ -32,7 +32,7 @@ const Navbar = () => {
               to="/cartItem"
             >
               <BiShoppingBag className="text-slate-700 text-[25px]" />
-              <span className="absolute -top-1 left-6 w-5 h-5 text-sm bg-green-900 flex items-center justify-center text-white rounded-full">
+              <span className="absolute flex items-center justify-center w-5 h-5 text-sm text-white bg-green-900 rounded-full -top-1 left-6">
                 {items?.length}
               </span>
             </Link>
