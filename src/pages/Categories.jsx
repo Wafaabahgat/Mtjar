@@ -59,7 +59,7 @@ const Categories = () => {
           className="bg-green-100 lg:w-[500px] md:w-[380px] w-[300px] p-2 font-semibold lg:text-xl text-md"
         />
         <div className="flex gap-3 p-4 mt-2">
-          <div className="relative lg:w-[1100px] md:w-[800px] sm:w-[600px] w-[400px] h-[340px] shadow-2xl border-t rounded-md py-8 px-4">
+          <div className="relative lg:max-w-[1100px] md:max-w-[800px] sm:max-w-[600px] max-w-[400px] h-[340px] shadow-2xl border-t rounded-md py-8 px-4">
             <div className="flex gap-4 overflow-hidden">
               {data?.categories?.slice(imgCurrent, imgCurrent + slidesToShow).map((e) => (
                 <div key={e.id} className="border h-[250px] w-full rounded-md flex flex-col items-center">
