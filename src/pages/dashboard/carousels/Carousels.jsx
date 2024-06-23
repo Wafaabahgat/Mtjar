@@ -39,9 +39,9 @@ const Carousels = () => {
       name="Create new Carousels"
       className="py-2"
     >
-      <div className="lg:w-[1000px] md:w-[750px] sm:w-[500px] w-[300px]">
+      <div className="lg:w-[1000px] md:w-[750px] sm:w-[500px] w-[300px] px-4 ">
         <Link
-          className="bg-green-500 flex justify-center text-slate-50 lg:text-lg md:text-xl py-2 text-center rounded-md hover:opacity-80 active:scale-90"
+          className="flex justify-center py-2 text-center bg-green-500 rounded-md text-slate-50 lg:text-lg md:text-xl hover:opacity-80 active:scale-90"
           to="/dashboard/carousels/create"
         >
           Create New Carousels
@@ -63,10 +63,10 @@ const Carousels = () => {
                   <td>
                     <div className="flex items-center justify-center gap-2 text-xl">
                       <Link to={`/dashboard/carousels/update/${e.id}`}>
-                        <AiFillEdit className="active:scale-95 cursor-pointer text-green-700" />
+                        <AiFillEdit className="text-green-700 cursor-pointer active:scale-95" />
                       </Link>
                       <AiOutlineDelete
-                        className="active:scale-95 cursor-pointer text-red-800"
+                        className="text-red-800 cursor-pointer active:scale-95"
                         onClick={() => {
                           handleDelete(e.id);
                         }}
