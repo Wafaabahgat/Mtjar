@@ -56,28 +56,33 @@ const Categories = () => {
       <div className="flex flex-col items-center justify-center mt-10">
         <Title
           ttl="All Categories"
-          className="bg-green-100 lg:w-[500px] md:w-[380px] w-[300px] p-2 font-semibold lg:text-xl text-md"
+          className="bg-green-100 lg:w-[500px] md:w-[400px] sm:w-[350px] w-[270px] p-2 font-semibold lg:text-xl text-md"
         />
         <div className="flex gap-3 p-4 mt-2">
-          <div className="relative lg:max-w-[1100px] md:max-w-[800px] sm:max-w-[600px] max-w-[400px] h-[340px] shadow-2xl border-t rounded-md py-8 px-4">
+          <div className="relative lg:w-[1100px] md:w-[800px] sm:w-[600px] w-[400px] h-[340px] shadow-2xl border-t rounded-md py-8 px-4">
             <div className="flex gap-4 overflow-hidden">
-              {data?.categories?.slice(imgCurrent, imgCurrent + slidesToShow).map((e) => (
-                <div key={e.id} className="border h-[250px] w-full rounded-md flex flex-col items-center">
-                  <button className="flex mx-2 mt-2">
-                    <BsCartPlus className="border rounded-full w-[35px] h-[35px] p-1" />
-                  </button>
-                  <img
+              {data?.categories
+                ?.slice(imgCurrent, imgCurrent + slidesToShow)
+                .map((e) => (
+                  <div
                     key={e.id}
-                    className="object-contain w-full max-h-[120px] mt-4"
-                    src={e.image}
-                    alt=""
-                  />
-                  <p className="text-xl font-semibold">{e.name}</p>
-                  <button className="flex items-start px-2 ml-2 bg-yellow-200 border rounded-full">
-                    <AiOutlineStar className="w-[35px] h-[35px] p-1" />
-                  </button>
-                </div>
-              ))}
+                    className="border h-[250px] w-full rounded-md flex flex-col items-center"
+                  >
+                    <button className="flex mx-2 mt-2">
+                      <BsCartPlus className="border rounded-full w-[35px] h-[35px] p-1" />
+                    </button>
+                    <img
+                      key={e.id}
+                      className="object-contain w-full max-h-[120px] mt-4"
+                      src={e.image}
+                      alt=""
+                    />
+                    <p className="text-xl font-semibold">{e.name}</p>
+                    <button className="flex items-start px-2 ml-2 bg-yellow-200 border rounded-full">
+                      <AiOutlineStar className="w-[35px] h-[35px] p-1" />
+                    </button>
+                  </div>
+                ))}
             </div>
             <button
               className="absolute top-0 bottom-0 left-0 flex items-center justify-center"

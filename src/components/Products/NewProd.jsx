@@ -5,7 +5,7 @@ import CartIcon from "../cart/CartIcon";
 
 const NewProd = ({ data = [], ttl }) => {
   const [imgCurrent, setImgCurrent] = useState(0);
-  const [slidesToShow, setSlidesToShow] = useState(3); 
+  const [slidesToShow, setSlidesToShow] = useState(3);
 
   const handleResize = () => {
     if (window.innerWidth >= 1100) {
@@ -45,7 +45,7 @@ const NewProd = ({ data = [], ttl }) => {
     <div className="flex flex-col items-center justify-center mt-10">
       <Title
         ttl={ttl}
-        className="bg-green-100 lg:w-[500px] md:w-[380px] w-[300px] p-2 font-semibold lg:text-xl text-md"
+        className="bg-green-100 lg:w-[500px] md:w-[400px] sm:w-[350px] w-[270px] p-2 font-semibold lg:text-xl text-md"
       />
       <div className="flex gap-3 p-4 mt-2">
         <div className="relative lg:max-w-[1100px] md:max-w-[800px] sm:max-w-[600px] max-w-[400px] h-[340px] shadow-2xl border-t rounded-md py-8 px-4">
@@ -57,7 +57,7 @@ const NewProd = ({ data = [], ttl }) => {
                   slidesToShow === 1 ? "w-[100%]" : `w-1/${slidesToShow}`
                 }`}
               >
-                 <CartIcon />
+                <CartIcon />
                 <img
                   className="object-contain w-full max-h-[120px] mt-4"
                   src={e?.image}
