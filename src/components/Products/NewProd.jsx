@@ -59,7 +59,7 @@ const NewProd = ({ data = [], ttl }) => {
               >
                 <CartIcon />
                 <img
-                  className="object-contain w-full max-h-[120px] mt-4"
+                  className="object-contain w-[400px] max-h-[120px] mt-4"
                   src={e?.image}
                   alt=""
                 />
