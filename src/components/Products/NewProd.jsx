@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Title from "../Ui/Title";
 import CartIcon from "../cart/CartIcon";
+import notFound from "../../assets/notFound.png";
 
 const NewProd = ({ data = [], ttl }) => {
   const [imgCurrent, setImgCurrent] = useState(0);
@@ -60,7 +61,7 @@ const NewProd = ({ data = [], ttl }) => {
                 <CartIcon />
                 <img
                   className="object-contain w-[400px] max-h-[120px] mt-4"
-                  src={e?.image}
+                  src={e?.image ? e?.image : notFound}
                   alt=""
                 />
                 <p className="text-xl font-semibold line-clamp-1">{e.name}</p>

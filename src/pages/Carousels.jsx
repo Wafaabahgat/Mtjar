@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 // import cn from "../../lib/utils";
+import notFound from "../assets/notFound.png";
 
 const Carousels = () => {
   const dispatch = useDispatch();
@@ -31,15 +32,15 @@ const Carousels = () => {
   }
   return (
     <>
-      <div className="mx-auto border border-slate-300 rounded-md">
+      <div className="mx-auto border rounded-md border-slate-300">
         <div className="relative flex lg:w-[1100px] md:w-[770px] lg:h-[400px] md:h-[300px] sm:h-[230px] h-[200px] items-center">
-          <div className="w-full flex-1">
+          <div className="flex-1 w-full">
             {data?.carusels?.map((e, i) => {
               return i + 1 === imgCurrent ? (
                 <img
                   key={e?.id}
                   className="object-contain w-full h-[450px]"
-                  src={e?.image}
+                  src={e?.image ? e?.image : notFound}
                   alt=""
                 />
               ) : (
@@ -48,18 +49,18 @@ const Carousels = () => {
             })}
           </div>
           <button
-            className="absolute top-0 left-0 bottom-0 flex justify-center items-center"
+            className="absolute top-0 bottom-0 left-0 flex items-center justify-center"
             onClick={handlePrev}
           >
-            <FaArrowLeft className="lg:text-2xl text-xl text-slate-50 bg-slate-800 rounded-full" />
+            <FaArrowLeft className="text-xl rounded-full lg:text-2xl text-slate-50 bg-slate-800" />
           </button>
           <button
-            className="absolute top-0 right-0 bottom-0 flex justify-center items-center"
+            className="absolute top-0 bottom-0 right-0 flex items-center justify-center"
             onClick={handleNext}
           >
-            <FaArrowRight className="lg:text-2xl text-xl text-slate-50 bg-slate-800 rounded-full" />
+            <FaArrowRight className="text-xl rounded-full lg:text-2xl text-slate-50 bg-slate-800" />
           </button>
-          <div className="absolute bottom-3 right-1/2 left-1/2 -translate-x-1/2 flex gap-4 items-center">
+          <div className="absolute flex items-center gap-4 -translate-x-1/2 bottom-3 right-1/2 left-1/2">
             {data?.carusels?.map((e, i) => (
               <span
                 key={e?.id}

@@ -5,6 +5,7 @@ import Loader from "../components/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineStar } from "react-icons/ai";
 import { BsCartPlus } from "react-icons/bs";
+import notFound from "../assets/notFound.png";
 
 const Categories = () => {
   const dispatch = useDispatch();
@@ -74,7 +75,7 @@ const Categories = () => {
                     <img
                       key={e.id}
                       className="object-contain w-full max-h-[120px] mt-4"
-                      src={e.image}
+                      src={e?.image ? e?.image : notFound}
                       alt=""
                     />
                     <p className="text-xl font-semibold">{e.name}</p>

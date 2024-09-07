@@ -6,6 +6,7 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 const token = cookies.get("token");
 const TOKEN = `Bearer ${token}`;
+
 const config = {
   headers: {
     Authorization: TOKEN,
