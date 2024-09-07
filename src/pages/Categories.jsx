@@ -75,7 +75,7 @@ const Categories = () => {
                     <img
                       key={e.id}
                       className="object-contain w-full max-h-[120px] mt-4"
-                      src={e?.image ? e?.image : notFound}
+                      src={e?.image_url ? e?.image_url : notFound}
                       alt=""
                     />
                     <p className="text-xl font-semibold">{e.name}</p>

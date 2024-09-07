@@ -61,7 +61,7 @@ const NewProd = ({ data = [], ttl }) => {
                 <CartIcon />
                 <img
                   className="object-contain w-[400px] max-h-[120px] mt-4"
-                  src={e?.image ? e?.image : notFound}
+                  src={e?.image_url ? e.image_url : notFound}
                   alt=""
                 />
                 <p className="text-xl font-semibold line-clamp-1">{e.name}</p>

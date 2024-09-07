@@ -9,26 +9,26 @@ import CartIcon from "../cart/CartIcon";
 
 const ProductCard = ({ product }) => {
   const handleImg = (e) => {
-    return e?.image?.includes("http")
-      ? e?.image
-      : adminImgUrl({ img: e?.image });
+    return e?.image_url?.includes("http")
+      ? e?.image_url
+      : adminImgUrl({ img: e?.image_url });
   };
 
   return (
     <>
-      <div className="relative flex flex-col rounded-lg w-full p-2 hover:scale-105 hover:shadow-lg border border-slate-300 overflow-hidden">
+      <div className="relative flex flex-col w-full p-2 overflow-hidden border rounded-lg hover:scale-105 hover:shadow-lg border-slate-300">
         <CartIcon product={product} />
         <Link to={`/SingleProducts/${product?.slug}`}>
-          <div className="flex item-center justify-center">
+          <div className="flex justify-center item-center">
             <img
               key={product?.id}
               className="object-contain w-[200px] rounded-lg h-[180px] mt-4"
-              src={product?.image ? handleImg(product) : notFound}
+              src={product?.image_url ? handleImg(product) : notFound}
               alt="notFound"
             />
           </div>
-          <div className="flex flex-col  mb-3">
-            <h2 className="font-semibold text-lg text-start line-clamp-1">
+          <div className="flex flex-col mb-3">
+            <h2 className="text-lg font-semibold text-start line-clamp-1">
               {product.name}
             </h2>
             <p className="text-md text-slate-400 line-clamp-2 text-start">
@@ -37,13 +37,13 @@ const ProductCard = ({ product }) => {
           </div>
 
           <div className="flex justify-between mt-auto">
-            <div className="ml-2 flex items-center -mt-2 border rounded-full bg-yellow-200 px-2">
+            <div className="flex items-center px-2 ml-2 -mt-2 bg-yellow-200 border rounded-full">
               <AiOutlineStar className=" w-[35px] h-[35px] p-1" />
               {product.rating}
             </div>
-            <p className="text-xl font-semibold flex items-center gap-1">
+            <p className="flex items-center gap-1 text-xl font-semibold">
               {product?.compare_price && (
-                <span className="line-through text-base text-red-700">
+                <span className="text-base text-red-700 line-through">
                   {product?.compare_price}$
                 </span>
               )}

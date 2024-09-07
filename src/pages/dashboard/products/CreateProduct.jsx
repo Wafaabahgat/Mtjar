@@ -146,10 +146,10 @@ const CreateProduct = () => {
             onChange={(e) => setimage(uploadImg(e))}
             error={errors?.image}
           />
-          {image?.img && (
+          {image?.image_url && (
             <div className="p-2">
               <img
-                src={image?.img && URL?.createObjectURL(image?.img)}
+                src={image?.image_url && URL?.createObjectURL(image?.image_url)}
                 className="object-contain w-24 h-24"
                 alt=""
               />

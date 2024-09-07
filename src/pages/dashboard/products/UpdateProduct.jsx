@@ -98,7 +98,7 @@ const UpdateProduct = () => {
   return (
     <DashboardContainer ttl="Update Products" links={links}>
       <div className="border m-auto px-6 border-slate-300 rounded-lg lg:w-[800px] md:w-[680px] sm:w-[450px] w-[350px] py-4">
-        <h3 className="font-semibold lg:text-xl text-lg pb-2">Update </h3>
+        <h3 className="pb-2 text-lg font-semibold lg:text-xl">Update </h3>
         <form
           className="flex flex-col justify-start items-start w-[750px]"
           onSubmit={fetchData}
@@ -183,8 +183,8 @@ const UpdateProduct = () => {
           />
           <div className="p-2">
             <img
-              src={image?.img && URL?.createObjectURL(image?.img)}
-              className="h-24 w-24 object-contain"
+              src={image?.image_url && URL?.createObjectURL(image?.image_url)}
+              className="object-contain w-24 h-24"
               alt="img"
             />
           </div>

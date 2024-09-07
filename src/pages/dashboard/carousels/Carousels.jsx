@@ -59,7 +59,7 @@ const Carousels = () => {
               {data?.map((e) => (
                 <tr key={e.id}>
                   <td>{e.id}</td>
-                  <td>{e.image}</td>
+                  <td>{e.image_url}</td>
                   <td>
                     <div className="flex items-center justify-center gap-2 text-xl">
                       <Link to={`/dashboard/carousels/update/${e.id}`}>

@@ -40,7 +40,7 @@ const Carousels = () => {
                 <img
                   key={e?.id}
                   className="object-contain w-full h-[450px]"
-                  src={e?.image ? e?.image : notFound}
+                  src={e?.image_url ? e?.image_url : notFound}
                   alt=""
                 />
               ) : (
