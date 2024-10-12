@@ -5,6 +5,7 @@ import router from "./App";
 import { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+// import 'swiper/swiper-bundle.min.css';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>

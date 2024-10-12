@@ -50,7 +50,7 @@ const ForgotPass = () => {
     >
       <p className="text-green-500 font-bold mb-2 lg:text-2xl text-xl">
         Forget Password
-      </p>
+                    </p>
       <p className="font-semibold text-gray-400 text-sm">
         There will be sent a code to your email...
       </p>

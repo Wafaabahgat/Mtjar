@@ -7,7 +7,9 @@
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -31,4 +33,23 @@ tr:nth-child(even) {
 }
 .paginate__link {
   @apply py-1 px-2 min-w-[35px] text-center -mr-px font-semibold border border-slate-300;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-main border rounded-full lg:p-[22px] md:p-[20px] sm:p-[18px] p-[12px] !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  @apply text-white bg-main rounded-full lg:p-[22px] md:p-[20px] sm:p-[18px] p-[12px] !important;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  @apply lg:text-[27px] md:text-[24px] sm:text-[20px] text-[15px] !important;
+}
+
+.swiper-pagination-bullet-active {
+  @apply rounded-lg  md:w-[25px] w-[21px] h-[11px] bg-main !important;
 }

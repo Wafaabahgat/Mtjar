@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { globalCategories, globalStores } from "../slice/globals/globalsAction";
 import { home } from "../slice/Home/HomeAction";
+// import 'swiper/swiper-bundle.min.css';
 
 const Root = () => {
   const location = useLocation().pathname;

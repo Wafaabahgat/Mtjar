@@ -11,9 +11,9 @@ const Navbar = () => {
 
   return (
     <div className="fixed top-0 left-0 z-10 w-full bg-white shadow-xl">
-      <div className="max-h-[80px] m-auto flex justify-between items-center gap-x-7 p-3">
+      <div className="max-h-[80px] m-auto flex justify-between items-center gap-x-7 py-3 px-5">
         <Link to="/">
-          <img src={Logo} alt="Logo" className="lg:w-[65px] ml-3 w-[50px] " />
+          <img src={Logo} alt="Logo" className="lg:w-[65px] ml-3 w-[50px]" />
         </Link>
 
         <Search />

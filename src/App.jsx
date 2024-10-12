@@ -26,11 +26,13 @@ import UpdateCarousels from "./pages/dashboard/carousels/UpdateCarousels";
 import SingleProducts from "./components/Products/SingleProducts";
 import CartItem from "./components/cart/CartItem";
 import UpdateProduct from "./pages/dashboard/products/UpdateProduct";
+import ErrorPage from "./components/Ui/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage/>,
     children: [
       ////////////////// Auth //////////////////
       {

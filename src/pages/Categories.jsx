@@ -1,106 +1,66 @@
-import { useEffect, useState } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Title from "../components/Ui/Title";
 import Loader from "../components/Loader";
-import { useDispatch, useSelector } from "react-redux";
-import { AiOutlineStar } from "react-icons/ai";
-import { BsCartPlus } from "react-icons/bs";
+import { useSelector } from "react-redux";
 import notFound from "../assets/notFound.png";
+import Container from "../components/Ui/Container";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css";
 
 const Categories = () => {
-  const dispatch = useDispatch();
   const { loading, data } = useSelector((state) => state.home);
-
-  const [imgCurrent, setImgCurrent] = useState(0);
-  const [slidesToShow, setSlidesToShow] = useState(3);
-
-  const handleResize = () => {
-    if (window.innerWidth >= 1100) {
-      setSlidesToShow(3);
-    } else if (window.innerWidth >= 600) {
-      setSlidesToShow(2);
-    } else {
-      setSlidesToShow(1);
-    }
-  };
-
-  useEffect(() => {
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const handleNext = () => {
-    if (imgCurrent + slidesToShow < data.categories.length) {
-      setImgCurrent(imgCurrent + 1);
-    } else {
-      setImgCurrent(0);
-    }
-  };
-
-  const handlePrev = () => {
-    if (imgCurrent > 0) {
-      setImgCurrent(imgCurrent - 1);
-    } else {
-      setImgCurrent(data.categories.length - slidesToShow);
-    }
-  };
 
   if (loading) {
     return <Loader />;
   }
 
   return (
-    <>
-      <div className="flex flex-col items-center justify-center mt-10">
-        <Title
-          ttl="All Categories"
-          className="bg-green-100 lg:w-[500px] md:w-[400px] sm:w-[350px] w-[270px] p-2 font-semibold lg:text-xl text-md"
-        />
-        <div className="flex gap-3 p-4 mt-2">
-          <div className="relative lg:w-[1100px] md:w-[800px] sm:w-[550px] w-[350px] h-[340px] shadow-2xl border-t rounded-md py-8 px-4">
-            <div className="flex gap-4 overflow-hidden">
-              {data?.categories
-                ?.slice(imgCurrent, imgCurrent + slidesToShow)
-                .map((e) => (
-                  <div
-                    key={e.id}
-                    className="border h-[250px] w-full rounded-md flex flex-col items-center"
-                  >
-                    <button className="flex mx-2 mt-2">
-                      <BsCartPlus className="border rounded-full w-[35px] h-[35px] p-1" />
-                    </button>
-                    <img
-                      key={e.id}
-                      className="object-contain w-full max-h-[120px] mt-4"
-                      src={e?.image_url ? e?.image_url : notFound}
-                      alt=""
-                    />
-                    <p className="text-xl font-semibold">{e.name}</p>
-                    <button className="flex items-start px-2 ml-2 bg-yellow-200 border rounded-full">
-                      <AiOutlineStar className="w-[35px] h-[35px] p-1" />
-                    </button>
-                  </div>
-                ))}
-            </div>
-            <button
-              className="absolute top-0 bottom-0 left-0 flex items-center justify-center"
-              onClick={handlePrev}
-            >
-              <FaArrowLeft className="text-xl rounded-full lg:text-2xl text-slate-50 bg-slate-800" />
-            </button>
-            <button
-              className="absolute top-0 bottom-0 right-0 flex items-center justify-center"
-              onClick={handleNext}
-            >
-              <FaArrowRight className="text-xl rounded-full lg:text-2xl text-slate-50 bg-slate-800" />
-            </button>
-          </div>
-        </div>
+    <Container className="mt-10">
+      <Title
+        ttl="Featured Categories"
+        className="text-main py-2 font-semibold md:text-2xl text-xl text-start"
+      />
+      <div className="lg:px-12 md:px-10 sm:px-8 px-6 mt-4">
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={10}
+          slidesPerView={2}
+          navigation
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: {
+              slidesPerView: 2, 
+            },
+            768: {
+              slidesPerView: 3, 
+            },
+            1024: {
+              slidesPerView: 4, 
+            },
+            1280: {
+              slidesPerView: 5, 
+            },
+          }}
+        
+        >
+          {data?.categories?.map((category) => (
+            <SwiperSlide key={category.id}>
+              <div className="border pb-10 w-full rounded-md ">
+                <img
+                  className="object-contain w-full max-h-[120px] my-4"
+                  src={category.image_url ? category.image_url : notFound}
+                  alt={category.name}
+                />
+                <p className="text-xl font-semibold">{category.name}</p>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-    </>
+    </Container>
   );
 };
 
