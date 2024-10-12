@@ -40,6 +40,10 @@ tr:nth-child(even) {
   @apply text-main border rounded-full lg:p-[22px] md:p-[20px] sm:p-[18px] p-[12px] !important;
 }
 
+.swiper-button-prev {
+  right: 50px;
+}
+
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   @apply text-white bg-main rounded-full lg:p-[22px] md:p-[20px] sm:p-[18px] p-[12px] !important;

@@ -19,20 +19,22 @@ const CartIcon = ({ product, className }) => {
   };
 
   return (
-    <>
-      <button
-        className="-right-2 mx-2 mt-2 absolute -top-2"
-        onClick={handleAddCard}
-      >
-        <BsCartPlus
-          className={cn(
-            "rounded-bl-md w-[50px] h-[50px] p-2 bg-green-200",
-            className
-          )}
-        />
-      </button>
-    </>
+    <button
+      className="mt-2 text-white py-1 px-3 rounded-md gap-1 bg-main flex items-center"
+      onClick={handleAddCard}
+    >
+      <BsCartPlus
+        className={cn(
+          "md:w-[30px] w-[23px] md:h-[30px] h-[23px]",
+          className
+        )}
+      />
+      Add
+    </button>
   );
 };
+// class="flex items-center gap-1 px-3 py-1 rounded-md  {{ $className ?? '' }}">
+// <x-svg.plus />
+// <h4 class="text-sm text-white"> {{__('Add')}}</h4>
 
 export default CartIcon;

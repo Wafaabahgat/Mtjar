@@ -20,6 +20,11 @@ export default {
         fatwaText:"#373131",
         bgWhite:"#FFFFFF"
     },
+    gridTemplateColumns: {
+      prod: 'repeat(auto-fit, minmax(400px, 1fr))',
+      plog: 'repeat(auto-fit, minmax(270px, 1fr))',
+      plog1: 'repeat(auto-fit, minmax(330px, 1fr))',
+  },
     },
   },
   plugins: [],
