@@ -25,37 +25,31 @@ const MainProducts = () => {
   }
 
   return (
-    <>
-      <div className="p-4 mt-20 flex-l">
-        <MetaDate ttl="All Products" disc="Products page" />
-        <Breadcamp isDash={false} ttl="Products" links={links} />
+    <div className="p-4 mt-20 flex-l">
+      <MetaDate ttl="All Products" disc="Products page" />
+      <Breadcamp isDash={false} ttl="All Products" links={links} />
 
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 md:grid-cols-3">
-          <Filter />
-          {/* ProductCard */}
-          <div className="flex flex-col items-center justify-center col-span-2 mt-10 md:col-span-2 lg:col-span-3">
-            <Title
-              ttl="All Products"
-              className="bg-green-100 min-w-[400px] p-2 font-semibold md:text-lg text-md mb-4"
-            />
-            <Search />
-            <div className="flex mt-2">
-              <div className="px-4 py-8 border-t border-l rounded-md shadow-2xl ">
-                <div className="grid w-full grid-cols-1 gap-4 p-2 sm:grid-cols-2 lg:grid-cols-3">
-                  {data?.data?.map((e) => {
-                    return <ProductCard product={e} key={e.id} />;
-                  })}
-                </div>
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 md:grid-cols-3">
+        <Filter />
+        {/* ProductCard */}
+        <div className="flex flex-col items-center justify-center col-span-2 mt-10 md:col-span-2 lg:col-span-3">
+          <Search />
+          <div className="flex mt-2">
+            <div className="px-4 py-8 border-t border-l rounded-md shadow-2xl ">
+              <div className="grid w-full grid-cols-1 gap-4 p-2 sm:grid-cols-2 lg:grid-cols-3">
+                {data?.data?.map((e) => {
+                  return <ProductCard product={e} key={e.id} />;
+                })}
               </div>
             </div>
           </div>
         </div>
-
-        <div className="mx-6 my-5">
-          <Pagination data={data} />
-        </div>
       </div>
-    </>
+
+      <div className="mx-6 my-5">
+        <Pagination data={data} />
+      </div>
+    </div>
   );
 };
 

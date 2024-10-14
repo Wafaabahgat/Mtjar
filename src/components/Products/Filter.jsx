@@ -31,7 +31,7 @@ const Filter = () => {
     category_id: search.get("category_id") || "",
     rating: search.get("rating") || "5",
   });
-  
+
   const handleFilter = (e) => {
     e.preventDefault();
 
@@ -44,18 +44,18 @@ const Filter = () => {
 
   return (
     <form
-      className="flex-col hidden mt-10 border rounded-md md:flex"
+      className="flex-col hidden mt-10 border rounded-md md:flex w-full"
       onSubmit={handleFilter}
     >
-      <div className="flex flex-col items-start ml-2">
+      <div className="">
         <Title
-          className="px-6 py-2 mt-2 mb-2 font-semibold border rounded-sm shadow-md md:text-lg bg-slate-100 text-md"
+          className="py-3 mb-2 font-semibold shadow-md md:text-xl text-lg bg-slate-100"
           ttl="Price"
         />
 
         <InputSelect
           label=""
-          className="w-[36%]"
+          className="w-full"
           name="Price"
           onChange={(e) => {
             setFilter({ ...filter, price: e.target.value });
@@ -64,12 +64,12 @@ const Filter = () => {
           options={options}
         />
         <Title
-          className="px-6 py-2 mt-2 mb-2 font-semibold border rounded-sm shadow-md md:text-lg bg-slate-100 text-md"
+          className="py-3 mb-2 font-semibold shadow-md md:text-xl text-lg bg-slate-100 mt-5"
           ttl="Category"
         />
         <InputSelect
           label=""
-          className="w-[36%]"
+          className="w-full"
           name="category_id"
           onChange={(e) =>
             setFilter({ ...filter, category_id: e.target.value })
@@ -85,14 +85,14 @@ const Filter = () => {
           <Search />
         </InputSelect>
       </div>
-      <div className="flex flex-col items-start gap-1 ml-2">
+      <div className="w-full">
         <Title
-          className="px-6 py-2 mt-4 mb-2 font-semibold border rounded-sm shadow-md md:text-lg bg-slate-100 text-md"
+          className="py-3 mb-2 font-semibold shadow-md md:text-xl text-lg bg-slate-100 mt-5"
           ttl="Rating the product"
         />
         <InputSelect
           label=""
-          className="w-[36%]"
+          className="w-full"
           name="Rating"
           onChange={(e) => {
             setFilter({ ...filter, rating: e.target.value });
@@ -106,11 +106,10 @@ const Filter = () => {
             { val: "5", name: "5" },
           ]}
         />
-        {/* <input className="w-[95%]" type="range" name="star" /> */}
       </div>
       <Button
         type="submit"
-        className="m-2 text-white bg-green-500 rounded-md"
+        className="m-2 text-white bg-main rounded-md"
         variant="default"
         text="Filter"
       />

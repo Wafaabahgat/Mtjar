@@ -8,11 +8,11 @@ interface ButtonProps
   text?: string;
 }
 const buttonVariants = cva(
-  "border-2 lg:px-10 md:px-4 py-2 rounded-full font-bold mt-4 ",
+  "border-2 lg:px-10 md:px-4 py-2 rounded-full font-bold mt-4",
   {
     variants: {
       variant: {
-        default: "text-white hover:bg-white hover:text-green-500",
+        default: "text-white hover:bg-white hover:text-main",
       },
     },
   }

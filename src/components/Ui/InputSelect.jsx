@@ -5,10 +5,10 @@ const InputSelect = ({ name, label, options, error,emptyOption, ...props }) => {
   const onErr = error ? "block" : "hidden";
 
   return (
-    <div className="flex flex-col gap-2 justify-start items-start mb-3 lg:w-[750px] md:w-[630px] sm:w-[410px] w-[300px]">
+    <div className="flex flex-col gap-2 justify-start items-start mb-3 w-full">
       <Label>{label}</Label>
       <select
-        className="px-2 py-2 border border-border/50 rounded-md flex items-center w-full"
+        className="px-2 py-2 border border-border/50 rounded-md flex items-center w-full outline-none"
         name={name}
         id={name}
         {...props}

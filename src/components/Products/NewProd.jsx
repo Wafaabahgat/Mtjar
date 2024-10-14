@@ -16,7 +16,7 @@ const NewProd = ({ data = [], ttl }) => {
         {data?.map((e) => (
           <div
             key={e.id}
-            className="w-full border px-2 py-2 hover:border-main rounded-md "
+            className="w-full border px-2 py-2 hover:border-main rounded-md"
           >
             <img
               className="object-contain w-full max-h-[120px] mb-4"
@@ -25,7 +25,7 @@ const NewProd = ({ data = [], ttl }) => {
             />
             <div className="text-start px-3">
               <h2 className="text-[12px] text-gray-400 py-2">{e.name}</h2>
-              <p className="md:text-lg text-[15px] line-clamp-3 text-black">{e.disc}</p>
+              <p className="md:text-lg text-[15px] line-clamp-2 text-black">{e.disc}</p>
 
               <div className="flex my-2 gap-2">
                 <div className="flex items-center text-yellow-400 text-lg">

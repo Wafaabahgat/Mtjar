@@ -1,4 +1,3 @@
-import { AiOutlineStar } from "react-icons/ai";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import Pagination from "../components/Ui/Pagination";
@@ -6,6 +5,7 @@ import { adminImgUrl } from "../../lib/utils";
 import { Link } from "react-router-dom";
 import notFound from "../../assets/notFound.png";
 import CartIcon from "../cart/CartIcon";
+import { FaStar } from "react-icons/fa6";
 
 const ProductCard = ({ product }) => {
   const handleImg = (e) => {
@@ -15,44 +15,47 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <>
-      <div className="relative flex flex-col w-full p-2 overflow-hidden border rounded-lg hover:scale-105 hover:shadow-lg border-slate-300">
-        <CartIcon product={product} />
-        <Link to={`/SingleProducts/${product?.slug}`}>
-          <div className="flex justify-center item-center">
-            <img
-              key={product?.id}
-              className="object-contain w-[200px] rounded-lg h-[180px] mt-4"
-              src={product?.image_url ? handleImg(product) : notFound}
-              alt="notFound"
-            />
-          </div>
-          <div className="flex flex-col mb-3">
-            <h2 className="text-lg font-semibold text-start line-clamp-1">
-              {product.name}
-            </h2>
-            <p className="text-md text-slate-400 line-clamp-2 text-start">
-              {product.disc}
-            </p>
-          </div>
+    <div className="w-full border px-2 py-2 hover:border-main rounded-md">
+      <Link to={`/SingleProducts/${product?.slug}`}>
+        <div className="">
+          <img
+            key={product?.id}
+            className="object-contain w-full max-h-[120px] mb-4"
+            src={product?.image_url ? handleImg(product) : notFound}
+            alt="notFound"
+          />
+        </div>
+        <div className="text-start px-3">
+          <h2 className="text-[12px] text-gray-400 py-2">{product.name}</h2>
+          <p className="md:text-lg text-[15px] line-clamp-2 text-black">
+            {product.disc}
+          </p>
 
-          <div className="flex justify-between mt-auto">
-            <div className="flex items-center px-2 ml-2 -mt-2 bg-yellow-200 border rounded-full">
-              <AiOutlineStar className=" w-[35px] h-[35px] p-1" />
-              {product.rating}
+          <div className="flex my-2 gap-2">
+            <div className="flex items-center text-yellow-400 text-lg">
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaStar />
             </div>
+            <p className="mt-1 text-lg text-gray-400">{product.rating}</p>
+          </div>
+          <div className="flex justify-between items-center">
             <p className="flex items-center gap-1 text-xl font-semibold">
+            {product?.price}$
               {product?.compare_price && (
                 <span className="text-base text-red-700 line-through">
                   {product?.compare_price}$
                 </span>
               )}
-              {product?.price}$
+              
             </p>
+            <CartIcon product={product} />
           </div>
-        </Link>
-      </div>
-    </>
+        </div>
+      </Link>
+    </div>
   );
 };
 
