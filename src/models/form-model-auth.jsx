@@ -7,7 +7,7 @@ const FormModelAuth = ({ children, isLogin, ...props }) => {
       {!isLogin ? (
         <>
           {/* Signup */}
-          <div className="lg:w-2/5 bg-green-500 sm:block hidden rounded-tl-2xl rounded-bl-2xl py-32 px-4 ">
+          <div className="lg:w-2/5 bg-main sm:block hidden rounded-tl-2xl rounded-bl-2xl py-32 px-4">
             <SignupLoginForm
               link={"/login"}
               text="Sign in"
@@ -34,7 +34,7 @@ const FormModelAuth = ({ children, isLogin, ...props }) => {
             </form>
           </div>
           {/* signUp */}
-          <div className="lg:w-2/5 bg-green-500 sm:block hidden rounded-tr-2xl rounded-br-2xl py-32 px-12">
+          <div className="lg:w-2/5 bg-main sm:block hidden rounded-tr-2xl rounded-br-2xl py-32 px-12">
             <SignupLoginForm
               link={"/signup"}
               text="Sign Up"

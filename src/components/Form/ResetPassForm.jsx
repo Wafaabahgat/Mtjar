@@ -57,7 +57,7 @@ const ResetpassForm = () => {
           handleCode(e);
         }}
       >
-        <p className="text-green-500 font-bold mb-2 lg:text-2xl text-xl">
+        <p className="text-main font-bold mb-2 lg:text-2xl text-xl">
           Reset Password
         </p>
         <p className="font-semibold text-gray-400">
@@ -108,7 +108,7 @@ const ResetpassForm = () => {
           type="submit"
           text="submit"
           variant="default"
-          className="bg-green-500 text-white mt-2 px-6"
+          className="bg-main text-white mt-2 px-6"
         />
       </form>
     </>

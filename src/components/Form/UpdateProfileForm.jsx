@@ -135,7 +135,7 @@ const UpdateProfileForm = () => {
                 type="submit"
                 text="update"
                 variant={"default"}
-                className="bg-green-500 p-2 uppercase w-[200px] mx-auto "
+                className="bg-main p-2 uppercase w-[200px] mx-auto "
               />
             </form>
           </div>

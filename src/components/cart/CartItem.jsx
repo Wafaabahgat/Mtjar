@@ -31,7 +31,7 @@ const CartItem = () => {
       <MetaDate ttl="cart - page" disc="The Cart page" />
 
       <div onClick={calculateTotal} className="flex flex-col px-10 ">
-        <h2 className="mb-16 text-xl font-bold text-green-500 md:text-3xl">
+        <h2 className="mb-16 text-xl font-bold text-main md:text-3xl">
           Shopping Cart
         </h2>
         <div className="flex flex-col justify-between gap-4">
@@ -70,7 +70,7 @@ const CartItem = () => {
             })}
         </div>
         <h2 className="m-4 text-xl text-right ">
-          <span className="font-semibold text-green-500">Subtotal: </span>
+          <span className="font-semibold text-main">Subtotal: </span>
           {calculateTotal()}$
         </h2>
       </div>

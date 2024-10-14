@@ -27,7 +27,7 @@ const ErrorPage = () => {
       <Link
         to="/"
         replace={true}
-        className="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-300"
+        className="px-6 py-3 bg-main text-white rounded-lg hover:bg-main/35 transition duration-300"
       >
         العودة إلى الصفحة الرئيسية
       </Link>

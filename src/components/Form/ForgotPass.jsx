@@ -48,7 +48,7 @@ const ForgotPass = () => {
         handleForgetPass(e);
       }}
     >
-      <p className="text-green-500 font-bold mb-2 lg:text-2xl text-xl">
+      <p className="text-main font-bold mb-2 lg:text-2xl text-xl">
         Forget Password
                     </p>
       <p className="font-semibold text-gray-400 text-sm">
@@ -68,7 +68,7 @@ const ForgotPass = () => {
           type="submit"
           text="submit"
           variant="default"
-          className="bg-green-500 text-white px-5"
+          className="bg-main text-white px-5"
         />
       </div>
     </form>

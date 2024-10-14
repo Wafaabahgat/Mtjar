@@ -13,7 +13,8 @@ const Navbar = () => {
     <div className="fixed top-0 left-0 z-10 w-full bg-white shadow-xl">
       <div className="max-h-[80px] m-auto flex justify-between items-center gap-x-7 py-3 px-5">
         <Link to="/">
-          <img src={Logo} alt="Logo" className="lg:w-[65px] ml-3 w-[50px]" />
+          {/* <img src={Logo} alt="Logo" className="lg:w-[65px] ml-3 w-[50px]" /> */}
+          <h1 className="text-2xl text-main font-bold">Storia</h1>
         </Link>
 
         <Search />
@@ -32,13 +33,13 @@ const Navbar = () => {
               to="/cartItem"
             >
               <BiShoppingBag className="text-slate-700 text-[25px]" />
-              <span className="absolute flex items-center justify-center w-5 h-5 text-sm text-white bg-green-900 rounded-full -top-1 left-6">
+              <span className="absolute flex items-center justify-center w-5 h-5 text-sm text-white bg-main rounded-full -top-1 left-6">
                 {items?.length}
               </span>
             </Link>
           </div>
 
-          <li className="">
+          <li>
             <Avatar />
           </li>
         </ul>

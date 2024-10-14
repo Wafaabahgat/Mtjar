@@ -9,8 +9,8 @@ const UserCard = ({ user, data, onclick, ...props }) => {
       {...props}
       className="absolute z-50 text-sm right-1 top-16 bg-white shadow-md rounded-md w-[250px] border-slate-400 border"
     >
-      <div className="p-2 ">
-        <h2 className="p-2 text-lg font-semibold rounded-md text-slate-900 bg-slate-100">
+      <div className="py-2">
+        <h2 className="py-2 text-xl font-semibold rounded-md text-slate-900">
           {`${user?.first_name}_${user?.last_name}`}
         </h2>
       </div>
@@ -37,25 +37,25 @@ const UserCard = ({ user, data, onclick, ...props }) => {
       <div className="p-2 cursor-pointer">
         <ul className="">
           <Link to="/dashboard">
-            <li className="font-semibold ">Dashboard</li>
+            <li className="font-semibold md:text-lg text-sm">Dashboard</li>
           </Link>
           <Link to="/">
-            <li className="p-2 font-semibold bg-green-100 rounded-md">Home</li>
+            <li className="p-2 font-semibold bg-main/20 rounded-md md:text-lg text-sm">Home</li>
           </Link>
           <Link to="/Profile">
-            <li className="p-2 font-semibold">Profile</li>
+            <li className="p-2 font-semibold md:text-lg text-sm">Profile</li>
           </Link>
           <Link to="/products">
-            <li className="p-2 font-semibold">Products</li>
+            <li className="p-2 font-semibold md:text-lg text-sm">Products</li>
           </Link>
 
           <Link className="flex items-center justify-center" to="/cartItem">
             <FaShoppingBag />
-            <li className="p-2 font-semibold">Cart</li>
+            <li className="p-2 font-semibold md:text-lg text-sm">Cart</li>
           </Link>
         </ul>
         <h2
-          className="flex items-center justify-center gap-2 p-2 font-semibold bg-green-500 rounded-md text-slate-900 "
+          className="flex items-center justify-center gap-2 p-2 font-semibold bg-main rounded-md text-white"
           onClick={onclick}
         >
           <FaSignOutAlt />

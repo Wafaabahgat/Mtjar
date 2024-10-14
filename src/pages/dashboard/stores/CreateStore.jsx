@@ -88,7 +88,7 @@ const CreateStore = () => {
             type="submit"
             text="Create"
             variant={"default"}
-            className="bg-green-500 text-slate-50 rounded-md lg:w-[750px] md:w-[630px] sm:w-[410px] w-[300px]"
+            className="bg-main text-slate-50 rounded-md lg:w-[750px] md:w-[630px] sm:w-[410px] w-[300px]"
           />
         </form>
       </div>

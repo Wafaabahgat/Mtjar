@@ -140,7 +140,7 @@ const UpdateCategory = () => {
             type="submit"
             text="Update"
             variant={"default"}
-            className="bg-green-500 text-slate-50 lg:w-[750px] md:w-[630px] sm:w-[410px] w-[300px] rounded-md"
+            className="bg-main text-slate-50 lg:w-[750px] md:w-[630px] sm:w-[410px] w-[300px] rounded-md"
           />
         </form>
       </div>

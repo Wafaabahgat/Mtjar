@@ -11,8 +11,6 @@ import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import Loader from "../Loader";
 
-// import { UserData } from "../../lib/types";
-
 const SignupForm = () => {
   const dispatch = useDispatch();
   
@@ -104,14 +102,14 @@ const SignupForm = () => {
         }
       />
 
-      <div className="flex justify-between w-64 my-3 text-green-500 md:text-sm md:w-60">
+      <div className="flex justify-between w-64 my-3 text-main md:text-sm md:w-60">
         <Link to="/login">Already have an acc?</Link>
       </div>
       <Button
         type="submit"
         text="Create an account"
         variant={"default"}
-        className="px-4 bg-green-500"
+        className="px-4 bg-main"
       />
     </FormModelAuth>
   );

@@ -89,7 +89,7 @@ const SingleProducts = ({ product }) => {
             type="submit"
             text="Add to Cart"
             variant="default"
-            className="w-full text-white bg-green-500 rounded-md"
+            className="w-full text-white bg-main rounded-md"
             onClick={handleAddCard}
           />
         </div>
