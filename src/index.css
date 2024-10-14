@@ -57,3 +57,6 @@ tr:nth-child(even) {
 .swiper-pagination-bullet-active {
   @apply rounded-lg  md:w-[25px] w-[21px] h-[11px] bg-main !important;
 }
+.swiper-button-lock {
+  display: flex !important;
+}

@@ -25,10 +25,10 @@ const Carousels = () => {
           navigation
           loop={true}
           pagination={{ clickable: true }}
-          // autoplay={{
-          //   delay: 1000,
-          //   disableOnInteraction: false,
-          // }}
+          autoplay={{
+            delay: 1000,
+            disableOnInteraction: false,
+          }}
         >
           {data?.carusels?.map((carusels, i) => {
             return i + 1 === imgCurrent ? (
