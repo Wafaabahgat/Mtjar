@@ -17,7 +17,7 @@ const Search = ({ className }) => {
   };
 
   return (
-    <>
+   
       <form className="w-full" onSubmit={handleSearch}>
         <Input
           type="text"
@@ -36,7 +36,7 @@ const Search = ({ className }) => {
           }
         />
       </form>
-    </>
+    
   );
 };
 

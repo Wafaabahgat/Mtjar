@@ -12,18 +12,16 @@ const Home = () => {
     return <Loader />;
   }
   return (
-    <>
-      <div className="flex flex-col flex-1 p-4 mt-20">
-        <MetaDate ttl="Home" disc="home page" />
-        <Carousels />
-        <Categories />
-        {/* Products */}
-        <NewProd data={data.newProd} ttl="New Products" />
-        <NewProd data={data.topProd} ttl="Top Products" />
-        <NewProd data={data.hotProd} ttl="Hot Products" />
-        <NewProd data={data.bestSellingProd} ttl="Best Products" />
-      </div>
-    </>
+    <div className="flex flex-col flex-1 p-4 mt-20">
+      <MetaDate ttl="Home" disc="home page" />
+      <Carousels />
+      <Categories />
+      {/* Products */}
+      <NewProd data={data.newProd} ttl="New Products" />
+      <NewProd data={data.topProd} ttl="Top Products" />
+      <NewProd data={data.hotProd} ttl="Hot Products" />
+      <NewProd data={data.bestSellingProd} ttl="Best Products" />
+    </div>
   );
 };
 

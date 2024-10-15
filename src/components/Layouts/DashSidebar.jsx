@@ -6,7 +6,7 @@ import { BiMenu } from "react-icons/bi";
 const DashSidebar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <>
+   
       <div>
         <div className="flex flex-col z-10 shadow-md border-slate-300 h-[80px] justify-center items-center">
           <BiMenu
@@ -31,7 +31,7 @@ const DashSidebar = () => {
           ""
         )}
       </div>
-    </>
+   
   );
 };
 

@@ -20,9 +20,16 @@ export const updateProfile = createAsyncThunk(
       const { data } = await axios.post("/profile/update", args, config);
       return data;
     } catch (err) {
-      console.log(err);
-
-      return rejectWithValue(err?.response?.data);
+      if (axios.isAxiosError(err)) {
+        console.log(err);
+        return rejectWithValue(
+          err?.response?.data?.message || "Error updating profile"
+        );
+      } else {
+        return rejectWithValue(
+          "An unexpected error occurred. Please try again."
+        );
+      }
     }
   }
 );

@@ -19,11 +19,9 @@ const ProfileImg = ({ img, text, link = "/login", ...props }) => {
           />
         </Link>
       ) : (
-        <>
           <p className="font-semibold text-sm capitalize ">
             {text?.slice(0, 2)}
           </p>
-        </>
       )}
     </div>
   );

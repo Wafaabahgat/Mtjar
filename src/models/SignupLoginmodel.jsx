@@ -1,7 +1,7 @@
 import Icon from "../components/Ui/Icon";
 const SignupLoginmodel = ({ text }) => {
   return (
-    <div className="mb-10 ">
+    <div className="mb-10">
       <h2 className="text-main font-bold lg:text-2xl md:text-xl mt-2">
         {text}
       </h2>
