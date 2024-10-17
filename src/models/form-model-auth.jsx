@@ -3,7 +3,7 @@ import SignupLoginmodel from "./SignupLoginmodel";
 
 const FormModelAuth = ({ children, isLogin, ...props }) => {
   return (
-    <div>
+    <>
       {!isLogin ? (
         <>
           {/* Signup */}
@@ -44,7 +44,7 @@ const FormModelAuth = ({ children, isLogin, ...props }) => {
           </div>
         </>
       )}
-    </div>
+    </>
   );
 };
 
