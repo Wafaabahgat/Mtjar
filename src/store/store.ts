@@ -1,6 +1,9 @@
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
 import login from "../slice/login/login";
 import register from "../slice/reg/register";
-import { configureStore } from "@reduxjs/toolkit";
 import counterSlice from "../slice/testSlice";
 import forgetPassword from "../slice/forgetPassword/forgetPassword";
 import ResetPassword from "../slice/ResetPassword/ResetPassword";
@@ -33,58 +36,69 @@ import userSingleProducts from "../slice/Home/userSingleProducts";
 import cartSlice from "../slice/cart/cartSlice";
 import addproducts from "../slice/cart/addproducts";
 
-export const store = configureStore({
-  reducer: {
-    // Globals
-    globalCategories: globalCategories,
-    globalStores: globalStores,
+const cartPersist = {
+  key: "cart",
+  storage,
+  whitelist: ["items"],
+};
 
-    // cart
-    cartSlice: cartSlice,
-    addproducts: addproducts,
+const mainStore = combineReducers({
+  // Globals
+  globalCategories: globalCategories,
+  globalStores: globalStores,
 
-    // Home
-    home: home,
-    MainProducts: MainProducts,
-    userSingleProducts: userSingleProducts,
+  // cart
+  cartSlice: persistReducer(cartPersist, cartSlice),
+  addproducts: addproducts,
 
-    // Auth
-    counter: counterSlice,
-    login: login,
-    register: register,
-    forgetPassword,
-    ResetPassword,
-    updateProfile: updateProfile,
+  // Home
+  home: home,
+  MainProducts: MainProducts,
+  userSingleProducts: userSingleProducts,
 
-    // Stores
-    stores,
-    singleStore,
-    updateStore,
-    deleteStore,
-    createStore,
+  // Auth
+  counter: counterSlice,
+  login: login,
+  register: register,
+  forgetPassword,
+  ResetPassword,
+  updateProfile: updateProfile,
 
-    // Categories
-    categories,
-    singleCategory,
-    updateCategory,
-    deleteCategory,
-    createCategory,
+  // Stores
+  stores,
+  singleStore,
+  updateStore,
+  deleteStore,
+  createStore,
 
-    // Products
-    products,
-    updateProducts,
-    deleteProducts,
-    createProducts,
-    singleProducts,
+  // Categories
+  categories,
+  singleCategory,
+  updateCategory,
+  deleteCategory,
+  createCategory,
 
-    //Carousels
-    carousels,
-    createCarousels,
-    deleteCarousels,
-    updateCarousels,
-    singleCarousels,
-  },
+  // Products
+  products,
+  updateProducts,
+  deleteProducts,
+  createProducts,
+  singleProducts,
+
+  //Carousels
+  carousels,
+  createCarousels,
+  deleteCarousels,
+  updateCarousels,
+  singleCarousels,
 });
+
+const store = configureStore({
+  reducer: mainStore,
+});
+
+const persist = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+export { store, persist };

@@ -1,12 +1,12 @@
 import MetaDate from "../../lib/metaDate";
 import { useDispatch, useSelector } from "react-redux";
 import React from "react";
-import { removeFromCart } from "../../slice/cart/cartSlice";
+// import { removeFromCart } from "../../slice/cart/cartSlice";
 import { adminImgUrl } from "../../lib/utils";
 
 const CartItem = () => {
   const { items } = useSelector((e) => e.cartSlice);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const calculateTotal = () => {
     let total = 0;
@@ -16,9 +16,9 @@ const CartItem = () => {
     return total;
   };
 
-  const handleDelete = (itemId) => {
-    dispatch(removeFromCart({ id: itemId }));
-  };
+  // const handleDelete = (itemId) => {
+  //   dispatch(removeFromCart({ id: itemId }));
+  // };
 
   const handleImg = (e) => {
     return e?.image_url?.includes("http")
@@ -58,7 +58,7 @@ const CartItem = () => {
                       </h4>
                       <button
                         className="px-2 py-1 mt-2 text-white bg-red-500 rounded"
-                        onClick={() => handleDelete(e?.id)}
+                        // onClick={() => handleDelete(e?.id)}
                       >
                         Delete
                       </button>

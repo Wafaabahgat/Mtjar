@@ -39,6 +39,14 @@ export interface CategoryType {
   parent?: CategoryType;
 }
 
+export interface Tproduct {
+  id?: string;
+  name?: string;
+  price: number;
+  imageUrl: string;
+  quantity: number;
+}
+
 export interface Slice<T> {
   loading: boolean | null;
   success: boolean | null;
