@@ -1,7 +1,8 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
+import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
-import { Tproduct } from "../../lib/types";
 import { RootState } from "../../store/store";
+import { clearErrors, addProductsToCart } from "./addproductsAction";
+import { Slice, Tproduct } from "../../lib/types";
 
 interface IcartState {
   items: { [key: string]: number };
@@ -18,7 +19,7 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action) => {
+    addToCart: (state, action: PayloadAction<{ id: string }>) => {
       const { id } = action.payload;
       if (state.items[id]) {
         state.items[id]++;
@@ -42,7 +43,7 @@ const cartSlice = createSlice({
       //   toast.error("item is already added to the cart");
       // }
     },
-    removeFromCart: (state, action) => {
+    removeFromCart: (state, action: PayloadAction<{ id: string }>) => {
       const { id } = action.payload;
       if (state.items[id]) {
         if (state.items[id] > 1) {
@@ -61,6 +62,47 @@ const cartSlice = createSlice({
       //   localStorage.setItem("mtjr_cart", JSON.stringify(removedItem));
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(addProductsToCart.pending, (state: Slice<IcartState>) => {
+        state.loading = true;
+        state.msg = "";
+        state.productInfo = [];
+        state.errors = {};
+        state.success = null;
+      })
+      .addCase(
+        addProductsToCart.fulfilled,
+        (
+          state: Slice<IcartState[]>,
+          action: PayloadAction<Slice<IcartState[]>>
+        ) => {
+          state.loading = false;
+          state.success = action.payload.success;
+          state.msg = action.payload.msg;
+          state.productInfo = action.payload.data;
+          state.errors = {};
+        }
+      )
+      .addCase(
+        addProductsToCart.rejected,
+        (
+          state: Slice<IcartState[]>,
+          action: PayloadAction<Slice<IcartState[]>>
+        ) => {
+          state.loading = false;
+          state.success = false;
+          state.msg = action.payload?.msg;
+          state.errors = action.payload?.errors || action.payload;
+        }
+      )
+      .addCase(clearErrors.fulfilled, (state: Slice<IcartState[]>) => {
+        state.loading = false;
+        state.success = null;
+        state.msg = "";
+        state.errors = {};
+      });
+  },
 });
 
 const totalItems = createSelector(
@@ -72,7 +114,8 @@ const totalItems = createSelector(
   //   }, 0)
 );
 
-export { totalItems };
+export { totalItems, addProductsToCart };
+
 export const { addToCart, removeFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

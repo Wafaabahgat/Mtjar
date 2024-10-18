@@ -34,7 +34,7 @@ import home from "../slice/Home/home";
 import MainProducts from "../slice/Home/MainProducts";
 import userSingleProducts from "../slice/Home/userSingleProducts";
 import cartSlice from "../slice/cart/cartSlice";
-import addproducts from "../slice/cart/addproducts";
+import addProductsToCart from "../slice/cart/cartSlice";
 
 const cartPersist = {
   key: "cart",
@@ -49,7 +49,7 @@ const mainStore = combineReducers({
 
   // cart
   cartSlice: persistReducer(cartPersist, cartSlice),
-  addproducts: addproducts,
+  addProductsToCart: addProductsToCart,
 
   // Home
   home: home,
