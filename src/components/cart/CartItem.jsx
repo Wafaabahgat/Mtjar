@@ -36,7 +36,9 @@ const CartItem = () => {
       ? e?.image_url
       : adminImgUrl({ img: e?.image_url });
   };
+
   console.log("productInfo", productInfo);
+  
   return (
     <div className="flex flex-col mt-24">
       <MetaDate ttl="cart - page" disc="The Cart page" />

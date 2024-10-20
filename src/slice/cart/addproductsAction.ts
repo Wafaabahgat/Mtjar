@@ -2,7 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../axios";
 import { Slice, CategoryType } from "../../lib/types";
 import Cookies from "universal-cookie";
-import { RootState } from "../../store/store";
 
 const cookies = new Cookies();
 const token = cookies.get("token");
@@ -13,21 +12,21 @@ const config = {
   },
 };
 
-// *********** All *********** //
+// *********** Add *********** //
 export const addProductsToCart = createAsyncThunk(
   "cart/addproducts",
-  async (_, thunkAPI) => {
-    const { rejectWithValue, getState, fulfillWithValue } = thunkAPI;
-    const { cartSlice } = getState() as RootState;
-    const cartItems = Object.keys(cartSlice.items);
-    // console.log("cartItems", cartItems);
-    if (!cartItems) {
-      return fulfillWithValue([]);
-    }
+  async (args, thunkAPI) => {
+    console.log(args, "args");
+    const { rejectWithValue } = thunkAPI;
 
     try {
-      const ItemsId = cartItems.map((e) => `id=${e}`).join("&");
-      const response = await axios.get(`/cart-user?${ItemsId}`, config);
+      const response = await axios.post(
+        `/cart/${args.id}`,
+        {
+          quantity: args.quantity,
+        },
+        config
+      );
       console.log("response", response);
       return response.data;
     } catch (err: any) {
@@ -47,6 +46,7 @@ export const deleteProducts = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
     try {
       const { data } = await axios.delete(`/cart-remove/${args}`, config);
+
       return data;
     } catch (err: any) {
       if (err?.response?.data?.message === "Unauthenticated.") {

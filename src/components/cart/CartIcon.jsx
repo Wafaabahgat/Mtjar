@@ -1,19 +1,20 @@
 import { BsCartPlus } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../slice/cart/cartSlice";
+import { addProductsToCart } from "../../slice/cart/cartSlice";
 import { cn } from "../../lib/utils";
 
 const CartIcon = ({ product, className }) => {
   const dispatch = useDispatch();
 
   const handleAddCard = () => {
+    console.log("product", product);
     dispatch(
-      addToCart({
+      addProductsToCart({
         id: product?.id,
-        name: product?.name,
-        price: product?.price,
-        imageUrl: product?.image,
         quantity: 1,
+        // name: product?.name,
+        // price: product?.price,
+        // imageUrl: product?.image,
       })
     );
   };
@@ -24,10 +25,7 @@ const CartIcon = ({ product, className }) => {
       onClick={handleAddCard}
     >
       <BsCartPlus
-        className={cn(
-          "md:w-[30px] w-[23px] md:h-[30px] h-[23px]",
-          className
-        )}
+        className={cn("md:w-[30px] w-[23px] md:h-[30px] h-[23px]", className)}
       />
       Add
     </button>

@@ -54,7 +54,7 @@ export interface Slice<T> {
   user?: T | object | null;
   errors: object | string;
   data: T | object | null | [];
-  productInfo?: T | object | null | [];
+  // productInfo?: T | object | null | [];
 }
 export interface PaginationType {
   first_page_url?: string;

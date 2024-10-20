@@ -36,69 +36,58 @@ import userSingleProducts from "../slice/Home/userSingleProducts";
 import cartSlice from "../slice/cart/cartSlice";
 import addProductsToCart from "../slice/cart/cartSlice";
 
-const cartPersist = {
-  key: "cart",
-  storage,
-  whitelist: ["items"],
-};
+export const store = configureStore({
+  reducer: {
+    // Globals
+    globalCategories: globalCategories,
+    globalStores: globalStores,
 
-const mainStore = combineReducers({
-  // Globals
-  globalCategories: globalCategories,
-  globalStores: globalStores,
+    // cart
+    cartSlice: cartSlice,
+    addProductsToCart: addProductsToCart,
 
-  // cart
-  cartSlice: persistReducer(cartPersist, cartSlice),
-  addProductsToCart: addProductsToCart,
+    // Home
+    home: home,
+    MainProducts: MainProducts,
+    userSingleProducts: userSingleProducts,
 
-  // Home
-  home: home,
-  MainProducts: MainProducts,
-  userSingleProducts: userSingleProducts,
+    // Auth
+    counter: counterSlice,
+    login: login,
+    register: register,
+    forgetPassword,
+    ResetPassword,
+    updateProfile: updateProfile,
 
-  // Auth
-  counter: counterSlice,
-  login: login,
-  register: register,
-  forgetPassword,
-  ResetPassword,
-  updateProfile: updateProfile,
+    // Stores
+    stores,
+    singleStore,
+    updateStore,
+    deleteStore,
+    createStore,
 
-  // Stores
-  stores,
-  singleStore,
-  updateStore,
-  deleteStore,
-  createStore,
+    // Categories
+    categories,
+    singleCategory,
+    updateCategory,
+    deleteCategory,
+    createCategory,
 
-  // Categories
-  categories,
-  singleCategory,
-  updateCategory,
-  deleteCategory,
-  createCategory,
+    // Products
+    products,
+    updateProducts,
+    deleteProducts,
+    createProducts,
+    singleProducts,
 
-  // Products
-  products,
-  updateProducts,
-  deleteProducts,
-  createProducts,
-  singleProducts,
-
-  //Carousels
-  carousels,
-  createCarousels,
-  deleteCarousels,
-  updateCarousels,
-  singleCarousels,
+    //Carousels
+    carousels,
+    createCarousels,
+    deleteCarousels,
+    updateCarousels,
+    singleCarousels,
+  },
 });
-
-const store = configureStore({
-  reducer: mainStore,
-});
-
-const persist = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export { store, persist };
