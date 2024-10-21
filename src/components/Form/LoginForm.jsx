@@ -42,7 +42,7 @@ const LoginForm = () => {
   if (loading) {
     return <Loader />;
   }
-  
+
   return (
     <FormModelAuth onSubmit={handelSignup} isLogin>
       <FormInput
@@ -81,7 +81,7 @@ const LoginForm = () => {
       <div className="flex justify-between w-64 my-3 ">
         <label className="flex items-center text-sm text-gray-400">
           <input type="checkbox" name="remember" className="mr-1" />
-          Remember Me 
+          Remember Me
         </label>
         <Link
           to="/forgetpass"

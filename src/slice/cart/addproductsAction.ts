@@ -16,7 +16,7 @@ const config = {
 export const addProductsToCart = createAsyncThunk(
   "cart/addproducts",
   async (args, thunkAPI) => {
-    console.log(args, "args");
+    // console.log(args, "args");
     const { rejectWithValue } = thunkAPI;
 
     try {
@@ -27,6 +27,27 @@ export const addProductsToCart = createAsyncThunk(
         },
         config
       );
+      // console.log("response", response);
+      return response.data;
+    } catch (err: any) {
+      if (err?.response?.data?.message === "Unauthenticated.") {
+        return rejectWithValue(err?.response?.data?.message);
+      }
+
+      return rejectWithValue(err?.response?.data);
+    }
+  }
+);
+
+// *********** Get *********** //
+export const getFromCart = createAsyncThunk(
+  "cart/getproducts",
+  async (args, thunkAPI) => {
+    console.log(args, "args");
+    const { rejectWithValue } = thunkAPI;
+
+    try {
+      const response = await axios.get("/cart-user", config);
       console.log("response", response);
       return response.data;
     } catch (err: any) {
@@ -40,12 +61,12 @@ export const addProductsToCart = createAsyncThunk(
 );
 
 // *********** Delete *********** //
-export const deleteProducts = createAsyncThunk(
-  "products/delete",
+export const removeFromCart = createAsyncThunk(
+  "cart/remove",
   async (args: number | undefined, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const { data } = await axios.delete(`/cart-remove/${args}`, config);
+      const { data } = await axios.get(`/cart-remove/${args}`, config);
 
       return data;
     } catch (err: any) {
@@ -56,6 +77,7 @@ export const deleteProducts = createAsyncThunk(
     }
   }
 );
+
 
 // *********** Update *********** //
 // export const updateProducts = createAsyncThunk(

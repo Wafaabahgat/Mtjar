@@ -2,21 +2,24 @@ import { BsCartPlus } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { addProductsToCart } from "../../slice/cart/cartSlice";
 import { cn } from "../../lib/utils";
+import toast from "react-hot-toast";
 
 const CartIcon = ({ product, className }) => {
   const dispatch = useDispatch();
 
   const handleAddCard = () => {
-    console.log("product", product);
-    dispatch(
-      addProductsToCart({
-        id: product?.id,
-        quantity: 1,
-        // name: product?.name,
-        // price: product?.price,
-        // imageUrl: product?.image,
-      })
-    );
+    try {
+      dispatch(
+        addProductsToCart({
+          id: product?.id,
+          quantity: 1,
+        })
+      );
+      toast.success("تم اضافه المنتج بنجاح!");
+    } catch (error) {
+      console.log(error);
+      toast.error("حدث خطأ!");
+    }
   };
 
   return (
@@ -31,8 +34,5 @@ const CartIcon = ({ product, className }) => {
     </button>
   );
 };
-// class="flex items-center gap-1 px-3 py-1 rounded-md  {{ $className ?? '' }}">
-// <x-svg.plus />
-// <h4 class="text-sm text-white"> {{__('Add')}}</h4>
 
 export default CartIcon;

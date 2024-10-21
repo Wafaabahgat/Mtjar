@@ -39,12 +39,13 @@ export interface CategoryType {
   parent?: CategoryType;
 }
 
-export interface Tproduct {
+export interface Tproduct<T> {
   id?: string;
   name?: string;
   price: number;
   imageUrl: string;
   quantity: number;
+  // data?: T | object | null | [];
 }
 
 export interface Slice<T> {

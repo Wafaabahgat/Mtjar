@@ -2,33 +2,40 @@ import MetaDate from "../../lib/metaDate";
 import React, { useEffect } from "react";
 import { adminImgUrl } from "../../lib/utils";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
-// import { removeFromCart } from "../../slice/cart/cartSlice";
-import { addProductsToCart, removeFromCart } from "../../slice/cart/cartSlice";
+import {
+  getFromCart,
+  removeFromCart,
+} from "../../slice/cart/addproductsAction";
 import Loader from "../Loader";
+import toast from "react-hot-toast";
 
 const CartItem = () => {
   const dispatch = useAppDispatch();
-  const { items, loading, productInfo } = useAppSelector(
-    (state) => state.cartSlice
-  );
+  const { loading, data } = useAppSelector((state) => state.getFromCart);
 
   useEffect(() => {
-    dispatch(addProductsToCart(items));
-  }, [dispatch, items]);
+    dispatch(getFromCart());
+  }, [dispatch]);
 
   if (loading) {
     return <Loader />;
   }
-  // const calculateTotal = () => {
-  //   let total = 0;
-  //   items.map((e) => (total += e.price * e?.quantity));
-  //   // console.log(total);
-  //   return total;
-  // };
 
-  const handleDelete = (itemId) => {
-    dispatch(removeFromCart({ id: itemId }));
-    console.log("removeFromCart", removeFromCart);
+  const calculateTotal = () => {
+    let total = 0;
+    data.map((e) => (total += e.price * e?.quantity));
+    return total;
+  };
+
+  const handleDelete = (id) => {
+    try {
+      dispatch(removeFromCart(id));
+      dispatch(getFromCart());
+      toast.success("تم حذف المنتج بنجاح!");
+    } catch (error) {
+      // console.log(error);
+      toast.error("حدث خطأ أثناء حذف المنتج!");
+    }
   };
 
   const handleImg = (e) => {
@@ -37,32 +44,31 @@ const CartItem = () => {
       : adminImgUrl({ img: e?.image_url });
   };
 
-  console.log("productInfo", productInfo);
-  
+  console.log("data", data);
+
   return (
     <div className="flex flex-col mt-24">
       <MetaDate ttl="cart - page" disc="The Cart page" />
 
-      <div className="flex flex-col px-10 ">
-        <h2 className="mb-16 text-xl font-bold text-main md:text-3xl">
+      <div>
+        <h2 className="my-14 text-2xl font-bold text-main md:text-4xl text-start px-5">
           Shopping Cart
         </h2>
-        <div className="flex flex-col justify-between gap-4">
-          {productInfo &&
-            productInfo.map((e) => {
-              // console.log("dd", e);
+        <div className="flex flex-col">
+          {data &&
+            data.map((e) => {
               return (
                 <React.Fragment key={e?.id}>
-                  <div className="flex flex-col w-1/2 mx-auto md:flex-row">
+                  <div className="flex flex-col justify-between lg:px-24 md:px-20 px-10 md:flex-row my-6">
                     <img
                       // src={e.imageUrl ? adminImgUrl(e.imageUrl) : "5"}
                       src={e?.image_url ? handleImg(e.image_url) : "6"}
                       className="object-contain w-[300px] h-[150px] block rounded-md"
                       alt={e.name}
                     />
-
-                    <div className="w-full mt-2 md:w-1/2 md:mt-0">
-                      <p className="text-xl font-bold">{e?.name}</p>
+                    <h2 className="text-red-400 text-xl">{e.id}</h2>
+                    <div className="w-full">
+                      <p className="text-2xl font-bold">{e?.name}</p>
                       <h4 className="m-2">
                         price : <span>{e?.price}$</span>
                       </h4>
@@ -82,10 +88,10 @@ const CartItem = () => {
               );
             })}
         </div>
-        {/* <h2 className="m-4 text-xl text-right ">
+        <h2 className="m-4 text-xl text-right ">
           <span className="font-semibold text-main">Subtotal: </span>
-           {calculateTotal()}$
-        </h2> */}
+          {calculateTotal()}$
+        </h2>
       </div>
     </div>
   );
