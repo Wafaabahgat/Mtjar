@@ -66,20 +66,35 @@ const CartItem = () => {
                       className="object-contain w-[300px] h-[150px] block rounded-md"
                       alt={e.name}
                     />
-                    <h2 className="text-red-400 text-xl">{e.id}</h2>
-                    <div className="w-full">
+                    <div className="">
                       <p className="text-2xl font-bold">{e?.name}</p>
-                      <h4 className="m-2">
-                        price : <span>{e?.price}$</span>
-                      </h4>
-                      <h4>
-                        Qty : <span>{e?.quantity}</span>
-                      </h4>
+                      <div className="flex justify-between items-center my-3">
+                        <div className="flex items-center justify-center gap-4 my-3">
+                          {/* <h4 className="mx-2">quantity </h4> */}
+                          <button
+                            // onClick={handleDecrease}
+                            className="text-main bg-gray-300 rounded px-2 text-2xl"
+                          >
+                            -
+                          </button>
+                          <h4 className=" text-3xl">{e?.quantity}</h4>
+                          <button
+                            // onClick={handleIncrease}
+                            className="text-main bg-gray-300 rounded px-2 text-2xl"
+                          >
+                            +
+                          </button>
+                        </div>
+                        <h4 className="m-2 text-xl">
+                          {e?.price}$
+                        </h4>
+                      </div>
+
                       <button
-                        className="px-2 py-1 mt-2 text-white bg-red-500 rounded"
+                        className="w-full py-2 mt-2 text-white bg-red-500 rounded"
                         onClick={() => handleDelete(e?.id)}
                       >
-                        Delete
+                        Remove
                       </button>
                     </div>
                   </div>

@@ -78,7 +78,6 @@ export const removeFromCart = createAsyncThunk(
   }
 );
 
-
 // *********** Update *********** //
 // export const updateProducts = createAsyncThunk(
 //   "products/update",
