@@ -36,6 +36,7 @@ import userSingleProducts from "../slice/Home/userSingleProducts";
 import cartSlice from "../slice/cart/cartSlice";
 import getFromCart from "../slice/cart/getFromCart";
 import removeFromCart from "../slice/cart/removeFromCart";
+import updateCart from "../slice/cart/updateCart";
 
 export const store = configureStore({
   reducer: {
@@ -47,6 +48,7 @@ export const store = configureStore({
     cartSlice: cartSlice,
     getFromCart: getFromCart,
     removeFromCart: removeFromCart,
+    updateCart: updateCart,
 
     // Home
     home: home,

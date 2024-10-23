@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { globalCategories, globalStores } from "../slice/globals/globalsAction";
 import { home } from "../slice/Home/HomeAction";
+import { getFromCart } from "../slice/cart/addproductsAction";
 // import 'swiper/swiper-bundle.min.css';
 
 const Root = () => {
@@ -18,6 +19,7 @@ const Root = () => {
       dispatch(globalCategories());
       dispatch(globalStores());
       dispatch(home());
+      dispatch(getFromCart());
     };
     fetchData();
   }, []);

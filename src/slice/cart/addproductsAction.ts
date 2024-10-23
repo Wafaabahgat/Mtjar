@@ -79,25 +79,29 @@ export const removeFromCart = createAsyncThunk(
 );
 
 // *********** Update *********** //
-// export const updateProducts = createAsyncThunk(
-//   "products/update",
-//   async (args: { dat: FormData; id: number }, thunkAPI) => {
-//     const { rejectWithValue } = thunkAPI;
-//     try {
-//       const { data } = await axios.post(
-//         `/dashboard/products/${args.id}`,
-//         args.dat,
-//         config
-//       );
-//       return data;
-//     } catch (err:any) {
-//       if (err?.response?.data?.message === "Unauthenticated.") {
-//         return rejectWithValue(err?.response?.data?.message);
-//       }
-//       return rejectWithValue(err?.response?.data);
-//     }
-//   }
-// );
+export const updateCart = createAsyncThunk(
+  "cart/update",
+  async (args, thunkAPI) => {
+    console.log("argsupdateCart", args);
+    const { rejectWithValue } = thunkAPI;
+    try {
+      const {data} = await axios.post(
+        `/cart-update/${args.id}`,
+        {
+          quantity: args.quantity,
+        },
+        config
+      );
+      console.log(data, "updateCart");
+      return data;
+    } catch (err: any) {
+      if (err?.response?.data?.message === "Unauthenticated.") {
+        return rejectWithValue(err?.response?.data?.message);
+      }
+      return rejectWithValue(err?.response?.data);
+    }
+  }
+);
 
 export const clearErrors = createAsyncThunk("products/clear", async () => {
   return true;

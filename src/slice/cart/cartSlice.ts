@@ -38,6 +38,9 @@ const cartSlice = createSlice({
           state.msg = action.payload.msg;
           state.productInfo = action.payload.data;
           state.errors = {};
+          if(action.payload.success) {
+            toast.success(action.payload.msg)
+          }
         }
       )
       .addCase(
@@ -50,6 +53,9 @@ const cartSlice = createSlice({
           state.success = false;
           state.msg = action.payload?.msg;
           state.errors = action.payload?.errors || action.payload;
+          if(action.payload.success === false) {
+            toast.error(action.payload.msg)
+          }
         }
       )
       .addCase(clearErrors.fulfilled, (state: Slice<IcartState[]>) => {

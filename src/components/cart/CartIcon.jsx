@@ -2,31 +2,19 @@ import { BsCartPlus } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { addProductsToCart } from "../../slice/cart/cartSlice";
 import { cn } from "../../lib/utils";
-import toast from "react-hot-toast";
 
 const CartIcon = ({ product, className }) => {
   const dispatch = useDispatch();
-  const { data } = useSelector((e) => e.getFromCart);
+
   // console.log("object", data);
 
   const handleAddCard = () => {
-    if (data?.find((e) => e?.id === product?.id)) {
-      toast.error("هذا المنتج موجود في السلة");
-      return;
-    }
-
-    try {
-      dispatch(
-        addProductsToCart({
-          id: product?.id,
-          quantity: 1,
-        })
-      );
-      toast.success("تم اضافه المنتج بنجاح!");
-    } catch (error) {
-      console.log(error);
-      toast.error("حدث خطأ!");
-    }
+    dispatch(
+      addProductsToCart({
+        id: product?.id,
+        quantity: 1,
+      })
+    );
   };
 
   return (

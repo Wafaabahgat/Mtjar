@@ -1,25 +1,34 @@
 import MetaDate from "../../lib/metaDate";
-import React, { useEffect } from "react";
+import React from "react";
 import { adminImgUrl } from "../../lib/utils";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
-import {
-  getFromCart,
-  removeFromCart,
-} from "../../slice/cart/addproductsAction";
+import { removeFromCart, updateCart } from "../../slice/cart/addproductsAction";
 import Loader from "../Loader";
-import toast from "react-hot-toast";
 
 const CartItem = () => {
   const dispatch = useAppDispatch();
   const { loading, data } = useAppSelector((state) => state.getFromCart);
 
-  useEffect(() => {
-    dispatch(getFromCart());
-  }, [dispatch]);
-
   if (loading) {
     return <Loader />;
   }
+
+  const handleIncrease = (item) => {
+    dispatch(
+      updateCart({
+        id: item.id,
+        quantity: Number(item.quantity) + 1,
+      })
+    );
+  };
+  const handleDecrease = (item) => {
+    dispatch(
+      updateCart({
+        id: item.id,
+        quantity: Number(item.quantity) - 1,
+      })
+    );
+  };
 
   const calculateTotal = () => {
     let total = 0;
@@ -28,14 +37,7 @@ const CartItem = () => {
   };
 
   const handleDelete = (id) => {
-    try {
-      dispatch(removeFromCart(id));
-      dispatch(getFromCart());
-      toast.success("تم حذف المنتج بنجاح!");
-    } catch (error) {
-      // console.log(error);
-      toast.error("حدث خطأ أثناء حذف المنتج!");
-    }
+    dispatch(removeFromCart(id));
   };
 
   const handleImg = (e) => {
@@ -68,26 +70,26 @@ const CartItem = () => {
                     />
                     <div className="">
                       <p className="text-2xl font-bold">{e?.name}</p>
+
                       <div className="flex justify-between items-center my-3">
                         <div className="flex items-center justify-center gap-4 my-3">
-                          {/* <h4 className="mx-2">quantity </h4> */}
+                          {/* quantity  */}
                           <button
-                            // onClick={handleDecrease}
+                            onClick={() => handleDecrease(e)}
                             className="text-main bg-gray-300 rounded px-2 text-2xl"
                           >
                             -
                           </button>
                           <h4 className=" text-3xl">{e?.quantity}</h4>
                           <button
-                            // onClick={handleIncrease}
+                            onClick={() => handleIncrease(e)}
                             className="text-main bg-gray-300 rounded px-2 text-2xl"
                           >
                             +
                           </button>
                         </div>
-                        <h4 className="m-2 text-xl">
-                          {e?.price}$
-                        </h4>
+
+                        <h4 className="m-2 text-xl">{e?.price}$</h4>
                       </div>
 
                       <button
