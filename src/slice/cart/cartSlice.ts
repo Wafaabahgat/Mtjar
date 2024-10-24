@@ -39,7 +39,8 @@ const cartSlice = createSlice({
           state.productInfo = action.payload.data;
           state.errors = {};
           if(action.payload.success) {
-            toast.success(action.payload.msg)
+            toast.success(action.payload.msg);
+            window.location.reload();
           }
         }
       )

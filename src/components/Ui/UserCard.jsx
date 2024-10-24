@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import { cn } from "../../lib/utils";
 import { FaSignOutAlt, FaShoppingBag } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -40,7 +42,9 @@ const UserCard = ({ user, data, onclick, ...props }) => {
             <li className="font-semibold md:text-lg text-sm">Dashboard</li>
           </Link>
           <Link to="/">
-            <li className="p-2 font-semibold bg-main/20 rounded-md md:text-lg text-sm">Home</li>
+            <li className="p-2 font-semibold bg-main/20 rounded-md md:text-lg text-sm">
+              Home
+            </li>
           </Link>
           <Link to="/Profile">
             <li className="p-2 font-semibold md:text-lg text-sm">Profile</li>

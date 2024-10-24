@@ -10,7 +10,7 @@ const user = cookies.get("user");
 import useUpdate from "../../hooks/useUpdate ";
 
 const UpdateProfileForm = () => {
-  const { loading, handleUpdate, errors } = useUpdate({
+  const { loading, handelUpdate, errors } = useUpdate({
     states: "updateProfile",
     updateFn: updateProfile,
     clearFn: clearErrors,
@@ -34,7 +34,7 @@ const UpdateProfileForm = () => {
     birthday && formData.append("birthday", birthday);
     formData.append("_method", "put");
 
-    handleUpdate(formData);
+    handelUpdate(formData);
   };
 
   useEffect(() => {

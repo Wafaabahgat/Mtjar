@@ -38,7 +38,6 @@ const UpdateCarousels = () => {
   } = useUpdate({
     states: "updateCarousels",
     updateFn: updateCarousels,
-    clearFn: clearErrors(),
   });
 
   const [image, setImage] = useState();

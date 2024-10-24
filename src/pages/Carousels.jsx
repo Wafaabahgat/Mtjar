@@ -26,23 +26,21 @@ const Carousels = () => {
           loop={true}
           pagination={{ clickable: true }}
           autoplay={{
-            delay: 1000,
+            delay: 3000,
             disableOnInteraction: false,
           }}
         >
-          {data?.carusels?.map((carusels, i) => {
-            return i + 1 === imgCurrent ? (
+          {data?.carusels?.map((carusels) => {
+            return (
               <SwiperSlide key={carusels.id}>
                 <div className="">
                   <img
-                    className="w-full h-full object-cover"
+                    className="w-full max-h-[80vh]"
                     src={carusels.image_url ? carusels.image_url : ""}
                     alt={carusels.name}
                   />
                 </div>
               </SwiperSlide>
-            ) : (
-              ""
             );
           })}
         </Swiper>

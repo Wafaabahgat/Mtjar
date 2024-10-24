@@ -22,6 +22,7 @@ const Carousels = () => {
     states: "carousels",
     allData: carousels,
   });
+
   const { loading: DeleteDl, handleDelete } = useDelete({
     states: "deleteCarousels",
     delFun: deleteCarousels,

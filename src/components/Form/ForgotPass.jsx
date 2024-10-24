@@ -1,22 +1,19 @@
 import FormInput from "../Form/FormInput";
 import { FaRegEnvelope } from "react-icons/fa";
 import Button from "../Ui/Button";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import Loader from "../Loader";
 import { forgetPass } from "../../slice/forgetPassword/forgetPasswordAction";
-import { useNavigate } from "react-router-dom";
 
 const ForgotPass = () => {
   const [email, setemail] = useState("");
 
   const dispatch = useDispatch();
 
-  const { loading, success, msg } = useSelector(
-    (state) => state.forgetPassword
-  );
+  const { loading } = useSelector((state) => state.forgetPassword);
 
   const handleForgetPass = (e) => {
     e.preventDefault();
@@ -25,18 +22,6 @@ const ForgotPass = () => {
     }
     dispatch(forgetPass({ email }));
   };
-  const navigate = useNavigate(); // Get the navigate function from react-router-dom
-
-  useEffect(() => {
-    if (success && msg) {
-      toast.success(msg);
-      // window.location.href = "/Resetpass";
-      navigate("/Resetpass");
-    }
-    if (!success && msg) {
-      toast.error(msg);
-    }
-  }, [msg, success]);
 
   if (loading) {
     return <Loader />;
@@ -50,7 +35,7 @@ const ForgotPass = () => {
     >
       <p className="text-main font-bold mb-2 lg:text-2xl text-xl">
         Forget Password
-                    </p>
+      </p>
       <p className="font-semibold text-gray-400 text-sm">
         There will be sent a code to your email...
       </p>

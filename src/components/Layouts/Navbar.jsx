@@ -18,8 +18,7 @@ const Navbar = () => {
           {/* <img src={Logo} alt="Logo" className="lg:w-[65px] ml-3 w-[50px]" /> */}
           <h1 className="text-2xl text-main font-bold">Storia</h1>
         </Link>
-
-        <Search />
+        <Search formClass="md:block hidden" />
 
         {/* Profile */}
         <ul className="flex items-center gap-3">

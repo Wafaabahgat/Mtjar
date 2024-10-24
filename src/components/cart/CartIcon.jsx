@@ -1,7 +1,8 @@
 import { BsCartPlus } from "react-icons/bs";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addProductsToCart } from "../../slice/cart/cartSlice";
 import { cn } from "../../lib/utils";
+import { useEffect } from "react";
 
 const CartIcon = ({ product, className }) => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const CartIcon = ({ product, className }) => {
       })
     );
   };
+
 
   return (
     <button

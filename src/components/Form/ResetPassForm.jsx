@@ -1,28 +1,24 @@
-// import React from 'react'
 import FormInput from "../Form/FormInput";
 import { FaRegEnvelope, FaEye, FaEyeSlash } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
 import Button from "../Ui/Button";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import Loader from "../Loader";
 import { ResetPass } from "../../slice/ResetPassword/ResetPasswordAction";
-import { useNavigate } from "react-router-dom";
 
 const ResetpassForm = () => {
   const dispatch = useDispatch();
 
-  const { loading, success, msg } = useSelector((state) => state.ResetPassword);
+  const { loading } = useSelector((state) => state.ResetPassword);
 
   const [otp, setOtp] = useState("");
   const [password, setpassword] = useState("");
   const [visible, setVisible] = useState(false);
   const [errors, setErros] = useState();
   const [email, setemail] = useState("");
-
-  const navigate = useNavigate(); // Get the navigate function from react-router-dom
 
   const handleCode = (e) => {
     e.preventDefault();
@@ -31,20 +27,6 @@ const ResetpassForm = () => {
     }
     dispatch(ResetPass({ otp, password, email }));
   };
-
-  useEffect(() => {
-    if (success && msg) {
-      toast.success(msg);
-      // window.location.href = "/login";
-      navigate("/login");
-    }
-    if (!success && msg) {
-      toast.error(msg);
-    }
-    if (errors) {
-      setErros(errors);
-    }
-  }, [msg, success, errors]);
 
   if (loading) {
     return <Loader />;

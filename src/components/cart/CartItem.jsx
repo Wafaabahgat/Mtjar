@@ -46,7 +46,7 @@ const CartItem = () => {
       : adminImgUrl({ img: e?.image_url });
   };
 
-  console.log("data", data);
+  // console.log("data", data);
 
   return (
     <div className="flex flex-col mt-24">

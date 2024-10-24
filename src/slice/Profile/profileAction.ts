@@ -18,6 +18,7 @@ export const updateProfile = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
     try {
       const { data } = await axios.post("/profile/update", args, config);
+      console.log(data, "dataqq");
       return data;
     } catch (err) {
       if (axios.isAxiosError(err)) {

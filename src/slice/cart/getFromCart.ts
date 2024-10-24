@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { clearErrors, getFromCart } from "./addproductsAction";
 import { Slice } from "../../lib/types";
+import toast from "react-hot-toast";
 
 const initialState: Slice<object[]> = {
   loading: null,
@@ -32,6 +33,9 @@ const getFromCartSlice = createSlice({
       state.msg = action.payload.msg;
       state.data = action.payload.data;
       state.errors = {};
+      // if (action.payload.success) {
+      //   toast.success(action.payload.msg);
+      // }
     },
     [getFromCart.rejected.type]: (
       state: Slice<object[]>,
@@ -41,6 +45,9 @@ const getFromCartSlice = createSlice({
       state.success = false;
       state.msg = action.payload?.msg;
       state.errors = action.payload?.errors || action.payload;
+      if (action.payload?.success === false) {
+        toast.error(action.payload?.msg);
+      }
     },
     [clearErrors.fulfilled.type]: (state: Slice<object[]>) => {
       state.loading = false;

@@ -2,6 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import Cookies from "universal-cookie";
 import { clearErrors, registerUser } from "./registerAction";
 import { UserData } from "../../lib/types";
+import toast from "react-hot-toast";
 
 const cookies = new Cookies();
 
@@ -55,6 +56,10 @@ const LoginAuthSlice = createSlice({
         path: "/",
         maxAge: 3600 * 24 * 10,
       });
+      if (action.payload.success) {
+        toast.success(action.payload.msg);
+        window.location = "/";
+      }
     },
     [registerUser.rejected.type]: (
       state: Login,
@@ -64,6 +69,9 @@ const LoginAuthSlice = createSlice({
       state.success = false;
       state.msg = action.payload?.msg;
       state.errors = action.payload?.errors;
+      if (action.payload.success === false) {
+        toast.error(action.payload.msg);
+      }
     },
     [clearErrors.fulfilled.type]: (state: Login) => {
       state.loading = false;

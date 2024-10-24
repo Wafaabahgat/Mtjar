@@ -3,41 +3,26 @@ import { MdLockOutline } from "react-icons/md";
 import FormInput from "./FormInput";
 import Button from "../Ui/Button";
 import FormModelAuth from "../../models/form-model-auth";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../slice/login/loginAction";
 import { useSelector } from "react-redux";
-import toast from "react-hot-toast";
 import Loader from "../Loader";
 import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const { loading, success, msg, errors } = useSelector((state) => state.login);
+  const { loading, errors } = useSelector((state) => state.login);
 
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const [erros, seterros] = useState();
   const [visible, setVisible] = useState(false);
 
   const handelSignup = (e) => {
     e.preventDefault();
     dispatch(loginUser({ email, password }));
   };
-
-  useEffect(() => {
-    if (msg && success === false) {
-      toast.error(msg);
-    }
-    if (msg && success === true) {
-      toast.success(msg);
-      window.location = "/";
-    }
-    if (errors) {
-      seterros(errors);
-    }
-  }, [msg, success, errors]);
 
   if (loading) {
     return <Loader />;

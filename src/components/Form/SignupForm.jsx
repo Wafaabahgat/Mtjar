@@ -4,44 +4,27 @@ import FormInput from "./FormInput";
 import { Link } from "react-router-dom";
 import Button from "../Ui/Button";
 import FormModelAuth from "../../models/form-model-auth";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../slice/reg/registerAction";
 import { useSelector } from "react-redux";
-import toast from "react-hot-toast";
 import Loader from "../Loader";
 
 const SignupForm = () => {
   const dispatch = useDispatch();
-  
-  const { loading, success, msg, errors } = useSelector(
-    (state) => state.register
-  );
+
+  const { loading, errors } = useSelector((state) => state.register);
 
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [first_name, setfirst_name] = useState("");
   const [last_name, setlast_name] = useState("");
-  const [erros, seterros] = useState();
   const [visible, setVisible] = useState(false);
 
   const handelSignup = (e) => {
     e.preventDefault();
     dispatch(registerUser({ email, password, last_name, first_name }));
   };
-
-  useEffect(() => {
-    if (msg && success === false) {
-      toast.error(msg);
-    }
-    if (msg && success === true) {
-      toast.success(msg);
-      window.location = "/";
-    }
-    if (errors) {
-      seterros(errors);
-    }
-  }, [msg, success, errors]);
 
   if (loading) {
     return <Loader />;

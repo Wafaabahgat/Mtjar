@@ -1,6 +1,7 @@
 import { clearErrors, updateCarousels } from "./CarouselsAction";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Slice, CategoryType } from "../../lib/types";
+import toast from "react-hot-toast";
 
 const initialState: Slice<CategoryType> = {
   loading: null,
@@ -32,6 +33,10 @@ const UpdateCarouselsSlice = createSlice({
       state.msg = action.payload.msg;
       state.data = action.payload.data;
       state.errors = {};
+
+      if (action.payload.success) {
+        toast.success(action.payload.msg);
+      }
     },
     [updateCarousels.rejected.type]: (
       state: Slice<CategoryType>,
@@ -41,6 +46,10 @@ const UpdateCarouselsSlice = createSlice({
       state.success = false;
       state.msg = action.payload?.msg;
       state.errors = action.payload?.errors;
+
+      if (action.payload?.success === false) {
+        toast.error(action.payload?.msg);
+      }
     },
     [clearErrors.fulfilled.type]: (state: Slice<CategoryType>) => {
       state.loading = false;
