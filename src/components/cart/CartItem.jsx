@@ -4,6 +4,7 @@ import { adminImgUrl } from "../../lib/utils";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import { removeFromCart, updateCart } from "../../slice/cart/addproductsAction";
 import Loader from "../Loader";
+import notFound from "../../assets/notFound.png";
 
 const CartItem = () => {
   const dispatch = useAppDispatch();
@@ -63,8 +64,7 @@ const CartItem = () => {
                 <React.Fragment key={e?.id}>
                   <div className="flex flex-col justify-between lg:px-24 md:px-20 px-10 md:flex-row my-6">
                     <img
-                      // src={e.imageUrl ? adminImgUrl(e.imageUrl) : "5"}
-                      src={e?.image_url ? handleImg(e.image_url) : "6"}
+                      src={e?.image_url ? handleImg(e) : notFound}
                       className="object-contain w-[300px] h-[150px] block rounded-md"
                       alt={e.name}
                     />

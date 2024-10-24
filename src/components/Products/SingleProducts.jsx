@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react";
+/* eslint-disable react/prop-types */
+
+import { useEffect } from "react";
 import { BiSolidStar } from "react-icons/bi";
-import Button from "../Ui/Button";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../slice/cart/cartSlice";
+// import { useDispatch } from "react-redux";
+// import { addToCart } from "../../slice/cart/cartSlice";
 import ProductCard from "../Products/ProductCard";
 import useSingle from "../../hooks/useSingle";
 import { userSingleProducts } from "../../slice/Home/MainProductsAction";
 import Loader from "../Loader";
 import Breadcamp from "../Ui/Breadcamp";
+import { adminImgUrl } from "../../lib/utils";
+import notFound from "../../assets/notFound.png";
+import CartIcon from "../cart/CartIcon";
 
 const links = [
   { name: "Home", link: "/" },
@@ -15,23 +19,23 @@ const links = [
 ];
 
 const SingleProducts = ({ product }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { loading, data } = useSingle({
     states: "userSingleProducts",
     callfun: userSingleProducts,
   });
 
-  const handleAddCard = () => {
-    dispatch(
-      addToCart({
-        id: product?.id,
-        name: product?.name,
-        price: product?.price,
-        imageUrl: product?.image,
-        quantity: 1,
-      })
-    );
-  };
+  // const handleAddCard = () => {
+  //   dispatch(
+  //     addToCart({
+  //       id: product?.id,
+  //       name: product?.name,
+  //       price: product?.price,
+  //       imageUrl: product?.image,
+  //       quantity: 1,
+  //     })
+  //   );
+  // };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -40,6 +44,12 @@ const SingleProducts = ({ product }) => {
   if (loading) {
     return <Loader />;
   }
+
+  const handleImg = (e) => {
+    return e?.image_url?.includes("http")
+      ? e?.image_url
+      : adminImgUrl({ img: e?.image_url });
+  };
 
   return (
     <div className="flex-1 pt-4 mt-20">
@@ -53,7 +63,7 @@ const SingleProducts = ({ product }) => {
       <div className="flex flex-col gap-3 p-6 md:flex-row">
         <div className="w-full md:w-1/2 ">
           <img
-            src={data?.image}
+            src={data?.image_url ? handleImg(data) : notFound}
             className="object-contain w-full max-w-[600px] h-[400px] block m-auto rounded-md"
             alt=""
           />
@@ -74,24 +84,31 @@ const SingleProducts = ({ product }) => {
             )}
             {data?.price}$
           </p>
-          <div className="flex gap-2">
-            <p className="text-xl font-bold">Tags:</p>
+          <div className="flex gap-2 items-center">
             <p className="text-xl font-bold">Rating:</p>
+
+            <div className="flex flex-wrap gap-2">
+              {Array(data?.rating)
+                ?.fill("")
+                ?.map((_, index) => (
+                  <BiSolidStar
+                    key={index}
+                    className="text-xl text-yellow-600"
+                  />
+                ))}
+            </div>
           </div>
-          <div className="flex flex-wrap gap-2">
-            {Array(data?.rating)
-              ?.fill("")
-              ?.map((_, index) => (
-                <BiSolidStar key={index} className="text-xl text-yellow-600" />
-              ))}
-          </div>
-          <Button
+          <CartIcon
+            data={product}
+            Cartclass="flex justify-center item-center"
+          />
+          {/* <Button
             type="submit"
             text="Add to Cart"
             variant="default"
             className="w-full text-white bg-main rounded-md"
             onClick={handleAddCard}
-          />
+          /> */}
         </div>
       </div>
 
