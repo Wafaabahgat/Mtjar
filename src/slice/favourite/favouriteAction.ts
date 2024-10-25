@@ -12,22 +12,16 @@ const config = {
   },
 };
 
-// *********** Add *********** //
-export const addProductsToCart = createAsyncThunk(
-  "cart/addproducts",
+// *********** Get *********** //
+export const getFromfavourite = createAsyncThunk(
+  "favourite/getfavourite",
   async (args, thunkAPI) => {
-    // console.log(args, "args");
+    console.log("get", args);
     const { rejectWithValue } = thunkAPI;
 
     try {
-      const response = await axios.post(
-        `/cart/${args.id}`,
-        {
-          quantity: args.quantity,
-        },
-        config
-      );
-      // console.log("response", response);
+      const response = await axios.get("/favorite-user", config);
+      console.log("getFromfavourite", response.data);
       return response.data;
     } catch (err: any) {
       if (err?.response?.data?.message === "Unauthenticated.") {
@@ -39,15 +33,15 @@ export const addProductsToCart = createAsyncThunk(
   }
 );
 
-// *********** Get *********** //
-export const getFromCart = createAsyncThunk(
-  "cart/getproducts",
+// *********** Add *********** //
+export const addTofavourite = createAsyncThunk(
+  "favourite/addfavourite",
   async (args, thunkAPI) => {
     // console.log(args, "args");
     const { rejectWithValue } = thunkAPI;
 
     try {
-      const response = await axios.get("/cart-user", config);
+      const response = await axios.get(`/favorite/${args.id}`, config);
       // console.log("response", response);
       return response.data;
     } catch (err: any) {
@@ -61,38 +55,13 @@ export const getFromCart = createAsyncThunk(
 );
 
 // *********** Delete *********** //
-export const removeFromCart = createAsyncThunk(
-  "cart/remove",
+export const removeFromfavourite = createAsyncThunk(
+  "favourite/remove",
   async (args: number | undefined, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const { data } = await axios.get(`/cart-remove/${args}`, config);
+      const { data } = await axios.get(`/favorite-remove/${args}`, config);
 
-      return data;
-    } catch (err: any) {
-      if (err?.response?.data?.message === "Unauthenticated.") {
-        return rejectWithValue(err?.response?.data?.message);
-      }
-      return rejectWithValue(err?.response?.data);
-    }
-  }
-);
-
-// *********** Update *********** //
-export const updateCart = createAsyncThunk(
-  "cart/update",
-  async (args, thunkAPI) => {
-    console.log("argsupdateCart", args);
-    const { rejectWithValue } = thunkAPI;
-    try {
-      const {data} = await axios.post(
-        `/cart-update/${args.id}`,
-        {
-          quantity: args.quantity,
-        },
-        config
-      );
-      console.log(data, "updateCart");
       return data;
     } catch (err: any) {
       if (err?.response?.data?.message === "Unauthenticated.") {

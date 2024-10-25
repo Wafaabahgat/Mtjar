@@ -27,13 +27,19 @@ import SingleProducts from "./components/Products/SingleProducts";
 import CartItem from "./components/cart/CartItem";
 import UpdateProduct from "./pages/dashboard/products/UpdateProduct";
 import ErrorPage from "./components/Ui/ErrorPage";
+import Favourite from "./components/Favourite/Favourite";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
+      {
+        path: "/favourite",
+        element: <Favourite />,
+      },
+
       ////////////////// Auth //////////////////
       {
         path: "/login",
@@ -87,6 +93,7 @@ const router = createBrowserRouter([
         path: "/Profile",
         element: <Profile />,
       },
+
       //////Dashboard//////
       {
         path: "/dashboard",

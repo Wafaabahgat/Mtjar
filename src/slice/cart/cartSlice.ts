@@ -79,6 +79,6 @@ const totalItems = createSelector(
 
 export { totalItems, addProductsToCart };
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+// export const { addToCart, removeFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

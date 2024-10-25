@@ -4,7 +4,6 @@ import Pagination from "../Ui/Pagination";
 import Filter from "./Filter";
 import Breadcamp from "../Ui/Breadcamp";
 import Search from "../Ui/Search";
-import Title from "../Ui/Title";
 import useGet from "../../hooks/useGet";
 import { mainProducts } from "../../slice/Home/MainProductsAction";
 import Loader from "../Loader";

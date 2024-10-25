@@ -52,6 +52,9 @@ const UserCard = ({ user, data, onclick, ...props }) => {
           <Link to="/products">
             <li className="p-2 font-semibold md:text-lg text-sm">Products</li>
           </Link>
+          <Link to="/favourite">
+            <li className="p-2 font-semibold md:text-lg text-sm">Favourite</li>
+          </Link>
 
           <Link className="flex items-center justify-center" to="/cartItem">
             <FaShoppingBag />

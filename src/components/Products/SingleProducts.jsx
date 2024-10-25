@@ -18,7 +18,7 @@ const links = [
   { name: "Products", link: "/mainProducts" },
 ];
 
-const SingleProducts = ({ product }) => {
+const SingleProducts = () => {
   // const dispatch = useDispatch();
   const { loading, data } = useSingle({
     states: "userSingleProducts",
@@ -99,7 +99,7 @@ const SingleProducts = ({ product }) => {
             </div>
           </div>
           <CartIcon
-            data={product}
+            product={data}
             Cartclass="flex justify-center item-center"
           />
           {/* <Button
@@ -108,7 +108,7 @@ const SingleProducts = ({ product }) => {
             variant="default"
             className="w-full text-white bg-main rounded-md"
             onClick={handleAddCard}
-          /> */}
+          />  */}
         </div>
       </div>
 
