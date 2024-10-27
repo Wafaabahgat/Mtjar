@@ -38,10 +38,12 @@ export const addTofavourite = createAsyncThunk(
   "favourite/addfavourite",
   async (args, thunkAPI) => {
     // console.log(args, "args");
-    const { rejectWithValue } = thunkAPI;
+    const { rejectWithValue , dispatch} = thunkAPI;
 
     try {
       const response = await axios.get(`/favorite/${args.id}`, config);
+
+      await dispatch(getFromfavourite());
       // console.log("response", response);
       return response.data;
     } catch (err: any) {
@@ -58,9 +60,11 @@ export const addTofavourite = createAsyncThunk(
 export const removeFromfavourite = createAsyncThunk(
   "favourite/remove",
   async (args: number | undefined, thunkAPI) => {
-    const { rejectWithValue } = thunkAPI;
+    const { rejectWithValue, dispatch } = thunkAPI;
     try {
       const { data } = await axios.get(`/favorite-remove/${args}`, config);
+
+      await dispatch(getFromfavourite());
 
       return data;
     } catch (err: any) {

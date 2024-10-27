@@ -39,6 +39,7 @@ import removeFromCart from "../slice/cart/removeFromCart";
 import updateCart from "../slice/cart/updateCart";
 import addfavourite from "../slice/favourite/addfavorite";
 import getfavourite from "../slice/favourite/getfavourite";
+import deletfavorite from "../slice/favourite/deletfavorite";
 
 export const store = configureStore({
   reducer: {
@@ -55,6 +56,7 @@ export const store = configureStore({
     //Favourite
     addfavourite,
     getfavourite,
+    deletfavorite,
 
     // Home
     home: home,
