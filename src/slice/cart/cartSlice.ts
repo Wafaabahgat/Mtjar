@@ -40,7 +40,7 @@ const cartSlice = createSlice({
           state.errors = {};
           if(action.payload.success) {
             toast.success(action.payload.msg);
-            window.location.reload();
+            // window.location.reload();
           }
         }
       )

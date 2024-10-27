@@ -35,7 +35,6 @@ const removeFromCartSlice = createSlice({
       state.errors = {};
       if (action.payload.success) {
         toast.success(action.payload.msg);
-        window.location.reload();
       }
     },
     [removeFromCart.rejected.type]: (

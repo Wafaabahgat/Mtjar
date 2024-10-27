@@ -10,9 +10,11 @@ import { FaStar } from "react-icons/fa6";
 import { FaHeart } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { addTofavourite } from "../../slice/favourite/favouriteAction";
+import { useAppSelector } from "../../store/hooks";
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
+  const {data} = useAppSelector((state) => state.getfavourite);
   const handleImg = (e) => {
     return e?.image_url?.includes("http")
       ? e?.image_url
@@ -58,12 +60,23 @@ const ProductCard = ({ product }) => {
           </div>
 
           {/* addTofavourite */}
-          <button
-            onClick={handelAddToFavorite}
-            className="text-red-500 text-2xl font-bold mt-1 hover:text-red-800 cursor-pointer"
-          >
-            <FaHeart />
-          </button>
+          {
+            data?.find((e) => e?.id === product?.id) ? (
+              <button
+                onClick={handelAddToFavorite}
+                className="text-red-500 text-2xl font-bold mt-1 hover:text-red-800 cursor-pointer"
+              >
+                <FaHeart />
+              </button>
+            ) : (
+              <button
+                onClick={handelAddToFavorite}
+                className="text-slate-200 text-2xl font-bold mt-1 hover:text-red-800 cursor-pointer"
+              >
+                <FaHeart />
+              </button>
+            )
+          }
         </div>
         <div className="flex justify-between items-center">
           <p className="flex items-center gap-1 text-xl font-semibold">

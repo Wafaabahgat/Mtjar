@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { globalCategories, globalStores } from "../slice/globals/globalsAction";
 import { home } from "../slice/Home/HomeAction";
 import { getFromCart } from "../slice/cart/addproductsAction";
+import { getFromfavourite } from "../slice/favourite/favouriteAction";
 // import 'swiper/swiper-bundle.min.css';
 
 const Root = () => {
@@ -20,6 +21,7 @@ const Root = () => {
       dispatch(globalStores());
       dispatch(home());
       dispatch(getFromCart());
+      dispatch(getFromfavourite())
     };
     fetchData();
   }, []);

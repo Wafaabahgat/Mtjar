@@ -28,6 +28,7 @@ import CartItem from "./components/cart/CartItem";
 import UpdateProduct from "./pages/dashboard/products/UpdateProduct";
 import ErrorPage from "./components/Ui/ErrorPage";
 import Favourite from "./components/Favourite/Favourite";
+import Checkout from "./components/Order/Checkout";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/favourite",
         element: <Favourite />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
       },
 
       ////////////////// Auth //////////////////

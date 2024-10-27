@@ -41,7 +41,6 @@ const updateCartSlice = createSlice({
 
       if (action.payload.success) {
         toast.success(action.payload.msg);
-        window.location.reload();
       }
     },
     [updateCart.rejected.type]: (

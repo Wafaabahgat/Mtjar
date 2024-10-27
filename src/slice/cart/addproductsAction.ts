@@ -17,7 +17,7 @@ export const addProductsToCart = createAsyncThunk(
   "cart/addproducts",
   async (args, thunkAPI) => {
     // console.log(args, "args");
-    const { rejectWithValue } = thunkAPI;
+    const { rejectWithValue, dispatch } = thunkAPI;
 
     try {
       const response = await axios.post(
@@ -28,6 +28,7 @@ export const addProductsToCart = createAsyncThunk(
         config
       );
       // console.log("response", response);
+      await dispatch(getFromCart());
       return response.data;
     } catch (err: any) {
       if (err?.response?.data?.message === "Unauthenticated.") {
@@ -64,9 +65,11 @@ export const getFromCart = createAsyncThunk(
 export const removeFromCart = createAsyncThunk(
   "cart/remove",
   async (args: number | undefined, thunkAPI) => {
-    const { rejectWithValue } = thunkAPI;
+    const { rejectWithValue, dispatch } = thunkAPI;
     try {
       const { data } = await axios.get(`/cart-remove/${args}`, config);
+
+      await dispatch(getFromCart());
 
       return data;
     } catch (err: any) {
@@ -82,17 +85,18 @@ export const removeFromCart = createAsyncThunk(
 export const updateCart = createAsyncThunk(
   "cart/update",
   async (args, thunkAPI) => {
-    console.log("argsupdateCart", args);
-    const { rejectWithValue } = thunkAPI;
+    // console.log("argsupdateCart", args);
+    const { rejectWithValue, dispatch } = thunkAPI;
     try {
-      const {data} = await axios.post(
+      const { data } = await axios.post(
         `/cart-update/${args.id}`,
         {
           quantity: args.quantity,
         },
         config
       );
-      console.log(data, "updateCart");
+      await dispatch(getFromCart());
+      // console.log(data, "updateCart");
       return data;
     } catch (err: any) {
       if (err?.response?.data?.message === "Unauthenticated.") {
