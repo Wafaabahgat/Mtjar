@@ -23,13 +23,18 @@ const CartItem = () => {
     );
   };
   const handleDecrease = (item) => {
-    dispatch(
-      updateCart({
-        id: item.id,
-        quantity: Number(item.quantity) - 1,
-      })
-    );
+    if (item.quantity > 1) {
+      dispatch(
+        updateCart({
+          id: item.id,
+          quantity: Number(item.quantity) - 1,
+        })
+      );
+    } else {
+      dispatch(removeFromCart(item.id));
+    }
   };
+  
 
   const calculateTotal = () => {
     let total = 0;
